@@ -21,17 +21,9 @@
 }
 
 .footer-logo-icon {
-  filter: invert(1) sepia(1) saturate(3) hue-rotate(340deg);
-  opacity: 0.85;
-}
-
-.footer-logo-word {
-  font-family: var(--font-playfair, 'Playfair Display', serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--color-snow);
-  letter-spacing: 0.04em;
+  height: 96px;
+  width: auto;
+  opacity: 0.95;
 }
 
 .footer-tagline {

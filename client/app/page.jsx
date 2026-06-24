@@ -5,6 +5,7 @@ import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 import NewsletterForm from '@/components/home/NewsletterForm';
 import FaqSection from '@/components/home/FaqSection';
 import FolderGrid from '@/components/home/FolderGrid';
+import ArticlesSection from '@/components/home/ArticlesSection';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import { FEATURED_TREKS } from '@/lib/treks-data';
@@ -219,6 +220,9 @@ export default function HomePage() {
           <FolderGrid galleryImages={GALLERY_IMAGES} />
         </div>
       </section>
+
+      {/* ARTICLES SECTION */}
+      <ArticlesSection />
 
       {/* NEWSLETTER */}
       <section className="newsletter" aria-label="Newsletter subscription">

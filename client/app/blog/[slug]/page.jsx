@@ -11,7 +11,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const post = BLOG_POSTS.find(p => p.slug === params.slug);
+  const resolvedParams = await params;
+  const post = BLOG_POSTS.find(p => p.slug === resolvedParams.slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -26,8 +27,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPostPage({ params }) {
-  const post = BLOG_POSTS.find(p => p.slug === params.slug);
+export default async function BlogPostPage({ params }) {
+  const resolvedParams = await params;
+  const post = BLOG_POSTS.find(p => p.slug === resolvedParams.slug);
   if (!post) notFound();
 
   const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-IN', {

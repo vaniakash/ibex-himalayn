@@ -230,6 +230,7 @@
 .treks-main {
   flex: 1;
   min-width: 0;
+  width: 100%;
 }
 
 .treks-main-header {
@@ -624,7 +625,9 @@
   .treks-sidebar { display: none; }
   .trek-list-item { grid-template-columns: 200px 1fr; }
   .treks-categories { padding: 1.5rem 1rem 0; }
-  .curated-header-split { flex-direction: column; gap: 1rem; }
+  
+  .curated-header-split { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .curated-header-split h2, .curated-header-split p { flex: none; width: 100%; }
 }
 
 @media (max-width: 640px) {
@@ -634,4 +637,6 @@
   .treks-search-hero h2 { font-size: 1.4rem; }
   .trek-item-stats-row { gap: 0.75rem; }
   .curated-card { width: 240px; }
+  .curated-header-split h2 { font-size: 1.5rem; }
+  .curated-header-split p { font-size: 0.85rem; }
 }

@@ -23,7 +23,13 @@ export const TREKS = [
       'Perfect introduction to winter trekking',
       'Traditional Himalayan villages en route'
     ],
-    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209541/treks/neiwlde1bsonpdwmblog.jpg', caption: 'Kedarkantha summit in winter' }],
+    images: [
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282445/treks/kedarkantha/kndgasf92iqmhw8fqwr1.jpg', caption: 'Kedarkantha summit view' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282446/treks/kedarkantha/z077yikfcenbufybxecx.jpg', caption: 'Kedarkantha trail' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282448/treks/kedarkantha/atgysj3clnmmtog3nmly.jpg', caption: 'Kedarkantha campsite' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282449/treks/kedarkantha/kkqcamenob5vsru5kfw2.jpg', caption: 'Kedarkantha winter landscape' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282449/treks/kedarkantha/bfaawufuxg1fitpyg9g2.jpg', caption: 'Kedarkantha base camp' },
+    ],
     bestSeason: ['November', 'December', 'January', 'February', 'March', 'April'],
     elevationProfile: [
       { km: 0, altM: 2400 }, { km: 4, altM: 2700 }, { km: 9, altM: 3100 },
@@ -62,7 +68,14 @@ export const TREKS = [
       'Hem Kund Sahib nearby',
       'Rich wildlife including Snow Leopard'
     ],
-    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209543/treks/hqwjjncnv38llluh6qzq.jpg', caption: 'Valley of Flowers in full bloom' }],
+    images: [
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282755/treks/valley-of-flowers/r3jvcdxuohkue2uw0r24.jpg', caption: 'Valley of Flowers banner' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282756/treks/valley-of-flowers/ofdyhwfac271ar3b9ki3.jpg', caption: 'Valley of Flowers landscape' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282757/treks/valley-of-flowers/jsbtwkcovimk8lnlrt2f.jpg', caption: 'Valley of Flowers trail' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282758/treks/valley-of-flowers/hbzkwg1rg6mxwci0p2ti.jpg', caption: 'Valley of Flowers flora' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282759/treks/valley-of-flowers/y0hqtpcvtrn5j0mh0n3v.jpg', caption: 'Valley of Flowers scenic view' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782282760/treks/valley-of-flowers/e5t3qwhckhqdlkzjr3ew.jpg', caption: 'Valley of Flowers mountains' },
+    ],
     bestSeason: ['July', 'August', 'September'],
     elevationProfile: [
       { km: 0, altM: 1800 }, { km: 5, altM: 2200 }, { km: 10, altM: 2600 },
@@ -100,7 +113,14 @@ export const TREKS = [
       'Views of Deo Tibba and Indrasan peaks',
       'Stark beauty of Lahaul moonscapes'
     ],
-    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209545/treks/ax4cpza4panioa6axgeb.jpg', caption: 'Trekkers crossing the boulder field' }],
+    images: [
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291402/treks/hampta-pass/f5xacx0blqjqa2cclk7i.jpg', caption: 'Hampta Pass banner' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291404/treks/hampta-pass/sqs13djsw1xm97cebnob.jpg', caption: 'Hampta Pass trail' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291405/treks/hampta-pass/eihcekewetnyeqizwp5s.jpg', caption: 'Hampta Pass landscape' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291407/treks/hampta-pass/au6jaoclevenfgfwc5n2.jpg', caption: 'Hampta Pass view' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291408/treks/hampta-pass/ynyt3im16vuyfj6hzg7s.jpg', caption: 'Hampta Pass crossing' },
+      { url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782291409/treks/hampta-pass/rs1pymicla8fnr06gwwp.jpg', caption: 'Hampta Pass scenery' },
+    ],
     bestSeason: ['June', 'July', 'August', 'September'],
     elevationProfile: [
       { km: 0, altM: 2480 }, { km: 4, altM: 2800 }, { km: 8, altM: 3100 },

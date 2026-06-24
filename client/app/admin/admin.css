@@ -1,0 +1,641 @@
+/* =============================================
+   IBEX ADMIN PANEL STYLES
+   ============================================= */
+
+/* ── Loading ── */
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100vh;
+  background: #f0f2f5;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.admin-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #1e3d2f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Login ── */
+.admin-login {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2419 0%, #1e3d2f 60%, #2d5a42 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.admin-login-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.admin-login-logo {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-login-card h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.admin-login-card p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.admin-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Shared Inputs & Buttons ── */
+.admin-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #fff;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #1e3d2f;
+  box-shadow: 0 0 0 3px rgba(30,61,47,0.1);
+}
+
+.admin-btn-primary {
+  background: #1e3d2f;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.admin-btn-primary:hover:not(:disabled) { background: #163022; }
+.admin-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.admin-btn-ghost {
+  background: none;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.admin-btn-ghost:hover { border-color: #c8602a; color: #c8602a; }
+
+.admin-error {
+  background: #fde8e8;
+  border: 1px solid #f0a0a0;
+  border-radius: 4px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  color: #b82020;
+}
+
+.admin-success {
+  background: #e8f5ee;
+  border: 1px solid #b8ddc8;
+  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  color: #2d7a4f;
+  display: inline-block;
+}
+
+/* ── Admin Page Layout ── */
+.admin-page {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding-top: 0;
+}
+
+/* ── Header ── */
+.admin-header {
+  background: #1e3d2f;
+  color: #fff;
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-logo {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.admin-badge {
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-session-info {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── Content ── */
+.admin-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Stats Bar ── */
+.admin-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stat-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.admin-stat-num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3d2f;
+}
+
+.admin-stat-label {
+  font-size: 0.72rem;
+  color: #888;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Search ── */
+.admin-search-wrap {
+  margin-bottom: 1rem;
+}
+
+.admin-search {
+  font-size: 0.92rem;
+  padding: 0.75rem 1.25rem;
+}
+
+/* ── Info Box ── */
+.admin-info-box {
+  background: #fff8e1;
+  border: 1px solid #f0c030;
+  border-left: 4px solid #f0c030;
+  border-radius: 4px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.82rem;
+  color: #5a4a00;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.admin-info-box code {
+  background: rgba(0,0,0,0.07);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+}
+
+/* ── Trek Edit List ── */
+.trek-edit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Trek Edit Card ── */
+.trek-edit-card {
+  background: #fff;
+  border: 1px solid #e5e0d8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.trek-edit-card.expanded {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.trek-edit-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.trek-edit-header:hover { background: #faf8f5; }
+
+.trek-edit-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  background: #e5e0d8;
+}
+
+.trek-edit-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.trek-edit-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.2rem;
+}
+
+.trek-edit-meta {
+  font-size: 0.75rem;
+  color: #9a8f82;
+}
+
+.trek-edit-price-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3d2f;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.trek-edit-overridden {
+  font-size: 0.58rem;
+  background: #f0c030;
+  color: #5a4a00;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.trek-edit-toggle {
+  font-size: 0.7rem;
+  color: #9a8f82;
+}
+
+/* ── Trek Edit Body ── */
+.trek-edit-body {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #f0ece6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Admin Section ── */
+.admin-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #3a3028;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid #f0ece6;
+  padding-bottom: 0.5rem;
+}
+
+/* ── Price Row ── */
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.price-label {
+  font-size: 0.82rem;
+  color: #9a8f82;
+  white-space: nowrap;
+}
+
+.price-input {
+  width: 160px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ── Images Grid ── */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.img-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.img-item.main .img-wrap {
+  border: 2px solid #1e3d2f;
+}
+
+.img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #e5e0d8;
+  border: 2px solid transparent;
+}
+
+.img-main-badge {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: #1e3d2f;
+  color: #fff;
+  font-size: 0.55rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+.img-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.img-btn {
+  flex: 1;
+  background: #f0ece6;
+  border: 1px solid #ddd8d0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.img-btn:hover { background: #e5e0d8; }
+.img-btn.danger { background: #fde8e8; border-color: #f0a0a0; color: #b82020; }
+.img-btn.danger:hover { background: #f0b8b8; }
+
+.img-caption {
+  font-size: 0.68rem;
+  color: #9a8f82;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Uploader ── */
+.uploader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.uploader-drop {
+  border: 2px dashed #ddd8d0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #faf8f5;
+}
+
+.uploader-drop:hover {
+  border-color: #1e3d2f;
+  background: #f0f7f0;
+}
+
+.uploader-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+.uploader-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #3a3028;
+  margin-bottom: 0.2rem;
+}
+
+.uploader-sub {
+  font-size: 0.75rem;
+  color: #9a8f82;
+}
+
+.uploader-progress-bar {
+  height: 6px;
+  background: #e5e0d8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.uploader-progress-fill {
+  height: 100%;
+  background: #1e3d2f;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ── Save Row ── */
+.admin-save-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f0ece6;
+}
+
+/* ── Empty ── */
+.admin-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #9a8f82;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .admin-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .admin-content { padding: 1rem; }
+  .price-row { flex-direction: column; align-items: flex-start; }
+  .price-input { width: 100%; }
+  .admin-header { padding: 0 1rem; }
+  .admin-session-info { display: none; }
+}
+
+/* ── Tab Buttons in Header ── */
+.admin-tab-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.admin-tab-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.admin-tab-btn.active {
+  background: #fff;
+  color: #1e3d2f;
+  font-weight: 700;
+  border-color: #fff;
+}
+
+.admin-enquiry-count {
+  background: #c8602a;
+  color: #fff;
+  font-size: 0.62rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* ── Enquiries Panel ── */
+.enquiries-panel {
+  width: 100%;
+}
+
+.enquiry-table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.enquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.enquiry-table thead {
+  background: #1e3d2f;
+  color: #fff;
+}
+
+.enquiry-table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.enquiry-table tbody tr {
+  border-bottom: 1px solid #f0ece6;
+  transition: background 0.1s;
+}
+
+.enquiry-table tbody tr:hover { background: #faf8f5; }
+.enquiry-table tbody tr:last-child { border-bottom: none; }
+
+.enquiry-table td {
+  padding: 0.8rem 1rem;
+  color: #3a3028;
+  vertical-align: middle;
+}
+
+.eq-num { color: #9a8f82; font-size: 0.78rem; width: 36px; }
+.eq-name { font-weight: 600; color: #1a1a1a; }
+.eq-email { color: #1a73e8; text-decoration: none; }
+.eq-email:hover { text-decoration: underline; }
+.eq-message { color: #6a6058; font-size: 0.82rem; max-width: 240px; }
+.eq-date { color: #9a8f82; font-size: 0.78rem; white-space: nowrap; }
+
+.eq-trek-badge {
+  background: #e8f5ee;
+  color: #2d7a4f;
+  border: 1px solid #b8ddc8;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+

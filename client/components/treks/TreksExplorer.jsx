@@ -324,46 +324,86 @@ export default function TreksExplorer({ allTreks }) {
 
           {/* Dynamic Curated Row (Indiahikes Style) */}
           {(!hasFilters || season === 'Monsoon' || ['July', 'August', 'September'].includes(activeMonth)) && (
-            <div className="curated-section">
-              <div className="curated-header-split">
-                <h2>Best Treks in July, August & September</h2>
-                <p>
-                  Monsoon transforms the Himalayas into a vibrant paradise of lush green meadows, flowing streams, misty forests, and blooming alpine landscapes. These treks are perfect for experiencing the raw beauty of Uttarakhand during the rainy season. Expect refreshing weather, dramatic mountain views, and unforgettable camping experiences.
-                </p>
+            <>
+              <div className="curated-section">
+                <div className="curated-header-split">
+                  <h2>Best Treks in July, August & September</h2>
+                  <p>
+                    Monsoon transforms the Himalayas into a vibrant paradise of lush green meadows, flowing streams, misty forests, and blooming alpine landscapes. These treks are perfect for experiencing the raw beauty of Uttarakhand during the rainy season. Expect refreshing weather, dramatic mountain views, and unforgettable camping experiences.
+                  </p>
+                </div>
+                
+                <div className="curated-cards-row">
+                  {allTreks.filter(t => [
+                    'Valley of Flowers Trek', 'Har Ki Dun Trek', 'Dayara Bugyal Trek', 
+                    'Phulara Ridge Trek', 'Kedarkantha (Monsoon Edition)', 'Chopta Chandrashila Trek', 'Valley of Flowers'
+                  ].includes(t.name) || (t.bestSeason && t.bestSeason.some(m => ['July','August','September'].includes(m)))).slice(0, 6).map(trek => (
+                    <Link key={trek._id} href={`/treks/${trek.slug}`} className="curated-card">
+                      <div className="curated-card-img">
+                        <Image
+                          src={trek.images[0]?.url || '/assets/hikers.png'}
+                          alt={trek.name}
+                          fill
+                          sizes="270px"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
+                      <div className="curated-card-stats">
+                        <span>{trek.duration} Days</span>
+                        <span>{trek.difficulty}</span>
+                        <span>{trek.maxAltitude}m</span>
+                      </div>
+                      <div className="curated-card-body">
+                        <h3 className="curated-card-title">{trek.name}</h3>
+                        <p className="curated-card-desc">{trek.shortDesc}</p>
+                        <div className="curated-card-actions">
+                          <div className="curated-btn-green">Get Trek Info</div>
+                          <div className="curated-btn-yellow">View Dates</div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
               
-              <div className="curated-cards-row">
-                {allTreks.filter(t => [
-                  'Valley of Flowers Trek', 'Har Ki Dun Trek', 'Dayara Bugyal Trek', 
-                  'Phulara Ridge Trek', 'Kedarkantha (Monsoon Edition)', 'Chopta Chandrashila Trek', 'Valley of Flowers'
-                ].includes(t.name) || (t.bestSeason && t.bestSeason.some(m => ['July','August','September'].includes(m)))).slice(0, 6).map(trek => (
-                  <Link key={trek._id} href={`/treks/${trek.slug}`} className="curated-card">
-                    <div className="curated-card-img">
-                      <Image
-                        src={trek.images[0]?.url || '/assets/hikers.png'}
-                        alt={trek.name}
-                        fill
-                        sizes="270px"
-                        style={{ objectFit: 'cover' }}
-                      />
-                    </div>
-                    <div className="curated-card-stats">
-                      <span>{trek.duration} Days</span>
-                      <span>{trek.difficulty}</span>
-                      <span>{trek.maxAltitude}m</span>
-                    </div>
-                    <div className="curated-card-body">
-                      <h3 className="curated-card-title">{trek.name}</h3>
-                      <p className="curated-card-desc">{trek.shortDesc}</p>
-                      <div className="curated-card-actions">
-                        <div className="curated-btn-green">Get Trek Info</div>
-                        <div className="curated-btn-yellow">View Dates</div>
+              <div className="curated-section" style={{ marginTop: '3rem' }}>
+                <div className="curated-header-split">
+                  <h2>Best Treks for Beginners</h2>
+                  <p>
+                    These treks are perfect if you’re stepping into the world of trekking for the very first time. With well-paced trails, gentle climbs, and great support, they’re ideal for children, seniors, and anyone looking for an easy introduction to the outdoors.
+                  </p>
+                </div>
+                
+                <div className="curated-cards-row">
+                  {allTreks.filter(t => ['Easy', 'Easy - Moderate', 'Easy-Moderate'].includes(t.difficulty)).slice(0, 6).map(trek => (
+                    <Link key={trek._id} href={`/treks/${trek.slug}`} className="curated-card">
+                      <div className="curated-card-img">
+                        <Image
+                          src={trek.images[0]?.url || '/assets/hikers.png'}
+                          alt={trek.name}
+                          fill
+                          sizes="270px"
+                          style={{ objectFit: 'cover' }}
+                        />
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                      <div className="curated-card-stats">
+                        <span>{trek.duration} Days</span>
+                        <span>{trek.difficulty}</span>
+                        <span>{trek.maxAltitude}m</span>
+                      </div>
+                      <div className="curated-card-body">
+                        <h3 className="curated-card-title">{trek.name}</h3>
+                        <p className="curated-card-desc">{trek.shortDesc}</p>
+                        <div className="curated-card-actions">
+                          <div className="curated-btn-green">Get Trek Info</div>
+                          <div className="curated-btn-yellow">View Dates</div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            </>
           )}
           {(hasFilters && season !== 'Monsoon' && !['July', 'August', 'September'].includes(activeMonth)) && (
             <div style={{ marginBottom: '1.5rem', borderBottom: '2px solid #1a1a1a' }} />

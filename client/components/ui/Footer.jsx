@@ -28,11 +28,10 @@ export default function Footer() {
           <div className="footer-col footer-brand">
             <Link href="/" className="footer-logo" aria-label="IBEX Trekking">
               <img
-                src="/assets/ibex.svg"
-                alt="IBEX logo icon"
+                src="/assets/image.png"
+                alt="Himalayan Ibex Logo"
                 className="footer-logo-icon"
               />
-              <span className="footer-logo-word">IBEX</span>
             </Link>
             <p className="footer-tagline">
               Hand-crafted expeditions in the Indian Himalayas — since 2014.
@@ -105,6 +104,9 @@ export default function Footer() {
         <div className="footer-bottom">
           <span className="footer-copyright mono-label">
             © {new Date().getFullYear()} IBEX Trekking Pvt. Ltd. — All rights reserved
+            <span style={{ display: 'inline-block', marginLeft: '0.75rem' }}>
+              Made with <span style={{ color: '#e25555' }}>♥</span> by <a href="https://instagram.com/im.akashrana" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-amber)', textDecoration: 'none' }}>@im.akashrana</a>
+            </span>
           </span>
           <div className="footer-legal">
             <a href="/assets/Himalayan_Ibex_Privacy_Policy%20(1).pdf" target="_blank" rel="noopener noreferrer" className="footer-legal-link">Privacy Policy</a>
