@@ -11,7 +11,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const trek = TREKS_MAP[params.slug];
+  const { slug } = await params;
+  const trek = TREKS_MAP[slug];
   if (!trek) return {};
   return {
     title: trek.name,
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function TrekDetailPage({ params }) {
-  const trek = TREKS_MAP[params.slug];
+export default async function TrekDetailPage({ params }) {
+  const { slug } = await params;
+  const trek = TREKS_MAP[slug];
   if (!trek) notFound();
 
   return (

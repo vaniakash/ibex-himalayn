@@ -60,6 +60,8 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${playfair.variable} ${dmSans.variable} ${ibmPlex.variable}`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body>
         <Navbar />

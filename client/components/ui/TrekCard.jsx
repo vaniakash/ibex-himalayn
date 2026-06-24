@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Clock, Mountain } from 'lucide-react';
 
 const DIFFICULTY_LABELS = {
   Easy: 'Easy',
@@ -41,7 +42,7 @@ export default function TrekCard({ trek, priority = false }) {
           priority={priority}
           style={{ objectFit: 'cover' }}
         />
-        <span className={`pill ${DIFFICULTY_CLASS[difficulty]}`} style={{ position: 'absolute', top: '0.875rem', left: '0.875rem', zIndex: 2 }}>
+        <span className={`pill ${DIFFICULTY_CLASS[difficulty]}`} style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 2 }}>
           {DIFFICULTY_LABELS[difficulty]}
         </span>
       </div>
@@ -49,14 +50,27 @@ export default function TrekCard({ trek, priority = false }) {
         <span className="trek-card__region">{region}</span>
         <h3 className="trek-card__title">{name}</h3>
         <p className="trek-card__desc">{shortDesc}</p>
+        
         <div className="trek-card__stats">
-          <span>{duration} DAYS</span>
-          <span>{maxAltitudeFt?.toLocaleString() || '—'} FT</span>
-          <span>₹{price?.toLocaleString()}</span>
+          <div className="trek-card__stat-item">
+            <Clock size={14} className="stat-icon" />
+            <span>{duration} Days</span>
+          </div>
+          <div className="trek-card__stat-item">
+            <Mountain size={14} className="stat-icon" />
+            <span>{maxAltitudeFt?.toLocaleString() || '—'} ft</span>
+          </div>
         </div>
-        <span className="trek-card__link">
-          View Trek <span aria-hidden="true">→</span>
-        </span>
+
+        <div className="trek-card__footer">
+          <div className="trek-card__price">
+            <span className="price-label">From</span>
+            <span className="price-value">₹{price?.toLocaleString()}</span>
+          </div>
+          <span className="btn btn-amber btn-sm trek-card__action">
+            View Trek
+          </span>
+        </div>
       </div>
     </Link>
   );

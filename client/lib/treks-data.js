@@ -23,7 +23,7 @@ export const TREKS = [
       'Perfect introduction to winter trekking',
       'Traditional Himalayan villages en route'
     ],
-    images: [{ url: '/images/treks/kedarkantha.jpg', caption: 'Kedarkantha summit in winter' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209541/treks/neiwlde1bsonpdwmblog.jpg', caption: 'Kedarkantha summit in winter' }],
     bestSeason: ['November', 'December', 'January', 'February', 'March', 'April'],
     elevationProfile: [
       { km: 0, altM: 2400 }, { km: 4, altM: 2700 }, { km: 9, altM: 3100 },
@@ -62,7 +62,7 @@ export const TREKS = [
       'Hem Kund Sahib nearby',
       'Rich wildlife including Snow Leopard'
     ],
-    images: [{ url: '/images/treks/valley-of-flowers.jpg', caption: 'Valley of Flowers in full bloom' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209543/treks/hqwjjncnv38llluh6qzq.jpg', caption: 'Valley of Flowers in full bloom' }],
     bestSeason: ['July', 'August', 'September'],
     elevationProfile: [
       { km: 0, altM: 1800 }, { km: 5, altM: 2200 }, { km: 10, altM: 2600 },
@@ -100,7 +100,7 @@ export const TREKS = [
       'Views of Deo Tibba and Indrasan peaks',
       'Stark beauty of Lahaul moonscapes'
     ],
-    images: [{ url: '/images/treks/hampta-pass.jpg', caption: 'Trekkers crossing the boulder field' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209545/treks/ax4cpza4panioa6axgeb.jpg', caption: 'Trekkers crossing the boulder field' }],
     bestSeason: ['June', 'July', 'August', 'September'],
     elevationProfile: [
       { km: 0, altM: 2480 }, { km: 4, altM: 2800 }, { km: 8, altM: 3100 },
@@ -138,7 +138,7 @@ export const TREKS = [
       'Unspoilt meadows and pine forests',
       'Stunning Himalayan panoramas'
     ],
-    images: [{ url: '/images/treks/rupin-pass.jpg', caption: 'The famous Rupin Pass snow wall' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209546/treks/lkryvlrdced02uedn5j7.jpg', caption: 'The famous Rupin Pass snow wall' }],
     bestSeason: ['May', 'June', 'September', 'October'],
     elevationProfile: [
       { km: 0, altM: 1525 }, { km: 6, altM: 2100 }, { km: 12, altM: 2500 },
@@ -179,7 +179,7 @@ export const TREKS = [
       'Oak and rhododendron forests',
       'One of India\'s most dramatic treks'
     ],
-    images: [{ url: '/images/treks/roopkund.jpg', caption: 'The eerie Roopkund lake surrounded by snow' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209548/treks/gnjaxtffpplrnhqcnbfl.jpg', caption: 'The eerie Roopkund lake surrounded by snow' }],
     bestSeason: ['May', 'June', 'September', 'October'],
     elevationProfile: [
       { km: 0, altM: 2200 }, { km: 7, altM: 2600 }, { km: 13, altM: 3100 },
@@ -220,7 +220,7 @@ export const TREKS = [
       'Diverse ecosystems from subtropical to alpine',
       'Rich wildlife — Red Panda, Himalayan Black Bear'
     ],
-    images: [{ url: '/images/treks/goechala.jpg', caption: 'Kangchenjunga at sunrise from Goechala' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209550/treks/nhemf5vxrmqk0xs2ru1a.jpg', caption: 'Kangchenjunga at sunrise from Goechala' }],
     bestSeason: ['April', 'May', 'October', 'November'],
     elevationProfile: [
       { km: 0, altM: 1800 }, { km: 8, altM: 2200 }, { km: 15, altM: 2700 },
@@ -263,7 +263,7 @@ export const TREKS = [
       'Authentic Ladakhi cave camping',
       'Complete disconnection from civilization'
     ],
-    images: [{ url: '/images/treks/chadar.jpg', caption: 'Trekkers on the frozen Zanskar river' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209552/treks/zfn8iiytjzdjm0wnoptd.jpg', caption: 'Trekkers on the frozen Zanskar river' }],
     bestSeason: ['January', 'February'],
     elevationProfile: [
       { km: 0, altM: 3050 }, { km: 5, altM: 3100 }, { km: 12, altM: 3150 },
@@ -305,7 +305,7 @@ export const TREKS = [
       'Complete wilderness — no mobile network',
       'Views across Spiti, Kinnaur and Kullu Himalayas'
     ],
-    images: [{ url: '/images/treks/pin-parvati.jpg', caption: 'The glaciated Pin Parvati Pass crossing' }],
+    images: [{ url: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209557/treks/wkpqcxwbgyjhvetr2ttu.jpg', caption: 'The glaciated Pin Parvati Pass crossing' }],
     bestSeason: ['July', 'August', 'September'],
     elevationProfile: [
       { km: 0, altM: 2050 }, { km: 8, altM: 2600 }, { km: 16, altM: 3200 },

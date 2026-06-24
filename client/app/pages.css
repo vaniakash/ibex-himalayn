@@ -10,12 +10,11 @@
 
 .hero {
   position: relative;
-  height: 100vh;
+  height: 85vh;
   min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .hero-image-wrap {
@@ -26,12 +25,10 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(26, 46, 26, 0.85) 0%,
-    rgba(26, 46, 26, 0.5) 40%,
-    rgba(26, 46, 26, 0.25) 100%
-  );
+  background: linear-gradient(to top,
+      rgba(10, 25, 47, 0.85) 0%,
+      rgba(10, 25, 47, 0.5) 40%,
+      rgba(10, 25, 47, 0.25) 100%);
   z-index: 1;
 }
 
@@ -54,46 +51,187 @@
   position: relative;
   z-index: 3;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  padding-bottom: 8vh;
+  padding-top: 5rem;
 }
 
 .hero-text {
-  max-width: 680px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeUpHero 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.hero-label {
-  color: var(--color-amber);
-  margin-bottom: 1.25rem;
-  display: block;
+@keyframes fadeUpHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-headline {
-  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-family: var(--font-body);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
   color: #fff;
-  margin-bottom: 1.25rem;
-  line-height: 1.05;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
 .hero-sub {
-  font-size: 1.125rem;
-  color: rgba(245, 240, 232, 0.82);
-  max-width: 500px;
-  margin-bottom: 2.25rem;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
+  color: #fff;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero-ctas {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.search-bar-wrapper {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 100px;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.search-field:hover {
+  opacity: 0.8;
+}
+
+.search-icon {
+  color: var(--color-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.2rem;
+}
+
+.search-placeholder {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.search-divider {
+  width: 1px;
+  height: 40px;
+  background: #e5e7eb;
+  margin: 0 1rem;
+}
+
+.search-btn {
+  border-radius: 100px !important;
+  padding: 1rem 2rem !important;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .search-bar {
+    border-radius: 24px;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  .search-field {
+    width: 100%;
+    padding: 0;
+  }
+  .search-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+  }
+  .search-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .search-bar-wrapper {
+    bottom: -150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 80vh;
+    padding-bottom: 180px;
+  }
+  .hero-text {
+    padding: 2rem 1.5rem;
+  }
 }
 
 /* Stats Band */
 .stats-band {
   background: var(--color-snow);
   border-bottom: var(--border-subtle);
+  border-radius: 40px 40px 0 0;
+  margin-top: -30px;
+  position: relative;
+  z-index: 5;
+  padding-top: 7rem;
+}
+
+@media (max-width: 900px) {
+  .stats-band {
+    padding-top: 13rem;
+  }
 }
 
 .stats-grid {
@@ -425,8 +563,8 @@
 }
 
 .sustain-block {
-  background: rgba(255,255,255,0.08);
-  border: 0.5px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-card);
   padding: 2.5rem 2rem;
   text-align: center;
@@ -521,7 +659,7 @@
 .treks-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(26,46,26,0.78) 0%, rgba(26,46,26,0.3) 100%);
+  background: linear-gradient(to top, rgba(10, 25, 47, 0.78) 0%, rgba(10, 25, 47, 0.3) 100%);
 }
 
 .treks-hero-content {
@@ -649,8 +787,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
   padding: 1.25rem 0;
-  border-top: 0.5px solid rgba(245,240,232,0.1);
-  border-bottom: 0.5px solid rgba(245,240,232,0.1);
+  border-top: 0.5px solid rgba(245, 240, 232, 0.1);
+  border-bottom: 0.5px solid rgba(245, 240, 232, 0.1);
 }
 
 .booking-stat {
@@ -661,7 +799,7 @@
 
 .booking-stat .mono-label {
   font-size: 0.6rem;
-  color: rgba(245,240,232,0.4);
+  color: rgba(245, 240, 232, 0.4);
 }
 
 .booking-stat span:last-child {
@@ -678,14 +816,14 @@
 }
 
 .booking-input {
-  background: rgba(255,255,255,0.08) !important;
-  border-color: rgba(255,255,255,0.15) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
   color: var(--color-snow) !important;
 }
 
 .booking-input:focus {
   border-color: var(--color-amber) !important;
-  box-shadow: 0 0 0 3px rgba(200,96,42,0.2) !important;
+  box-shadow: 0 0 0 3px rgba(200, 96, 42, 0.2) !important;
 }
 
 .booking-cta {
@@ -696,7 +834,7 @@
 
 .booking-microcopy {
   font-size: 0.75rem;
-  color: rgba(245,240,232,0.4);
+  color: rgba(245, 240, 232, 0.4);
   text-align: center;
   font-family: var(--font-body);
 }
@@ -705,7 +843,7 @@
   display: flex;
   gap: 0.75rem;
   padding-top: 0.5rem;
-  border-top: 0.5px solid rgba(245,240,232,0.1);
+  border-top: 0.5px solid rgba(245, 240, 232, 0.1);
 }
 
 .booking-wa,
@@ -735,13 +873,13 @@
 }
 
 .booking-call {
-  background: rgba(200,96,42,0.1);
+  background: rgba(200, 96, 42, 0.1);
   color: var(--color-amber);
-  border: 0.5px solid rgba(200,96,42,0.25);
+  border: 0.5px solid rgba(200, 96, 42, 0.25);
 }
 
 .booking-call:hover {
-  background: rgba(200,96,42,0.2);
+  background: rgba(200, 96, 42, 0.2);
 }
 
 /* ============================================================
@@ -1059,8 +1197,15 @@
 }
 
 @keyframes mapPinBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .faq-list {

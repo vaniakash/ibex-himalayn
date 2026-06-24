@@ -3,8 +3,12 @@ import Link from 'next/link';
 import TrekCard from '@/components/ui/TrekCard';
 import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 import NewsletterForm from '@/components/home/NewsletterForm';
+import FaqSection from '@/components/home/FaqSection';
+import FolderGrid from '@/components/home/FolderGrid';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import HeroCarousel from '@/components/home/HeroCarousel';
 import { FEATURED_TREKS } from '@/lib/treks-data';
+import { Map, Users, ShieldCheck, Leaf } from 'lucide-react';
 
 export const metadata = {
   title: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
@@ -13,44 +17,80 @@ export const metadata = {
 };
 
 const STATS = [
-  { value: '12,000+', label: 'Trekkers Led' },
-  { value: '48', label: 'Himalayan Routes' },
-  { value: '10', label: 'Years Experience' },
-  { value: '100%', label: 'Safety Record' },
+  { title: 'Local Experts', icon: <Map size={40} strokeWidth={1.5} /> },
+  { title: 'Small Groups', icon: <Users size={40} strokeWidth={1.5} /> },
+  { title: 'Safety First', icon: <ShieldCheck size={40} strokeWidth={1.5} /> },
+  { title: 'Responsible Travel', icon: <Leaf size={40} strokeWidth={1.5} /> },
+];
+
+const GALLERY_IMAGES = [
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209541/treks/neiwlde1bsonpdwmblog.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209543/treks/hqwjjncnv38llluh6qzq.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209545/treks/ax4cpza4panioa6axgeb.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209546/treks/lkryvlrdced02uedn5j7.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209548/treks/gnjaxtffpplrnhqcnbfl.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209550/treks/nhemf5vxrmqk0xs2ru1a.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209552/treks/zfn8iiytjzdjm0wnoptd.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209557/treks/wkpqcxwbgyjhvetr2ttu.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209559/treks/edpomnnqzmhqinidz9ao.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209560/treks/dnvlncoogw5dielhafab.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209562/treks/qowmac7auxoyjcqz5orm.jpg",
+  "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209564/treks/sqghex4kgfa74y2cw4qe.jpg"
 ];
 
 const WHY_IBEX = [
   {
-    icon: (
-      <svg width="28" height="28" fill="none" stroke="#c8602a" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-      </svg>
-    ),
-    title: 'Small Groups Only',
-    desc: 'Maximum 12 trekkers per group — never a crowd, always a community. Your guide knows every member by name before you summit.',
+    image: '/assets/why ibex/first.png',
+    title: 'Born in the Heart of the Himalayas',
+    desc: 'Founded by Alok Rawat from Sankri, Uttarakhand, Himalayan Ibex is built on local knowledge, mountain traditions, and a deep love for the Himalayas. We don’t just operate in the mountains—we belong to them.',
   },
   {
-    icon: (
-      <svg width="28" height="28" fill="none" stroke="#c8602a" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
-    ),
-    title: 'Certified Guides',
-    desc: 'Every guide holds HMI or NIMAS certification. Wilderness First Responder trained, locally rooted.',
+    image: '/assets/why ibex/professional.png',
+    title: 'Safety Above Everything',
+    desc: 'Every trek is planned with safety as the top priority. From experienced trek leaders and first-aid preparedness to weather monitoring and route planning, we ensure every adventure is conducted responsibly and professionally.',
   },
   {
-    icon: (
-      <svg width="28" height="28" fill="none" stroke="#c8602a" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-    title: 'Leave No Trace',
-    desc: 'We carry out every piece of waste — including other groups. Biodegradable waste stations at every campsite. Zero single-use plastic.',
+    image: '/assets/why ibex/d.png',
+    title: 'Authentic Himalayan Experiences',
+    desc: 'Our treks go beyond popular trails. We connect trekkers with Himalayan culture, local communities, breathtaking landscapes, and unforgettable moments that showcase the true spirit of mountain life.',
   },
+  {
+    image: '/assets/why ibex/walking.png',
+    title: 'Supporting Local Communities',
+    desc: 'We proudly work with local guides, homestays, cooks, and support staff. Every trek helps create opportunities for mountain communities while promoting sustainable and responsible tourism.',
+  },
+  {
+    image: '/assets/why ibex/solo.png',
+    title: 'Journeys That Transform You',
+    desc: 'A trek is more than reaching a summit. It is about building confidence, embracing challenges, discovering inner strength, and creating memories that stay with you long after the journey ends.',
+  },
+];
+
+const HERO_SLIDES = [
+  {
+    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.13.01.webp',
+    headline: 'Trek Where Few Dare',
+    sub: 'Book Kedarkantha, Roopkund, Chadar Trek, Hampta Pass, Valley of Flowers & more before slots fill out.',
+    ctaText: 'Book Upcoming Treks'
+  },
+  {
+    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 13.43.17.webp',
+    headline: 'Discover the Unseen',
+    sub: 'Experience the raw beauty of the Himalayas with our certified local guides and small group expeditions.',
+    ctaText: 'Explore Expeditions'
+  },
+  {
+    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.07.13.webp',
+    headline: 'Push Your Limits',
+    sub: 'From gentle alpine meadows to challenging high-altitude passes, find the trek that matches your spirit.',
+    ctaText: 'Find Your Trek'
+  },
+  {
+    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.12.57 (1).webp',
+    headline: 'Leave Zero Trace',
+    sub: 'We believe in sustainable travel. Join us in preserving the pristine beauty of our mountain ecosystems.',
+    ctaText: 'Our Philosophy'
+  }
 ];
 
 export default function HomePage() {
@@ -58,37 +98,24 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="hero" aria-label="Hero section">
-        <div className="hero-image-wrap">
-          <Image
-            src="/images/hero.jpg"
-            alt="Himalayan mountain ridge at golden hour"
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-          />
-          <div className="hero-overlay" aria-hidden="true" />
-          <div className="hero-topo" aria-hidden="true" />
-        </div>
+        <HeroCarousel slides={HERO_SLIDES} />
 
-        <div className="hero-content container">
-          <div className="hero-text">
-            <p className="mono-label hero-label">IBEX TREKKING — SINCE 2014</p>
-            <h1 className="headline-display hero-headline">
-              Trek Where<br />Few Dare.
-            </h1>
-            <p className="hero-sub">
-              Hand-crafted expeditions in the Indian Himalayas — certified guides, small groups, zero trace.
-            </p>
-            <div className="hero-ctas">
-              <Link href="/treks" className="btn btn-amber btn-lg" id="hero-explore-btn">
-                Explore Treks
-              </Link>
-              <a href="#our-story" className="btn btn-ghost-white btn-lg" id="hero-story-btn">
-                Our Story
-              </a>
+        <div className="search-bar-wrapper container">
+          <div className="search-bar">
+            <div className="search-field" style={{ flex: 1 }}>
+              <div className="search-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search for treks, destinations..."
+                style={{ border: 'none', outline: 'none', background: 'transparent', width: '100%', fontSize: '1rem', color: 'var(--color-obsidian)' }}
+                aria-label="Search"
+              />
             </div>
+            <button className="btn btn-amber search-btn" style={{ padding: '0.75rem 2rem' }}>
+              Search
+            </button>
           </div>
         </div>
       </section>
@@ -97,10 +124,10 @@ export default function HomePage() {
       <section className="stats-band" aria-label="Key statistics">
         <div className="container">
           <div className="stats-grid">
-            {STATS.map(({ value, label }, i) => (
-              <div key={label} className="stat-item">
-                <span className="stat-value headline-display">{value}</span>
-                <span className="stat-label mono-label">{label}</span>
+            {STATS.map(({ title, icon }, i) => (
+              <div key={title} className="stat-item">
+                <span className="stat-icon" style={{ color: 'var(--color-amber)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>{icon}</span>
+                <span className="stat-title" style={{ fontSize: '1.15rem', fontFamily: 'var(--font-body)', fontWeight: '700', color: '#111827' }}>{title}</span>
                 {i < STATS.length - 1 && <div className="stat-divider" aria-hidden="true" />}
               </div>
             ))}
@@ -135,34 +162,27 @@ export default function HomePage() {
       {/* WHY IBEX */}
       <section
         id="our-story"
-        className="topo-bg section-padding"
-        style={{ background: 'var(--color-forest)' }}
-        aria-label="Why choose IBEX"
+        className="section-padding"
+        style={{ background: '#fcfaf5', borderTop: '1px solid #e5e5e5' }}
+        aria-label="5 Reasons Why Himalayan Ibex"
       >
-        <div className="container">
-          <div className="why-grid">
-            <ScrollReveal className="why-left">
-              <h2 className="headline-italic why-heading">
-                We don&apos;t run treks.<br />We craft them.
-              </h2>
-              <p className="why-intro">
-                Every route, campsite, rest day, and meal is chosen because it makes for a better journey — not because it&apos;s cheaper. A decade in the Himalayas teaches you which corners not to cut.
-              </p>
-              <Link href="/about" className="btn btn-amber" id="our-story-link">
-                Our Full Story →
-              </Link>
-            </ScrollReveal>
-            <div className="why-right">
-              {WHY_IBEX.map(({ icon, title, desc }, i) => (
-                <ScrollReveal key={title} delay={i * 0.12} className="why-block">
-                  <div className="why-icon">{icon}</div>
-                  <div>
-                    <h3 className="why-block-title">{title}</h3>
-                    <p className="why-block-desc">{desc}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+        <div className="container" style={{ maxWidth: '1400px' }}>
+          <ScrollReveal>
+            <h2 className="headline-display" style={{ marginBottom: '3rem', fontSize: '2.5rem', color: '#1a1a1a', borderBottom: '2px solid #e5e5e5', paddingBottom: '1rem' }}>
+              5 Reasons Why Himalayan Ibex
+            </h2>
+          </ScrollReveal>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem', alignItems: 'start' }}>
+            {WHY_IBEX.map(({ image, title, desc }, i) => (
+              <ScrollReveal key={title} delay={i * 0.1} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: '#1a1a1a', lineHeight: '1.3', minHeight: '3em' }}>{title}</h3>
+                <div style={{ width: '100%', aspectRatio: '16/9', position: 'relative', overflow: 'hidden', borderRadius: '4px' }}>
+                  <Image src={image} alt={title} fill loading="lazy" sizes="(max-width: 768px) 100vw, 20vw" style={{ objectFit: 'cover' }} />
+                </div>
+                <p style={{ fontSize: '0.85rem', color: '#4a4a4a', lineHeight: '1.6' }}>{desc}</p>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -171,12 +191,32 @@ export default function HomePage() {
       <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Testimonials">
         <div className="container">
           <ScrollReveal>
-            <span className="section-label">TREKKER STORIES</span>
-            <h2 className="section-heading" style={{ fontSize: 'var(--text-5xl)', marginBottom: '2rem' }}>
+            <span className="section-label" style={{ fontSize: '0.65rem' }}>TREKKER STORIES</span>
+            <h2 className="section-heading" style={{ fontSize: '2.1rem', marginBottom: '2rem' }}>
               From the trail.
             </h2>
           </ScrollReveal>
           <TestimonialsCarousel />
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <FaqSection />
+
+      {/* FOLDER SECTION */}
+      <section className="section-padding" style={{ background: 'var(--color-snow)', textAlign: 'center' }} aria-label="Trek Resources">
+        <div className="container">
+          <ScrollReveal>
+            <span className="section-label">RESOURCES</span>
+            <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1rem' }}>
+              Uncover The Magic
+            </h2>
+            <p className="headline-intro" style={{ marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem auto' }}>
+              Click the folder below to reveal some of our best captured moments from the Himalayas.
+            </p>
+          </ScrollReveal>
+          
+          <FolderGrid galleryImages={GALLERY_IMAGES} />
         </div>
       </section>
 

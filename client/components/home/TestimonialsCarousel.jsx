@@ -40,14 +40,14 @@ export default function TestimonialsCarousel() {
     <div className="testimonials-track" role="list" aria-label="Customer testimonials">
       {TESTIMONIALS.map((t, i) => (
         <div key={i} className="testimonial-card" role="listitem">
-          <div className="testimonial-quote" aria-hidden="true">"</div>
-          <p className="testimonial-text">{t.quote}</p>
+          <div className="testimonial-quote" aria-hidden="true" style={{ fontSize: '3rem' }}>"</div>
+          <p className="testimonial-text" style={{ fontSize: '0.8rem', lineHeight: '1.6' }}>{t.quote}</p>
           <div className="testimonial-author">
-            <div className="testimonial-stars" aria-label={`${t.stars} out of 5 stars`}>
+            <div className="testimonial-stars" aria-label={`${t.stars} out of 5 stars`} style={{ fontSize: '0.9rem' }}>
               {'★'.repeat(t.stars)}
             </div>
-            <div className="testimonial-name">{t.name}</div>
-            <div className="testimonial-trek">{t.trek}</div>
+            <div className="testimonial-name" style={{ fontSize: '0.7rem' }}>{t.name}</div>
+            <div className="testimonial-trek" style={{ fontSize: '0.65rem' }}>{t.trek}</div>
           </div>
         </div>
       ))}
