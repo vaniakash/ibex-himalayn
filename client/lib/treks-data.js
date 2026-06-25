@@ -36,12 +36,14 @@ export const TREKS = [
       { km: 14, altM: 3400 }, { km: 18, altM: 3700 }, { km: 21, altM: 3950 },
       { km: 26, altM: 3100 }, { km: 30, altM: 2400 }
     ],
+    mapImage: '/assets/mapes/kedarkanttha.png',
     itinerary: [
-      { day: 1, title: 'Dehradun to Sankri', description: 'Drive through Mussoorie and the scenic Yamuna valley to Sankri village, your base camp.', campAltitude: 1920 },
-      { day: 2, title: 'Sankri to Juda Ka Talab', description: 'Trek through dense pine and oak forests, emerging at the serene Juda Ka Talab lake.', campAltitude: 2740 },
-      { day: 3, title: 'Juda Ka Talab to Kedarkantha Base', description: 'Short trek to base camp with spectacular views of the surrounding snow-capped peaks.', campAltitude: 3500 },
-      { day: 4, title: 'Summit Day & Return to Sankri', description: 'Early morning summit push at 4 AM, witnessing a breathtaking sunrise. Descend to Sankri.', campAltitude: 1920 },
-      { day: 5, title: 'Sankri to Dehradun', description: 'Drive back through the mountains, returning to Dehradun by evening.', campAltitude: 0 }
+      { day: 1, title: 'Dehradun to Kotgaon', description: 'Drive: 195 km • 10–11 hrs | Begin your journey with a scenic drive from Dehradun to Kotgaon, the trek’s base camp. Enjoy beautiful mountain roads, rivers, and charming Himalayan villages along the way.' },
+      { day: 2, title: 'Kotgaon to Khujaai', description: 'Trek: 5.3 km • 5 hrs | Altitude: 6,400 ft → 9,460 ft | The trail gradually climbs through dense pine and oak forests before reaching the peaceful campsite of Khujaai.' },
+      { day: 3, title: 'Khujaai to Bhoja Dhadi', description: 'Trek: 3 km • 3.5 hrs | Altitude: 9,460 ft → 10,700 ft | A short yet rewarding trek through alpine landscapes leads to Bhoja Dhadi, offering stunning mountain views and tranquil surroundings.' },
+      { day: 4, title: 'Bhoja Dhadi → Kedarkantha Summit → Khujaai', description: 'Trek: 9 km • 7–8 hrs | Summit: 12,500 ft | Today’s summit push rewards you with breathtaking 360° views of the Garhwal Himalayas before descending back to Khujaai for the night.' },
+      { day: 5, title: 'Khujaai to Kotgaon', description: 'Trek: 5.3 km • 4–5 hrs | Altitude Loss: 9,460 ft → 6,400 ft | Descend through scenic forests back to Kotgaon, where the trek concludes with an overnight stay at the base camp.' },
+      { day: 6, title: 'Kotgaon to Dehradun', description: 'Drive: 195 km • 10–11 hrs | After breakfast, drive back to Dehradun, carrying unforgettable memories of the Kedarkantha adventure.' }
     ],
     inclusions: ['Accommodation (camping/guesthouse)', 'All meals on trek', 'Expert trek leader', 'Safety equipment', 'Forest permits', 'First aid kit'],
     exclusions: ['Travel to Dehradun', 'Personal gear', 'Travel insurance', 'Tips'],
@@ -81,12 +83,14 @@ export const TREKS = [
       { km: 0, altM: 1800 }, { km: 5, altM: 2200 }, { km: 10, altM: 2600 },
       { km: 15, altM: 3000 }, { km: 19, altM: 3200 }, { km: 22, altM: 3658 }
     ],
+    mapImage: '/assets/mapes/vally-of-flower.png',
     itinerary: [
-      { day: 1, title: 'Rishikesh to Govindghat', description: 'Scenic drive through Devprayag and Joshimath to Govindghat.', campAltitude: 1828 },
-      { day: 2, title: 'Govindghat to Ghangaria', description: 'Trek through lush Himalayan forest alongside the Pushpawati river.', campAltitude: 3050 },
-      { day: 3, title: 'Valley of Flowers Exploration', description: 'Full day exploring the breathtaking valley carpet of wildflowers.', campAltitude: 3050 },
-      { day: 4, title: 'Hem Kund Sahib & Return to Ghangaria', description: 'Visit the sacred Sikh shrine at 4329m, surrounded by seven snow peaks.', campAltitude: 3050 },
-      { day: 5, title: 'Ghangaria to Govindghat & Return', description: 'Descend to Govindghat and drive back to Rishikesh.', campAltitude: 1828 }
+      { day: 1, title: 'Rishikesh → Karchi', description: 'Drive: 255 km • 11 hrs' },
+      { day: 2, title: 'Karchi → Poolna (Drive) → Ghangaria (Trek)', description: 'Drive: 38 km • 1.5 hrs | Trek: 9 km • 5–6 hrs | Altitude: 7,785 ft → 10,520 ft' },
+      { day: 3, title: 'Ghangaria → Valley of Flowers → Ghangaria', description: 'Trek: 3.7 km (each way) • 6 hrs | Altitude: 10,520 ft → 11,550 ft' },
+      { day: 4, title: 'Ghangaria → Hemkund Sahib → Ghangaria', description: 'Trek: 6 km (each way) • 8–9 hrs | Altitude: 10,520 ft → 14,107 ft' },
+      { day: 5, title: 'Ghangaria → Poolna (Trek) → Karchi (Drive)', description: 'Trek: 9 km • 4 hrs | Drive: 38 km • 1 hr 15 min' },
+      { day: 6, title: 'Karchi → Rishikesh', description: 'Drive: 255 km • 9–10 hrs' }
     ],
     inclusions: ['Accommodation', 'All meals on trek', 'Certified guide', 'National Park permit', 'Safety equipment'],
     exclusions: ['Travel to Rishikesh', 'Personal expenses', 'Travel insurance'],
@@ -348,6 +352,52 @@ export const TREKS = [
     inclusions: ['All accommodation', 'All meals', 'Expert high-altitude guide', 'All permits', 'Technical gear', 'Emergency protocol'],
     exclusions: ['Travel to Barsheni / from Kaza', 'Personal technical gear (ice axe, crampons)', 'Comprehensive travel insurance (mandatory)'],
     avgRating: 4.8,
+  },
+  {
+    _id: '9',
+    slug: 'dayara-bugyal',
+    name: 'Dayara Bugyal',
+    region: 'Uttarakhand',
+    state: 'Uttarakhand',
+    difficulty: 'Easy',
+    duration: 6,
+    maxAltitude: 3605,
+    maxAltitudeFt: 11830,
+    price: 9000,
+    featured: false,
+    shortDesc: 'One of the most beautiful alpine meadows in India, perfect for beginners.',
+    description: 'Dayara Bugyal is undoubtedly one of the most beautiful alpine meadows in India. The trek is perfect for beginners and offers stunning views of the Gangotri range, including Bandarpoonch and Black Peak. Please note: The distance between campsites may vary by 100 meters depending the weather conditions and the route you take. The altitude may also vary by 100 feet for similar reasons.',
+    highlights: [
+      'Stunning alpine meadows spanning miles',
+      'Breathtaking views of the Gangotri range',
+      'Perfect introduction to Himalayan trekking',
+      'Beautiful old growth forest sections'
+    ],
+    mapImage: '/assets/mapes/dayara-bugyal.jpeg',
+    images: [
+      { url: '/assets/treks/treks/banner_dayarabugyal.jpg', caption: 'Dayara Bugyal Banner' },
+      { url: '/assets/treks/treks/WhatsApp%20Image%202026-06-23%20at%2013.23.09.jpeg', caption: 'Dayara Bugyal Trail' },
+      { url: '/assets/treks/treks/WhatsApp%20Image%202026-06-23%20at%2013.23.11.jpeg', caption: 'Dayara Bugyal Meadow' },
+      { url: '/assets/treks/treks/WhatsApp%20Image%202026-06-23%20at%2013.23.14.jpeg', caption: 'Dayara Bugyal View' },
+      { url: '/assets/treks/treks/WhatsApp%20Image%202026-06-23%20at%2013.43.17.jpeg', caption: 'Dayara Bugyal Campsite' },
+      { url: '/assets/treks/treks/WhatsApp%20Image%202026-06-23%20at%2013.43.24.jpeg', caption: 'Dayara Bugyal Landscape' }
+    ],
+    bestSeason: ['May', 'June', 'September', 'October', 'November'],
+    elevationProfile: [
+      { km: 0, altM: 2176 }, { km: 4.5, altM: 2935 }, { km: 7, altM: 3204 },
+      { km: 16.5, altM: 2799 }, { km: 20.5, altM: 2176 }
+    ],
+    itinerary: [
+      { day: 1, title: 'Drive From Dehradun to Raithal', description: 'Drive Distance: 185 km | Drive Duration: 9 hours | Pick up point: Asli Pappu Da Dhaba, Dehradun at 6.30 am. Transport cost is Rs. 1300/- per trekker (one-way).', campAltitude: 2176 },
+      { day: 2, title: 'Trek from Raithal to Gui', description: 'Trek Distance: 4.5 km | Trek Duration: 5 hours | Altitude Gain: 7,142 ft to 9,630 ft', campAltitude: 2935 },
+      { day: 3, title: 'Trek from Gui to Chilapada', description: 'Trek Distance: 2.5 km | Trek Duration: 2-3 hours | Altitude Gain: 9,630 ft to 10,515 ft', campAltitude: 3204 },
+      { day: 4, title: 'Trek from Chilpada to Nayata via Dayara Top', description: 'Trek Distance: 9.5 km | Trek Duration: 6-7 hours | Altitude Gain and Loss: 10,515 ft to 9,186 ft via 11,830 ft', campAltitude: 2799 },
+      { day: 5, title: 'Trek from Nayata to Raithal', description: 'Trek Distance: 4 km | Trek Duration: 4-5 hours | Altitude Loss: 9,186 ft to 7,142 ft', campAltitude: 2176 },
+      { day: 6, title: 'Drive back from Raithal to Dehradun', description: 'Drive distance: 185 km | Drive Duration: 9 hours | Drop off point: Asli Pappu Da Dhaba, Dehradun by 6 pm. Transport cost is Rs. 1300/- per trekker (one-way).', campAltitude: 0 }
+    ],
+    inclusions: ['Accommodation', 'All meals on trek', 'Certified guide', 'Permit', 'Safety equipment'],
+    exclusions: ['Travel to Dehradun', 'Personal expenses', 'Travel insurance', 'Transport to basecamp'],
+    avgRating: 4.9,
   }
 ];
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   FiBarChart2, FiClock, FiFlag, FiUsers, FiMapPin, FiHome,
-  FiActivity, FiTruck, FiLogOut, FiPackage, FiArchive, FiAnchor,
+  FiActivity, FiTruck, FiLogOut, FiPackage,
   FiChevronDown, FiCheck, FiX, FiStar, FiShare2, FiImage,
   FiPhone, FiMessageSquare, FiSunrise, FiHeart, FiShield,
   FiChevronRight
@@ -28,9 +28,6 @@ function quickInfoItems(trek) {
     { icon: <FiActivity size={22} />, label: 'Fitness Criteria', value: '5 km in 40 mins' },
     { icon: <FiTruck size={22} />, label: 'Pickup Details', value: 'Live free hostel, Rishikesh at 5:30 AM' },
     { icon: <FiLogOut size={22} />, label: 'Dropoff Details', value: 'Live free hostel, Rishikesh at 6:00 PM' },
-    { icon: <FiPackage size={22} />, label: 'Packing Checklist', value: 'Click to Generate' },
-    { icon: <FiArchive size={22} />, label: 'Cloakroom', value: 'Available' },
-    { icon: <FiAnchor size={22} />, label: 'Offloading', value: 'Available' },
   ];
 }
 
@@ -130,6 +127,11 @@ export default function TrekDetailClient({ trek }) {
 
             <AccordionItem icon={<FiClock size={18} />} title="Quick Itinerary" defaultOpen>
               <div>
+                {trek.mapImage && (
+                  <div style={{ marginBottom: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e0d8' }}>
+                    <img src={trek.mapImage} alt={`${trek.name} Route Map`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                  </div>
+                )}
                 {trek.itinerary.map((day, i) => (
                   <div key={i} className="acc-itinerary-day">
                     <div className="acc-day-header">Day {day.day}</div>
