@@ -8,9 +8,9 @@
   /* Brand Colors */
   --color-forest: #0a192f;
   --color-forest-light: #112240;
-  --color-amber: #c8602a;
-  --color-amber-hover: #b5521f;
-  --color-amber-light: rgba(200, 96, 42, 0.12);
+  --color-amber: #C94C2D;
+  --color-amber-hover: #A83F25;
+  --color-amber-light: #F8E8E4;
   --color-snow: #f5f0e8;
   --color-snow-dark: #ede7d9;
   --color-moss: #4a7a3a;
@@ -791,7 +791,9 @@ select {
   transform: translateY(0);
 }
 
-.whatsapp-btn, .mail-btn, .contact-toggle-btn {
+.whatsapp-btn,
+.mail-btn,
+.contact-toggle-btn {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-circle);
@@ -835,7 +837,9 @@ select {
   box-shadow: 0 8px 24px rgba(219, 68, 55, 0.4);
 }
 
-.whatsapp-btn svg, .mail-btn svg, .contact-toggle-btn svg {
+.whatsapp-btn svg,
+.mail-btn svg,
+.contact-toggle-btn svg {
   width: 24px;
   height: 24px;
 }

@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }) {
   });
 
   return (
-    <article style={{ paddingTop: '72px' }}>
+    <article style={{ paddingTop: '126px' }}>
       {/* POST HERO */}
       <div className="post-hero">
         <div className="container post-container">

@@ -1,8 +1,10 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import styles from './HeroCarousel.module.css';
 
 export default function HeroCarousel({ slides }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -10,47 +12,91 @@ export default function HeroCarousel({ slides }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
+    }, 6000); // Slightly longer for readability
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  if (!slides || slides.length === 0) return null;
+
+  const currentSlide = slides[currentIndex];
+
   return (
     <>
-      <div className="hero-image-wrap">
-        {slides.map((slide, index) => (
+      <section className={styles.heroSection} aria-label="Hero section">
+      {/* Background Images */}
+      {slides.map((slide, index) => (
+        <div 
+          key={index} 
+          className={styles.heroBackground}
+          style={{
+            opacity: index === currentIndex ? 1 : 0,
+            transition: 'opacity 1.5s ease-in-out',
+            zIndex: index === currentIndex ? 1 : 0
+          }}
+        >
           <Image
-            key={slide.image}
             src={slide.image}
-            alt={`Hero background ${index + 1}`}
+            alt={slide.heading}
             fill
-            priority
+            priority={index === 0}
             sizes="100vw"
             style={{
-              objectFit: "cover",
-              objectPosition: "center 40%",
-              opacity: index === currentIndex ? 1 : 0,
-              transition: "opacity 1.5s ease-in-out",
-              zIndex: index === currentIndex ? 1 : 0
+              objectFit: 'cover',
+              objectPosition: 'center 40%',
             }}
           />
-        ))}
-        <div className="hero-overlay" aria-hidden="true" />
-      </div>
+        </div>
+      ))}
 
-      <div className="hero-content container">
-        <div className="hero-text" key={currentIndex}>
-          <h1 className="hero-headline">
-            {slides[currentIndex].headline}
+      {/* Dark Overlay for Readability */}
+      <div className={styles.overlay} aria-hidden="true"></div>
+
+      {/* Content Block */}
+      <div className={`container ${styles.heroContent}`}>
+        <div className={styles.heroTextWrapper} key={currentIndex}>
+          <h1 className={styles.headline}>
+            {currentSlide.heading}
           </h1>
-          <p className="hero-sub" style={{ color: '#FCD34D', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-            {slides[currentIndex].sub}
+          <p className={styles.description}>
+            {currentSlide.description}
           </p>
-          <div className="hero-ctas">
-            <Link href="/treks" className="btn btn-amber btn-lg" id="hero-explore-btn" style={{ fontWeight: 'bold' }}>
-              {slides[currentIndex].ctaText}
+          
+          <div className={styles.ctaWrapper}>
+            <Link href={currentSlide.ctaLink || "/treks"} className={styles.ctaButton}>
+              {currentSlide.ctaText}
             </Link>
+            <div className={styles.trustBadge}>
+              {currentSlide.trustBadge}
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <div className={styles.navigation}>
+        <button className={styles.navButton} onClick={prevSlide} aria-label="Previous Slide">
+          <ChevronLeft size={28} />
+        </button>
+        <button className={styles.navButton} onClick={nextSlide} aria-label="Next Slide">
+          <ChevronRight size={28} />
+        </button>
+      </div>
+
+      </section>
+
+      {/* Bottom Announcement Bar */}
+      <div className={styles.announcementBar}>
+        <p className={styles.announcementText}>
+          <strong>📍 Trending This Season:</strong> Kedarkantha Trek | Har Ki Dun Trek | Valley of Flowers Trek | Hampta Pass Trek
+        </p>
       </div>
     </>
   );

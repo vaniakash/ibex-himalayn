@@ -1,0 +1,81 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-forest, #0a192f);
+  margin-bottom: 0.5rem;
+}
+
+.redLine {
+  height: 2px;
+  background-color: var(--color-amber);
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.carouselWrapper {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 2rem;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.navButton {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.navButton:hover {
+  background-color: #fff;
+  color: var(--color-amber);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.navPrev {
+  left: -22px;
+}
+
+.navNext {
+  right: -22px;
+}
+
+@media (max-width: 1320px) {
+  .navPrev {
+    left: 10px;
+  }
+  .navNext {
+    right: 10px;
+  }
+}

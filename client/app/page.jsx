@@ -8,8 +8,8 @@ import FolderGrid from '@/components/home/FolderGrid';
 import ArticlesSection from '@/components/home/ArticlesSection';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroCarousel from '@/components/home/HeroCarousel';
-import SearchBar from '@/components/home/SearchBar';
-import { FEATURED_TREKS } from '@/lib/treks-data';
+import FeaturedAdventures from '@/components/home/FeaturedAdventures';
+import FixedDepartures from '@/components/home/FixedDepartures';
 import { Map, Users, ShieldCheck, Leaf } from 'lucide-react';
 
 export const metadata = {
@@ -18,12 +18,6 @@ export const metadata = {
     'Trek Where Few Dare. IBEX offers premium guided expeditions in the Indian Himalayas — Uttarakhand, Himachal, Sikkim & Ladakh. Small groups, certified guides.',
 };
 
-const STATS = [
-  { title: 'Local Experts', icon: <Map size={40} strokeWidth={1.5} /> },
-  { title: 'Small Groups', icon: <Users size={40} strokeWidth={1.5} /> },
-  { title: 'Safety First', icon: <ShieldCheck size={40} strokeWidth={1.5} /> },
-  { title: 'Responsible Travel', icon: <Leaf size={40} strokeWidth={1.5} /> },
-];
 
 const GALLERY_IMAGES = [
   "https://res.cloudinary.com/dirsimqmr/image/upload/v1782209541/treks/neiwlde1bsonpdwmblog.jpg",
@@ -70,28 +64,44 @@ const WHY_IBEX = [
 
 const HERO_SLIDES = [
   {
-    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.13.01.webp',
-    headline: 'Trek Where Few Dare',
-    sub: 'Book Kedarkantha, Roopkund, Chadar Trek, Hampta Pass, Valley of Flowers & more before slots fill out.',
-    ctaText: 'Book Upcoming Treks'
+    image: '/assets/treks/treks/WhatsApp Image 2026-06-23 at 13.23.24.jpeg',
+    heading: 'Discover the Himalayas, One Trail at a Time',
+    description: 'Explore handpicked Himalayan treks led by experienced trek leaders. From beginner-friendly adventures to high-altitude expeditions, experience breathtaking landscapes with safety, sustainability, and unforgettable memories at every step.',
+    ctaText: 'Explore Treks',
+    ctaLink: '/treks',
+    trustBadge: '⭐ Trusted by 1,000+ Trekkers • Expert Trek Leaders • Safety First'
   },
   {
-    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 13.43.17.webp',
-    headline: 'Discover the Unseen',
-    sub: 'Experience the raw beauty of the Himalayas with our certified local guides and small group expeditions.',
-    ctaText: 'Explore Expeditions'
+    image: '/assets/BANNER/KEDARKANTA.jpg',
+    heading: 'Experience the Magic of Kedarkantha',
+    description: 'Witness snow-covered forests, frozen lakes, and breathtaking summit views on one of India’s most loved winter treks. Perfect for beginners seeking their first Himalayan adventure.',
+    ctaText: 'Explore Kedarkantha Trek',
+    ctaLink: '/treks/kedarkantha',
+    trustBadge: '⭐ Expert Trek Leaders • Safety First • Beginner Friendly'
   },
   {
-    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.07.13.webp',
-    headline: 'Push Your Limits',
-    sub: 'From gentle alpine meadows to challenging high-altitude passes, find the trek that matches your spirit.',
-    ctaText: 'Find Your Trek'
+    image: '/assets/BANNER/HARKIDUN.webp',
+    heading: 'Walk Through the Valley of Gods',
+    description: 'Journey through ancient Himalayan villages, alpine meadows, and pristine forests to discover the timeless beauty of Har Ki Dun.',
+    ctaText: 'Explore Har Ki Dun Trek',
+    ctaLink: '/treks/har-ki-dun',
+    trustBadge: '⭐ Local Guides • Sustainable Trekking • Small Groups'
   },
   {
-    image: '/assets/treks/webp/WhatsApp Image 2026-06-23 at 14.12.57 (1).webp',
-    headline: 'Leave Zero Trace',
-    sub: 'We believe in sustainable travel. Join us in preserving the pristine beauty of our mountain ecosystems.',
-    ctaText: 'Our Philosophy'
+    image: '/assets/BANNER/VALLEY.jpg',
+    heading: 'Where Every Trail Blooms',
+    description: 'Discover the UNESCO World Heritage valley filled with thousands of vibrant alpine flowers, waterfalls, and spectacular Himalayan landscapes.',
+    ctaText: 'Explore Valley of Flowers',
+    ctaLink: '/treks/valley-of-flowers',
+    trustBadge: '🌸 Best Monsoon Trek • Eco-Friendly • Expert Support'
+  },
+  {
+    image: '/assets/BANNER/HAMPTAPASS.jpg',
+    heading: 'Cross the Himalayas, One Pass at a Time',
+    description: 'Experience the dramatic transition from lush green valleys to the rugged deserts of Spiti on one of the Himalayas’ most scenic crossover treks.',
+    ctaText: 'Explore Hampta Pass Trek',
+    ctaLink: '/treks/hampta-pass',
+    trustBadge: '🏔️ Certified Trek Leaders • Safe Expeditions • Lifetime Memories'
   }
 ];
 
@@ -99,50 +109,14 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="hero" aria-label="Hero section">
-        <HeroCarousel slides={HERO_SLIDES} />
+      <HeroCarousel slides={HERO_SLIDES} />
 
-        <SearchBar />
-      </section>
 
-      {/* STATS BAND */}
-      <section className="stats-band" aria-label="Key statistics">
-        <div className="container">
-          <div className="stats-grid">
-            {STATS.map(({ title, icon }, i) => (
-              <div key={title} className="stat-item">
-                <span className="stat-icon">{icon}</span>
-                <span className="stat-title">{title}</span>
-                {i < STATS.length - 1 && <div className="stat-divider" aria-hidden="true" />}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* FEATURED ADVENTURES */}
+      <FeaturedAdventures />
 
-      {/* FEATURED TREKS */}
-      <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Featured treks">
-        <div className="container">
-          <ScrollReveal>
-            <span className="section-label">HANDPICKED ROUTES</span>
-            <h2 className="section-heading" style={{ fontSize: 'var(--text-5xl)', marginBottom: '3rem' }}>
-              Our Signature Treks
-            </h2>
-          </ScrollReveal>
-          <div className="grid-3">
-            {FEATURED_TREKS.map((trek, i) => (
-              <ScrollReveal key={trek._id} delay={i * 0.1}>
-                <TrekCard trek={trek} priority={i === 0} />
-              </ScrollReveal>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <Link href="/treks" className="btn btn-ghost-amber btn-lg" id="view-all-treks-btn">
-              View All 8 Treks →
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* FIXED DEPARTURES */}
+      <FixedDepartures />
 
       {/* WHY IBEX */}
       <section

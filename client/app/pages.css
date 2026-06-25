@@ -382,7 +382,7 @@
   display: grid;
   grid-template-columns: 55fr 45fr;
   min-height: 85vh;
-  padding-top: 72px;
+  padding-top: 126px;
 }
 
 .about-hero-image {
@@ -665,7 +665,7 @@
   height: 40vh;
   min-height: 280px;
   overflow: hidden;
-  padding-top: 72px;
+  padding-top: 126px;
   display: flex;
   align-items: flex-end;
 }
@@ -773,7 +773,7 @@
 .detail-right {
   padding: 2rem 1.5rem;
   position: sticky;
-  top: 72px;
+  top: 126px;
   align-self: start;
 }
 

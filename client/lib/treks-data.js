@@ -398,6 +398,49 @@ export const TREKS = [
     inclusions: ['Accommodation', 'All meals on trek', 'Certified guide', 'Permit', 'Safety equipment'],
     exclusions: ['Travel to Dehradun', 'Personal expenses', 'Travel insurance', 'Transport to basecamp'],
     avgRating: 4.9,
+  },
+  {
+    _id: 'gaumukh-tapovan-01',
+    slug: 'gaumukh-tapovan',
+    name: 'Gaumukh Tapovan Trek',
+    region: 'Uttarakhand',
+    state: 'Uttarakhand',
+    difficulty: 'Moderate',
+    duration: 5,
+    durationLabel: '5 Days / 4 Nights',
+    maxAltitude: 4100,
+    maxAltitudeFt: 13452,
+    price: 18000,
+    featured: true,
+    shortDesc: 'Discover the Birthplace of India’s Most Sacred River',
+    description: `The Gaumukh Tapovan Trek is among the most extraordinary journeys in the Indian Himalayas, combining breathtaking alpine landscapes with centuries of spiritual heritage. Located inside Gangotri National Park in Uttarakhand, the trek leads to Gaumukh, the snout of the mighty Gangotri Glacier and the physical source of the Bhagirathi River, which later becomes the holy River Ganga.\n\nUnlike many Himalayan treks that are purely adventure-oriented, the Gaumukh Tapovan Trek offers a rare blend of spirituality, mythology, glacial exploration, and high-altitude mountaineering. Every step along the trail carries historical significance while revealing some of the most spectacular mountain scenery in India.\n\n⸻\n\nWhy is Gaumukh So Sacred?\n\nThe word Gaumukh literally means “Cow’s Mouth” because the glacier’s snout once resembled the face of a cow. Situated at an altitude of 4,100 metres (13,452 ft), this glacier marks the origin of the Bhagirathi River, one of the primary headstreams of the River Ganga.\n\nFor millions of Hindus, the Ganga is not merely a river but a living goddess symbolizing purity, life, and liberation. Pilgrims travel from across the country to witness the sacred glacier where this divine river begins its journey from the Himalayas to the plains of India.\n\n⸻\n\nA Journey Beyond Adventure\n\nStarting from the holy town of Gangotri, the trail gradually follows the roaring Bhagirathi River through ancient forests, dramatic valleys, glacial moraines, and wide Himalayan landscapes. Along the route, trekkers experience an ever-changing environment where dense pine forests slowly give way to barren alpine terrain and towering snow-covered peaks.\n\nThe trek eventually reaches Gaumukh Glacier, where the icy waters emerge from beneath massive walls of ancient ice. Many trekkers continue further towards Tapovan, a magnificent high-altitude meadow renowned for its panoramic views of Mount Shivling, Meru Peak, and the Bhagirathi mountain range.\n\nFor experienced trekkers, Tapovan also serves as the gateway to expeditions towards Nandanvan, Vasuki Tal, and the challenging Kalindi Khal Pass, making the region one of the most important trekking hubs in the Garhwal Himalayas.\n\n⸻\n\nBhojbasa – The Most Beautiful Campsite on the Trek\n\nAmong all the campsites along the route, Bhojbasa is considered the most scenic and memorable. Located at approximately 3,800 metres (12,500 ft) beside the Bhagirathi River, it serves as the primary overnight halt before reaching Gaumukh.\n\nSurrounded by rugged Himalayan cliffs and snow-covered summits, Bhojbasa offers an atmosphere of complete peace and isolation. The campsite derives its name from the ancient Bhoj (Birch) trees, whose bark was historically used to write sacred Hindu scriptures.\n\nTrekkers camping here witness unforgettable Himalayan sunrises as the first golden rays illuminate Shivling and the Bhagirathi peaks. Evenings are equally magical, with glowing mountain silhouettes reflected across the glacial valley while the sound of the river echoes through the mountains.\n\nBeyond its natural beauty, Bhojbasa is also known for its spiritual atmosphere. Pilgrims, monks, and trekkers often meditate, chant prayers, or simply enjoy the silence before continuing towards Gaumukh.\n\n⸻\n\nRoute Overview\n\n* Starting Point: Gangotri (3,100 metres)\n* Destination: Gaumukh Glacier (4,100 metres)\n* Extension: Tapovan (4,463 metres)\n* One-way Trek Distance: Approximately 18 km to Gaumukh\n* Trail Type: Gradual ascent through forests, rocky terrain, glacier moraine, and alpine landscapes\n\nThe trail closely follows the Bhagirathi River, providing spectacular views throughout the journey. Every section reveals new landscapes ranging from lush valleys to barren glacial terrain.\n\n⸻\n\nGangotri Dham – The Spiritual Gateway\n\nBefore beginning the trek, every visitor passes through Gangotri Dham, one of the four sacred shrines of the Char Dham Yatra.\n\nSituated at an altitude of around 3,100 metres, the temple is dedicated to Goddess Ganga, who is worshipped as the divine mother of India. Although the physical source of the river lies further ahead at Gaumukh, Gangotri is traditionally regarded as the sacred place where Goddess Ganga descended to Earth.\n\nBuilt during the early eighteenth century by Amar Singh Thapa, the temple has remained one of the holiest pilgrimage destinations in the Himalayas for centuries.\n\nEvery year, thousands of devotees visit Gangotri to perform rituals, seek blessings, and begin the spiritual journey towards Gaumukh.\n\n⸻\n\nThe Legend of King Bhagirath\n\nAccording to Hindu mythology, King Bhagirath performed intense meditation to bring the heavenly River Ganga down to Earth so that the souls of his ancestors could attain salvation.\n\nMoved by his devotion, Goddess Ganga agreed to descend from heaven. However, her immense force threatened to destroy the Earth. Lord Shiva intervened by capturing the river in his matted locks before gently releasing her into the Himalayas.\n\nThe first sacred stream became the Bhagirathi River, named after King Bhagirath, eventually flowing from Gaumukh towards the plains as the holy River Ganga.\n\nThis timeless legend gives Gangotri and Gaumukh immense spiritual importance and continues to inspire millions of pilgrims every year.\n\n⸻\n\nHistory, Nature & Spirituality in One Journey\n\nFew Himalayan treks combine mythology, geography, history, and adventure as beautifully as the Gaumukh Tapovan Trek.\n\nAncient sages such as Swami Tapovan Maharaj and Swami Sundaranand spent decades meditating in these mountains, while generations of pilgrims have walked the same trail seeking spiritual peace.\n\nToday, trekkers come not only to witness the spectacular Gangotri Glacier but also to experience the profound silence, pristine wilderness, and towering Himalayan peaks that make this one of India’s most unforgettable trekking destinations.\n\nWhether you seek adventure, photography, mountaineering, or spiritual exploration, the Gaumukh Tapovan Trek offers a once-in-a-lifetime journey into the very heart of the Garhwal Himalayas.`,
+    highlights: [
+      'Discover the Birthplace of India’s Most Sacred River',
+      'The Legend of King Bhagirath',
+      'Gangotri Dham – The Spiritual Gateway',
+      'Bhojbasa – The Most Beautiful Campsite on the Trek',
+      'A Journey Beyond Adventure',
+    ],
+    images: [
+      { url: '/assets/treksss/gomukh/gaumukh-trek.jpeg', caption: 'Gaumukh Tapovan Trek' }
+    ],
+    bestSeason: ['May', 'June', 'September', 'October'],
+    elevationProfile: [
+      { km: 0, altM: 3100 }, { km: 9, altM: 3800 }, { km: 18, altM: 4100 }, { km: 23, altM: 4463 }
+    ],
+    mapImage: '/assets/mapes/gaumukh.png',
+    itinerary: [],
+    inclusions: ['Accommodation (Tents/Hotel)', 'Complete Package from Dehradun To Dehradun'],
+    exclusions: ['5% GST', 'Optional: ₹500 Backpack Offloading', 'Single Tent/Hotel Room occupancy on request, extra cost'],
+    avgRating: 4.8,
+    suitableFor: '10 to 60 years',
+    distance: '36 kms',
+    basecamp: 'Gangotri',
+    accommodation: 'Tents/Hotel',
+    pickup: 'Railway Station, Dehradun',
+    dropoff: 'Railway Station, Dehradun',
+    cloakroom: 'Available',
+    offloading: 'Available'
   }
 ];
 

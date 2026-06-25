@@ -31,7 +31,7 @@ export default async function TrekDetailPage({ params }) {
   if (!trek) notFound();
 
   return (
-    <div style={{ paddingTop: '72px' }}>
+    <div className="detail-page-wrap">
       {/* ── HERO ── */}
       <div className="detail-hero">
         <div className="detail-hero-img-wrap">
@@ -47,10 +47,10 @@ export default async function TrekDetailPage({ params }) {
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
           {/* Breadcrumb */}
-          <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.65)', marginBottom: '0.5rem', display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
-            <Link href="/" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none' }}>Home</Link>
+          <div className="detail-breadcrumb">
+            <Link href="/">Home</Link>
             <span>›</span>
-            <Link href="/treks" style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none' }}>Treks</Link>
+            <Link href="/treks">Treks</Link>
             <span>›</span>
             <span style={{ color: '#fff' }}>{trek.name}</span>
           </div>
