@@ -356,6 +356,7 @@ export default function TrekDetailClient({ trek }) {
                 Sustainability Promise
               </div>
             </div>
+          </div>
           </aside>
         </div>
 
