@@ -1,51 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Mountain } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us',
-  description:
-    'Born on the trails. Built by the mountains. The story of IBEX Trekking — founded in 2014 in Dehradun, Uttarakhand.',
+  description: 'Himalayan Ibex was created with a simple vision: to make trekking in the Himalayas accessible, safe, and memorable for everyone.',
+  keywords: ['Himalayan Treks', 'Trekking in Uttarakhand', 'Best Trekking Company in India', 'Kedarkantha Trek', 'Winter Treks in India', 'Beginner Friendly Treks', 'Guided Himalayan Treks', 'Adventure Travel India', 'Trekking Tours Uttarakhand']
 };
-
-const TIMELINE = [
-  { year: '2014', title: 'Founded in Dehradun', desc: 'Arjun Rawat and two certified guides launch IBEX from a small office on Rajpur Road with three routes and a clear manifesto.' },
-  { year: '2016', title: 'Himalayan Certification', desc: 'Full certification from the Himalayan Mountaineering Institute. All guides pass the Advanced Mountain Course.' },
-  { year: '2018', title: '1000th Trekker', desc: 'IBEX leads its 1000th trekker to a Himalayan summit — celebrated at the Kedarkantha summit at sunrise.' },
-  { year: '2020', title: 'Sustainability Pledge', desc: 'Zero-waste trek policy introduced. Partnered with local communities in Uttarakhand and Sikkim for trail maintenance.' },
-  { year: '2023', title: 'National Award', desc: 'Ministry of Tourism recognition for responsible adventure tourism and guide employment practices.' },
-];
-
-const TEAM = [
-  { name: 'Arjun Rawat', role: 'Founder & Lead Guide', certs: ['HMI Advanced', 'WFR'], img: '/images/team/arjun.jpg' },
-  { name: 'Priya Negi', role: 'Operations & Guest Experience', certs: ['First Aid', 'Trek Coordinator'], img: '/images/team/priya.jpg' },
-  { name: 'Manish Bisht', role: 'Senior Trek Leader', certs: ['NIMAS', 'WFR'], img: '/images/team/arjun.jpg' },
-  { name: 'Deepa Thakur', role: 'Conservation Lead', certs: ['LNT Trainer', 'Naturalist'], img: '/images/team/priya.jpg' },
-];
-
-const SUSTAINABILITY = [
-  { icon: '♻', title: 'Zero Waste Treks', desc: "Every piece of waste — ours and others' — is packed out. We've removed over 2 tonnes of trail waste since 2020." },
-  { icon: '🤝', title: 'Community Employment', desc: '100% of porters and local guides are from Himalayan communities. Fair wages, above-market rates, no exceptions.' },
-  { icon: '🦅', title: 'Wildlife Respectful Routes', desc: 'We avoid nesting seasons, wildlife corridors, and fragile meadows. No camping within 100m of water sources.' },
-];
-
-const CERTIFICATIONS = [
-  'Adventure Tour Operators Assoc.',
-  'Himalayan Mountaineering Institute',
-  'Leave No Trace India',
-  'Ministry of Tourism',
-  'Uttarakhand Tourism Board',
-];
 
 export default function AboutPage() {
   return (
     <>
       {/* HERO — split screen */}
-      <section className="about-hero" aria-label="About IBEX hero">
+      <section className="about-hero" aria-label="About Himalayan Ibex">
         <div className="about-hero-image">
           <Image
-            src="/images/about-guide.jpg"
-            alt="Documentary portrait of an IBEX mountain guide in the Himalayas"
+            src="/assets/treks/treks/WhatsApp Image 2026-06-23 at 13.43.21.jpeg"
+            alt="Alok Rawat - Founder of Himalayan Ibex"
             fill
             priority
             sizes="55vw"
@@ -54,134 +26,185 @@ export default function AboutPage() {
         </div>
         <div className="about-hero-text topo-bg">
           <div className="about-hero-content">
-            <span className="mono-label" style={{ color: 'var(--color-amber)', marginBottom: '1.5rem', display: 'block' }}>OUR STORY</span>
+            <span className="mono-label" style={{ color: 'var(--color-amber)', marginBottom: '1.5rem', display: 'block' }}>ABOUT US</span>
             <h1 className="headline-italic about-hero-heading">
-              Born on the trails.<br />Built by the mountains.
+              Explore the Himalayas<br />With Confidence
             </h1>
             <p className="about-hero-desc">
-              IBEX started with three routes, two guides, and a single belief: that the best way to see a mountain is slowly, intentionally, and with someone who calls it home.
+              Himalayan Ibex was created with a simple vision: to make trekking in the Himalayas accessible, safe, and memorable for everyone. Whether you are taking your first step on a mountain trail or seeking your next high-altitude adventure, we aim to provide well-organized trekking experiences that connect people with nature.
             </p>
             <p className="about-hero-desc">
-              A decade later, we&apos;ve led 12,000+ trekkers across 48 routes. The belief hasn&apos;t changed.
+              Our journeys take you through some of the most stunning landscapes in India, from snow-covered forests and alpine meadows to remote mountain villages and breathtaking summit viewpoints.
             </p>
           </div>
           <div className="about-hero-wave" aria-hidden="true" />
         </div>
       </section>
 
-      {/* TIMELINE */}
-      <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Company timeline">
+      {/* CORE INFO */}
+      <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Our Mission and What We Do">
         <div className="container">
-          <ScrollReveal>
-            <span className="section-label" style={{ textAlign: 'center', display: 'block' }}>OUR JOURNEY</span>
-            <h2 className="section-heading" style={{ fontSize: 'var(--text-5xl)', textAlign: 'center', marginBottom: '4rem' }}>
-              A decade on the trail
-            </h2>
-          </ScrollReveal>
+          <div className="grid-2">
+            <ScrollReveal>
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem' }}>Our Mission</h2>
+              <p className="body-text" style={{ marginBottom: '2rem' }}>
+                Our mission is to inspire more people to explore the mountains responsibly while creating meaningful outdoor experiences. We believe trekking is not just about reaching a destination; it is about personal growth, adventure, and developing a deeper connection with nature.
+              </p>
+              
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem' }}>Safety First</h2>
+              <p className="body-text">
+                Safety is at the heart of every trek we organize. Our team follows established mountain safety practices and ensures proper planning, route assessment, weather monitoring, and participant support throughout the journey. We encourage responsible trekking and prioritize the well-being of every participant on the trail.
+              </p>
+            </ScrollReveal>
 
-          <div className="timeline">
-            <div className="timeline-line" aria-hidden="true" />
-            {TIMELINE.map((item, i) => (
-              <ScrollReveal key={item.year} delay={i * 0.08} className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`}>
-                <div className="timeline-node" aria-hidden="true" />
-                <div className="timeline-card">
-                  <span className="mono-label timeline-year">{item.year}</span>
-                  <h3 className="timeline-title">{item.title}</h3>
-                  <p className="timeline-desc">{item.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+            <ScrollReveal delay={0.2}>
+              <div style={{ background: '#fff', padding: '3rem', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-card)' }}>
+                <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem' }}>What We Do</h2>
+                <p className="body-text" style={{ marginBottom: '1.5rem' }}>
+                  At Himalayan Ibex, we organize guided trekking expeditions across the Indian Himalayas. Our focus is on providing carefully planned itineraries, experienced trek leaders, reliable support teams, and a seamless trekking experience.
+                </p>
+                <p className="body-text" style={{ marginBottom: '1rem', fontWeight: 600 }}>We specialize in:</p>
+                <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--color-stone)' }}>
+                  <li>Himalayan Treks</li>
+                  <li>Weekend Adventures</li>
+                  <li>Snow Treks</li>
+                  <li>Beginner-Friendly Treks</li>
+                  <li>High Altitude Expeditions</li>
+                  <li>Customized Group Treks</li>
+                  <li>Corporate Outdoor Programs</li>
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* TEAM GRID */}
-      <section className="section-padding" style={{ background: 'var(--color-snow-dark)' }} aria-label="Our team">
+      {/* SUSTAINABILITY & LOCAL COMMUNITY */}
+      <section className="section-padding topo-bg" style={{ background: 'var(--color-forest)', color: '#fff' }} aria-label="Sustainable and Responsible Travel">
         <div className="container">
-          <ScrollReveal>
-            <span className="section-label" style={{ textAlign: 'center', display: 'block' }}>THE TEAM</span>
-            <h2 className="section-heading" style={{ fontSize: 'var(--text-5xl)', textAlign: 'center', marginBottom: '3rem' }}>
-              People who know these mountains
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid-4 team-grid">
-            {TEAM.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.1} className="team-card">
-                <div className="team-avatar-wrap">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    width={128}
-                    height={128}
-                    className="team-avatar"
-                    style={{ borderRadius: '50%', objectFit: 'cover', width: '100%', height: '100%' }}
-                  />
-                </div>
-                <h3 className="team-name">{member.name}</h3>
-                <p className="team-role">{member.role}</p>
-                <div className="team-certs">
-                  {member.certs.map(c => (
-                    <span
-                      key={c}
-                      className="pill"
-                      style={{
-                        background: 'rgba(200,96,42,0.1)',
-                        color: 'var(--color-amber)',
-                        border: '1px solid rgba(200,96,42,0.2)',
-                        fontSize: '0.65rem',
-                        letterSpacing: '0.08em',
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </ScrollReveal>
-            ))}
+          <div className="grid-2">
+            <ScrollReveal>
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem', color: '#fff' }}>Sustainable &amp; Responsible Travel</h2>
+              <p className="body-text" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                The Himalayas are among the world&apos;s most fragile ecosystems. We are committed to minimizing our environmental impact through responsible trekking practices, waste management awareness, and promoting Leave No Trace principles.
+              </p>
+              <p className="body-text" style={{ color: 'rgba(255,255,255,0.8)', marginTop: '1rem' }}>
+                We believe future generations should experience these mountains in the same pristine condition that we enjoy today.
+              </p>
+            </ScrollReveal>
+            
+            <ScrollReveal delay={0.2}>
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem', color: '#fff' }}>Supporting Local Communities</h2>
+              <p className="body-text" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                Mountain communities play an essential role in every trekking experience. Whenever possible, we work with local guides, homestays, porters, drivers, and service providers to ensure tourism contributes positively to local livelihoods.
+              </p>
+              <p className="body-text" style={{ color: 'rgba(255,255,255,0.8)', marginTop: '1rem' }}>
+                By choosing Himalayan Ibex, you help support mountain communities and sustainable tourism initiatives.
+              </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* SUSTAINABILITY */}
-      <section className="sustainability topo-bg section-padding" aria-label="Sustainability">
+      {/* WHY CHOOSE US & JOIN US */}
+      <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Why Choose Us">
         <div className="container">
           <ScrollReveal>
-            <span className="mono-label" style={{ color: 'var(--color-amber)', display: 'block', textAlign: 'center', marginBottom: '1rem' }}>CONSERVATION</span>
-            <h2 className="headline-display" style={{ fontSize: 'var(--text-5xl)', color: 'var(--color-snow)', textAlign: 'center', marginBottom: '3rem' }}>
-              We trek lightly.
-            </h2>
-          </ScrollReveal>
-          <div className="grid-3 sustain-grid">
-            {SUSTAINABILITY.map(({ icon, title, desc }, i) => (
-              <ScrollReveal key={title} delay={i * 0.1} className="sustain-block">
-                <span className="sustain-icon">{icon}</span>
-                <h3 className="sustain-title">{title}</h3>
-                <p className="sustain-desc">{desc}</p>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CERTIFICATIONS */}
-      <section className="section-padding" style={{ background: 'var(--color-snow)' }} aria-label="Certifications">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <ScrollReveal>
-            <span className="mono-label" style={{ color: 'var(--color-amber)', display: 'block', marginBottom: '2rem' }}>
-              CERTIFIED &amp; RECOGNISED
-            </span>
-            <div className="cert-row">
-              {CERTIFICATIONS.map(name => (
-                <div key={name} className="cert-badge">
-                  <div className="cert-logo-placeholder">
-                    {name.split(' ').map(w => w[0]).join('').slice(0, 3)}
-                  </div>
-                  <span className="cert-name">{name}</span>
-                </div>
-              ))}
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+              <Image src="/assets/treks/treks/logo.jpeg" alt="Himalayan Ibex Logo" width={100} height={100} style={{ borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1.5rem auto' }} />
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-4xl)', marginBottom: '1.5rem' }}>Join Us On The Trail</h2>
+              <p className="body-text">
+                Every mountain has a story, and every trek creates memories that last a lifetime. Whether you dream of witnessing a Himalayan sunrise, walking through snow-covered forests, or exploring hidden valleys, Himalayan Ibex is here to help you begin that journey.
+              </p>
+              <p className="body-text" style={{ marginTop: '1rem' }}>
+                We invite you to discover the beauty of the Himalayas and experience adventure beyond the ordinary.
+              </p>
             </div>
           </ScrollReveal>
+
+          <div className="grid-3" style={{ textAlign: 'center' }}>
+            {[
+              "Carefully Curated Trek Experiences",
+              "Passionate Trek Leaders",
+              "Focus on Safety and Comfort",
+              "Small Group Experiences",
+              "Transparent Pricing",
+              "Personalized Support",
+              "Responsible Travel Practices"
+            ].map((reason, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div style={{ padding: '1.5rem', background: '#fff', borderRadius: 'var(--radius-card)', border: 'var(--border-subtle)', boxShadow: 'var(--shadow-card)', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-forest)' }}>{reason}</h3>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO SECTIONS */}
+      <section className="section-padding" style={{ background: '#fcfaf5', borderTop: '1px solid #e5e5e5' }} aria-label="Additional Information">
+        <div className="container">
+          
+          {/* STATISTICS */}
+          <ScrollReveal>
+            <div style={{ marginBottom: '5rem', background: '#fff', padding: '3rem', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-card)' }}>
+              <div className="grid-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                {[
+                  { value: '500+', label: 'Happy Trekkers' },
+                  { value: '20+', label: 'Trek Routes' },
+                  { value: '50+', label: 'Trek Departures' },
+                  { value: '100%', label: 'Safety Focused' },
+                ].map((stat, i) => (
+                  <div key={i} style={{ textAlign: 'center', padding: '1rem' }}>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--color-amber)', fontFamily: 'var(--font-display)', marginBottom: '0.5rem' }}>{stat.value}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--color-stone)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid-2" style={{ gap: '4rem' }}>
+            {/* DESTINATIONS */}
+            <ScrollReveal>
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-3xl)', marginBottom: '1.5rem' }}>Our Trekking Destinations</h2>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  { name: 'Kedarkantha Trek', link: '/treks/kedarkantha' },
+                  { name: 'Dayara Bugyal Trek', link: '/treks' },
+                  { name: 'Brahmatal Trek', link: '/treks' },
+                  { name: 'Har Ki Dun Trek', link: '/treks' },
+                  { name: 'Valley of Flowers Trek', link: '/treks/valley-of-flowers' },
+                ].map((dest, i) => (
+                  <li key={i}>
+                    <Link href={dest.link} style={{ fontSize: '1.1rem', color: 'var(--color-forest)', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <Mountain size={18} color="var(--color-amber)" /> {dest.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+
+            {/* SEO FAQ */}
+            <ScrollReveal delay={0.2}>
+              <h2 className="section-heading" style={{ fontSize: 'var(--text-3xl)', marginBottom: '1.5rem' }}>Frequently Asked Questions</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {[
+                  { q: 'Is trekking experience required?', a: 'Not always. We offer Beginner Friendly Treks that are perfect for first-timers.' },
+                  { q: 'What is the best season?', a: 'It depends on the trek. We organize Winter Treks in India like the Kedarkantha Trek, as well as summer and post-monsoon expeditions.' },
+                  { q: 'How fit should I be?', a: 'Basic cardiovascular fitness is recommended for all our Guided Himalayan Treks. A simple routine of jogging or brisk walking helps.' },
+                  { q: 'What gear is required?', a: 'We provide a comprehensive gear list upon booking to ensure you are well-prepared for your Adventure Travel in India.' },
+                ].map((faq, i) => (
+                  <div key={i} style={{ background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius-sm)', border: 'var(--border-subtle)' }}>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--color-forest)', marginBottom: '0.5rem' }}>{faq.q}</h3>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--color-stone)' }}>{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+
         </div>
       </section>
     </>

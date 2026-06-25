@@ -63,28 +63,28 @@ export default function ContactPage() {
             <div className="contact-info">
               <ScrollReveal className="contact-block">
                 <span className="mono-label contact-block-label">CALL US</span>
-                <a href="tel:+918126000000" className="contact-value">+91 81260 00000</a>
+                <a href="tel:+916398978309" className="contact-value">+91 6398 978 309</a>
                 <p className="contact-sub">Mon–Sat, 9am–7pm IST</p>
               </ScrollReveal>
 
               <ScrollReveal className="contact-block" delay={0.08}>
                 <span className="mono-label contact-block-label">EMAIL</span>
-                <a href="mailto:hello@ibextrekking.com" className="contact-value contact-email">
-                  hello@ibextrekking.com
+                <a href="mailto:himalayanibexofficial@gmail.com" className="contact-value contact-email">
+                  himalayanibexofficial@gmail.com
                 </a>
                 <p className="contact-sub">Replies within 4 hours on working days</p>
               </ScrollReveal>
 
               <ScrollReveal className="contact-block" delay={0.12}>
                 <span className="mono-label contact-block-label">VISIT US</span>
-                <span className="contact-value">42, Rajpur Road</span>
-                <p className="contact-sub">Dehradun, Uttarakhand 248001</p>
+                <span className="contact-value">Sankri Base Camp</span>
+                <p className="contact-sub">Uttarakhand (31.078206, 78.183056)</p>
               </ScrollReveal>
 
               <ScrollReveal className="contact-block" delay={0.16}>
                 <span className="mono-label contact-block-label">WHATSAPP</span>
                 <a
-                  href="https://wa.me/918126000000?text=Hi%20IBEX%21%20I%20have%20a%20question%20about%20a%20trek."
+                  href="https://wa.me/916398978309?text=Hi%20IBEX%21%20I%20have%20a%20question%20about%20a%20trek."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-amber wa-contact-btn"
@@ -102,7 +102,7 @@ export default function ContactPage() {
                 <div className="map-inner">
                   <span className="map-pin" aria-hidden="true">📍</span>
                   <span className="mono-label" style={{ fontSize: '0.65rem', color: 'rgba(245,240,232,0.55)', textAlign: 'center' }}>
-                    RAJPUR ROAD<br />DEHRADUN, UTTARAKHAND
+                    SANKRI<br />31.078206, 78.183056
                   </span>
                 </div>
               </div>

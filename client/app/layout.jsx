@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
-      <body>
+      <body suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>
         <Footer />

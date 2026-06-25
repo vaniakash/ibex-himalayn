@@ -8,6 +8,7 @@ import FolderGrid from '@/components/home/FolderGrid';
 import ArticlesSection from '@/components/home/ArticlesSection';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroCarousel from '@/components/home/HeroCarousel';
+import SearchBar from '@/components/home/SearchBar';
 import { FEATURED_TREKS } from '@/lib/treks-data';
 import { Map, Users, ShieldCheck, Leaf } from 'lucide-react';
 
@@ -101,24 +102,7 @@ export default function HomePage() {
       <section className="hero" aria-label="Hero section">
         <HeroCarousel slides={HERO_SLIDES} />
 
-        <div className="search-bar-wrapper container">
-          <div className="search-bar">
-            <div className="search-field" style={{ flex: 1 }}>
-              <div className="search-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search for treks, destinations..."
-                style={{ border: 'none', outline: 'none', background: 'transparent', width: '100%', fontSize: '1rem', color: 'var(--color-obsidian)' }}
-                aria-label="Search"
-              />
-            </div>
-            <button className="btn btn-amber search-btn" style={{ padding: '0.75rem 2rem' }}>
-              Search
-            </button>
-          </div>
-        </div>
+        <SearchBar />
       </section>
 
       {/* STATS BAND */}
@@ -127,8 +111,8 @@ export default function HomePage() {
           <div className="stats-grid">
             {STATS.map(({ title, icon }, i) => (
               <div key={title} className="stat-item">
-                <span className="stat-icon" style={{ color: 'var(--color-amber)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>{icon}</span>
-                <span className="stat-title" style={{ fontSize: '1.15rem', fontFamily: 'var(--font-body)', fontWeight: '700', color: '#111827' }}>{title}</span>
+                <span className="stat-icon">{icon}</span>
+                <span className="stat-title">{title}</span>
                 {i < STATS.length - 1 && <div className="stat-divider" aria-hidden="true" />}
               </div>
             ))}

@@ -23,7 +23,7 @@ export default function HeroCarousel({ slides }) {
             src={slide.image}
             alt={`Hero background ${index + 1}`}
             fill
-            priority={index === 0}
+            priority
             sizes="100vw"
             style={{
               objectFit: "cover",
@@ -46,7 +46,7 @@ export default function HeroCarousel({ slides }) {
             {slides[currentIndex].sub}
           </p>
           <div className="hero-ctas">
-            <Link href="/treks" className="btn btn-green btn-pill" id="hero-explore-btn">
+            <Link href="/treks" className="btn btn-amber btn-lg" id="hero-explore-btn" style={{ fontWeight: 'bold' }}>
               {slides[currentIndex].ctaText}
             </Link>
           </div>

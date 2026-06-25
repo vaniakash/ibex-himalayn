@@ -11,8 +11,8 @@ export const metadata = {
 export default function TreksPage() {
   return (
     <Suspense fallback={
-      <div style={{ minHeight: '100vh', background: '#0f0f0f', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5f0e8', paddingTop: '80px' }}>
-        <p style={{ fontFamily: 'monospace', letterSpacing: '0.1em', opacity: 0.4 }}>LOADING TREKS…</p>
+      <div style={{ minHeight: '100vh', background: '#fcfaf5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1a1a1a', paddingTop: '80px' }}>
+        <p style={{ fontFamily: 'monospace', letterSpacing: '0.1em', opacity: 0.6 }}>LOADING TREKS…</p>
       </div>
     }>
       <TreksExplorer allTreks={TREKS} />
