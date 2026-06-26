@@ -336,7 +336,7 @@ export default function TrekDetailClient({ trek }) {
               {/* 8. Safety Standards & Expertise */}
               <AccordionItem 
                 icon={<ShieldCheck size={28} strokeWidth={1.5} color="#ff5a00" />} 
-                title="Himalayan Hikers Safety Standards & Expertise" 
+                title="Himalayan Ibex Safety Standards & Expertise" 
                 subtitle="Our Expertise Why We Are India's Trusted Trekking Community"
                 isOpen={openAccordion === 7}
                 onToggle={() => setOpenAccordion(openAccordion === 7 ? null : 7)}
