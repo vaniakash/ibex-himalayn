@@ -32,6 +32,16 @@
   margin-top: 0.1rem;
 }
 
+.tqi-custom-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  /* Orange filter to match the #ff5a00 theme color from a black SVG */
+  filter: invert(45%) sepia(85%) saturate(2256%) hue-rotate(352deg) brightness(101%) contrast(106%);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
 .tqi-content {
   display: flex;
   flex-direction: column;
@@ -284,55 +294,121 @@
 
 .detail-accordions h2 {
   font-family: var(--font-display, serif);
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #1a1a1a;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #1a1a1a;
+}
+
+.detail-guide-intro {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #3a3028;
+  margin-bottom: 2rem;
+}
+
+.detail-guide-intro p {
+  margin-bottom: 1rem;
+}
+
+.accordion-container {
+  border-top: 2px solid #ff5a00;
 }
 
 .accordion-item {
-  border-bottom: 1px solid #e5e0d8;
+  border-bottom: 1px solid #ff5a00;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-item:hover {
+  background-color: #faf9f7;
 }
 
 .accordion-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1.25rem 1.5rem;
   cursor: pointer;
   gap: 1rem;
+  outline: none;
+}
+
+.accordion-header:focus-visible {
+  background-color: #f0ece6;
 }
 
 .accordion-header-left {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  gap: 1.25rem;
+}
+
+.acc-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.acc-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.acc-title {
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #1a1a1a;
 }
 
-.accordion-header-left svg {
-  color: #888;
-  flex-shrink: 0;
+.acc-subtitle {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #777;
 }
 
 .accordion-toggle {
-  color: #888;
+  color: #1a1a1a;
   flex-shrink: 0;
-  transition: transform 0.2s;
+  transition: transform 350ms ease;
 }
 
 .accordion-toggle.open {
   transform: rotate(180deg);
 }
 
+.accordion-body-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms ease-out;
+}
+
+.accordion-item.open .accordion-body-wrap {
+  grid-template-rows: 1fr;
+}
+
 .accordion-body {
-  padding: 0 0 1.25rem 2rem;
-  font-size: 0.88rem;
+  overflow: hidden;
+  padding: 0 1.5rem 0 4.5rem;
+  font-size: 0.95rem;
   color: #3a3028;
   line-height: 1.7;
+}
+
+.accordion-item:not(.open) .accordion-body {
+  padding-top: 0;
+  padding-bottom: 0;
+  visibility: hidden;
+  transition: padding 350ms ease, visibility 350ms ease;
+}
+
+.accordion-item.open .accordion-body {
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+  visibility: visible;
+  transition: padding 350ms ease, visibility 350ms ease;
 }
 
 /* itinerary inside accordion */

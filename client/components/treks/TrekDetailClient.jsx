@@ -16,49 +16,68 @@ import {
 import { GiMountainClimbing } from 'react-icons/gi';
 import {
   TrendingUp, Clock, MountainSnow, Users, Footprints, Tent,
-  Home, Map, BusFront, MapPin, Luggage, Backpack
+  Home, Map, BusFront, MapPin, Luggage, Backpack,
+  ListTree, Activity, Calendar, Bus, Dumbbell, ShieldCheck, CheckCircle, MessageCircleQuestion
 } from 'lucide-react';
 import './trek-detail.css';
 
 function quickInfoItems(trek) {
-  const iconProps = { size: 28, strokeWidth: 1.5, color: '#ff5a00' };
+  const SvgIcon = ({ src, alt }) => (
+    <Image 
+      src={`/assets/icons/${src}`} 
+      width={28} 
+      height={28} 
+      alt={alt}
+      className="tqi-custom-icon"
+    />
+  );
   
   const items = [
-    { icon: <TrendingUp {...iconProps} />, label: 'Trek Difficulty', value: trek.difficulty },
-    { icon: <Clock {...iconProps} />, label: 'Trek Duration', value: trek.durationLabel || `${trek.duration} Days / ${trek.duration - 1} Nights` },
-    { icon: <MountainSnow {...iconProps} />, label: 'Highest Altitude', value: trek.maxAltitudeFt ? `${trek.maxAltitudeFt.toLocaleString()} feet` : `${trek.maxAltitude}m` },
-    { icon: <Users {...iconProps} />, label: 'Suitable For', value: trek.suitableFor || '11 years and above' },
-    { icon: <Footprints {...iconProps} />, label: 'Total Trek Distance', value: trek.distance || 'Not specified' },
-    { icon: <Tent {...iconProps} />, label: 'Basecamp', value: trek.basecamp || (trek.region + ', Uttarakhand') },
-    { icon: <Home {...iconProps} />, label: 'Accommodation', value: trek.accommodation || 'Gender-specific homestay/lodge' },
-    { icon: <Map {...iconProps} />, label: 'Region', value: trek.region },
-    { icon: <BusFront {...iconProps} />, label: 'Pickup Details', value: trek.pickup || 'Live free hostel, Rishikesh at 5:30 AM' },
-    { icon: <MapPin {...iconProps} />, label: 'Dropoff Details', value: trek.dropoff || 'Live free hostel, Rishikesh at 6:00 PM' },
+    { icon: <SvgIcon src="graph2-svgrepo-com.svg" alt="Difficulty" />, label: 'Trek Difficulty', value: trek.difficulty },
+    { icon: <SvgIcon src="timer-close-svgrepo-com.svg" alt="Duration" />, label: 'Trek Duration', value: trek.durationLabel || `${trek.duration} Days / ${trek.duration - 1} Nights` },
+    { icon: <SvgIcon src="mountain-svgrepo-com.svg" alt="Altitude" />, label: 'Highest Altitude', value: trek.maxAltitudeFt ? `${trek.maxAltitudeFt.toLocaleString()} feet` : `${trek.maxAltitude}m` },
+    { icon: <SvgIcon src="user-svgrepo-com.svg" alt="Suitable For" />, label: 'Suitable For', value: trek.suitableFor || '11 years and above' },
+    { icon: <SvgIcon src="route-svgrepo-com.svg" alt="Distance" />, label: 'Total Trek Distance', value: trek.distance || 'Not specified' },
+    { icon: <SvgIcon src="tent-5-svgrepo-com.svg" alt="Basecamp" />, label: 'Basecamp', value: trek.basecamp || (trek.region + ', Uttarakhand') },
+    { icon: <SvgIcon src="camping-svgrepo-com.svg" alt="Accommodation" />, label: 'Accommodation', value: trek.accommodation || 'Gender-specific homestay/lodge' },
+    { icon: <SvgIcon src="map-book-svgrepo-com.svg" alt="Region" />, label: 'Region', value: trek.region },
+    { icon: <SvgIcon src="bus-svgrepo-com.svg" alt="Pickup" />, label: 'Pickup Details', value: trek.pickup || 'Live free hostel, Rishikesh at 5:30 AM' },
+    { icon: <SvgIcon src="destination-4-svgrepo-com.svg" alt="Dropoff" />, label: 'Dropoff Details', value: trek.dropoff || 'Live free hostel, Rishikesh at 6:00 PM' },
   ];
 
   if (trek.cloakroom) {
-    items.push({ icon: <Luggage {...iconProps} />, label: 'Cloakroom', value: trek.cloakroom });
+    items.push({ icon: <SvgIcon src="luggage-svgrepo-com.svg" alt="Cloakroom" />, label: 'Cloakroom', value: trek.cloakroom });
   }
   if (trek.offloading) {
-    items.push({ icon: <Backpack {...iconProps} />, label: 'Off Loading', value: trek.offloading });
+    items.push({ icon: <SvgIcon src="backpack-hike-outdoor-svgrepo-com.svg" alt="Off Loading" />, label: 'Off Loading', value: trek.offloading });
   }
 
   return items;
 }
 
 // ─── Accordion Item ──────────────────────────────────────────────
-function AccordionItem({ icon, title, children, defaultOpen = false }) {
-  const [open, setOpen] = useState(defaultOpen);
+function AccordionItem({ icon, title, subtitle, children, isOpen, onToggle }) {
   return (
-    <div className="accordion-item">
-      <div className="accordion-header" onClick={() => setOpen(o => !o)} role="button" tabIndex={0}>
+    <div className={`accordion-item ${isOpen ? 'open' : ''}`}>
+      <div 
+        className="accordion-header" 
+        onClick={onToggle} 
+        role="button" 
+        tabIndex={0} 
+        onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
+      >
         <div className="accordion-header-left">
-          {icon}
-          <span>{title}</span>
+          <div className="acc-icon">{icon}</div>
+          <div className="acc-title-group">
+            <div className="acc-title">{title}</div>
+            {subtitle && <div className="acc-subtitle">{subtitle}</div>}
+          </div>
         </div>
-        <FiChevronDown size={18} className={`accordion-toggle ${open ? 'open' : ''}`} />
+        <FiChevronDown size={22} className={`accordion-toggle ${isOpen ? 'open' : ''}`} />
       </div>
-      {open && <div className="accordion-body">{children}</div>}
+      <div className="accordion-body-wrap">
+        <div className="accordion-body">{children}</div>
+      </div>
     </div>
   );
 }
@@ -68,6 +87,7 @@ export default function TrekDetailClient({ trek }) {
   const [showFullDesc, setShowFullDesc] = useState(false);
   const [activeMonth, setActiveMonth] = useState(trek.bestSeason?.[0] || null);
   const [groupSize, setGroupSize] = useState(1);
+  const [openAccordion, setOpenAccordion] = useState(null);
 
   const desc = trek.description || '';
   const shortDesc = desc.slice(0, 300);
@@ -136,127 +156,194 @@ export default function TrekDetailClient({ trek }) {
             )}
           </div>
 
-          {/* Itinerary Accordion */}
+          {/* Trek Complete Guide Accordion */}
           <div className="detail-accordions">
-            <h2>{trek.name} — Complete Trek Information</h2>
+            <h2>{trek.name} — Complete Guide</h2>
+            <div className="detail-guide-intro">
+              <p>Our mission has always been to ensure that no trekker steps into the Himalayas without the right perspective. A trek is not just a checklist of summits; it is a serious commitment to the outdoors. Having the right information is what separates a reckless climb from a soulful journey.</p>
+              <p>This section serves as your definitive manual for the <strong>{trek.name}</strong>. We have distilled years of mountain experience and real-time feedback into this guide to give you a clear, honest picture of the trail.</p>
+              <p>We provide this depth of information because we want you to be more than just a visitor—we want you to be a prepared, responsible trekker who respects the mountains as much as we do.</p>
+            </div>
 
-            <AccordionItem icon={<FiClock size={18} />} title="Quick Itinerary" defaultOpen>
-              <div>
-                {trek.mapImage && (
-                  <div style={{ marginBottom: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e0d8' }}>
-                    <img src={trek.mapImage} alt={`${trek.name} Route Map`} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                  </div>
-                )}
-                {trek.itinerary.map((day, i) => (
-                  <div key={i} className="acc-itinerary-day">
-                    <div className="acc-day-header">Day {day.day}</div>
-                    <h4 className="acc-day-title">{day.title}</h4>
-                    <p className="acc-day-desc">{day.description}</p>
-                    {day.campAltitude > 0 && (
-                      <p style={{ fontSize: '0.75rem', color: '#c8602a', marginTop: '0.3rem' }}>⛺ Camp Altitude: {day.campAltitude}m</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiBarChart2 size={18} />} title={`How Difficult Is the ${trek.name} Trek`}>
-              <p>
-                <strong>Difficulty:</strong> {trek.difficulty} — Suitable for fit beginners.<br /><br />
-                You will cover a total distance over {trek.duration} trekking days, gaining significant altitude. The terrain includes steep ascents and rocky paths. Weather can change rapidly at altitude — rain, snow, and mist are common. Our Trek Leaders monitor conditions and make safety decisions accordingly.
-              </p>
-              <p style={{ marginTop: '1rem' }}>
-                <strong>Altitude:</strong> You will reach {trek.maxAltitudeFt ? `${trek.maxAltitudeFt.toLocaleString()} ft` : `${trek.maxAltitude}m`}. At altitudes above 10,000 ft, the chances of Acute Mountain Sickness are real. Fitness helps, but even experienced trekkers can be affected.
-              </p>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiSunrise size={18} />} title={`Best Time To Do ${trek.name} Trek`}>
-              <p>Best months to visit:</p>
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
-                {trek.bestSeason.map(m => (
-                  <span key={m} style={{ background: '#f0ece6', padding: '0.25rem 0.75rem', borderRadius: '100px', fontSize: '0.78rem', fontWeight: 600, color: '#3a3028' }}>{m}</span>
-                ))}
-              </div>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiMapPin size={18} />} title={`How to Plan Your Travel for ${trek.name} Trek`}>
-              <p>The base camp is accessible by road from Rishikesh or Haridwar. Nearest railway station is Haridwar; nearest airport is Jolly Grant Airport, Dehradun. We arrange pickup from Rishikesh.</p>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiPackage size={18} />} title={`What To Pack For Your ${trek.name} Trek`}>
-              <ul style={{ paddingLeft: '1rem', lineHeight: 1.9 }}>
-                <li>Layered woollen clothing (thermal base + mid-layer + rain jacket)</li>
-                <li>Trekking poles</li>
-                <li>Good quality trekking shoes (waterproof)</li>
-                <li>Sunscreen SPF 50+, sunglasses</li>
-                <li>Headlamp with spare batteries</li>
-                <li>Personal first aid kit and any prescription medicine</li>
-                <li>Water bottle (2L minimum)</li>
-                <li>Light snacks (nuts, dry fruits, energy bars)</li>
-              </ul>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiActivity size={18} />} title={`How to Get Fit for the ${trek.name} Trek`}>
-              <p>Start training 6 weeks before the trek. Focus on:</p>
-              <ul style={{ paddingLeft: '1rem', lineHeight: 1.9, marginTop: '0.5rem' }}>
-                <li>Cardio — 45 minutes of jogging/cycling, 5 days a week</li>
-                <li>Stair climbing — builds leg and lung capacity</li>
-                <li>Squats and lunges — strengthen knees for steep descents</li>
-                <li>Weekend hikes — practice with a loaded backpack</li>
-              </ul>
-              <p style={{ marginTop: '0.75rem' }}>Fitness Benchmark: Complete 5 km in under 40 minutes before the trek.</p>
-            </AccordionItem>
-
-            <AccordionItem icon={<FiHeart size={18} />} title="Frequently Asked Questions">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div>
-                  <strong>Is {trek.name} suitable for beginners?</strong>
-                  <p style={{ marginTop: '0.3rem' }}>Yes, with proper fitness preparation. The difficulty is rated {trek.difficulty}.</p>
-                </div>
-                <div>
-                  <strong>What is included in the trek fee?</strong>
-                  <p style={{ marginTop: '0.3rem' }}>{trek.inclusions.join(', ')}.</p>
-                </div>
-                <div>
-                  <strong>What is not included?</strong>
-                  <p style={{ marginTop: '0.3rem' }}>{trek.exclusions.join(', ')}.</p>
-                </div>
-              </div>
-            </AccordionItem>
-          </div>
-
-          {/* Inclusions/Exclusions */}
-          <div className="detail-inclusions">
-            <h2>Inclusions & Exclusions</h2>
-            <div className="inc-grid">
-              <div>
-                <div className="inc-title" style={{ color: '#2d7a4f' }}>
-                  <FiCheck size={16} /> What's Included
-                </div>
-                <ul className="inc-list">
-                  {trek.inclusions.map((item, i) => (
-                    <li key={i} className="inc-item">
-                      <FiCheck size={14} style={{ color: '#2d7a4f', flexShrink: 0, marginTop: 2 }} />
-                      {item}
-                    </li>
+            <div className="accordion-container">
+              {/* 1. Short Itinerary */}
+              <AccordionItem 
+                icon={<ListTree size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Short Itinerary" 
+                subtitle="Trek Summary at a Glance"
+                isOpen={openAccordion === 0}
+                onToggle={() => setOpenAccordion(openAccordion === 0 ? null : 0)}
+              >
+                <div style={{ padding: '0 0.5rem' }}>
+                  {trek.itinerary.map((day, i) => (
+                    <div key={i} className="acc-itinerary-day" style={{ padding: '0.5rem 0', borderBottom: i !== trek.itinerary.length - 1 ? '1px solid #e5e0d8' : 'none' }}>
+                      <div className="acc-day-header" style={{ fontWeight: 600 }}>Day {day.day}: {day.title}</div>
+                      <p className="acc-day-desc" style={{ fontSize: '0.9rem', color: '#555', marginTop: '0.2rem' }}>{day.description}</p>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <div>
-                <div className="inc-title" style={{ color: '#b82020' }}>
-                  <FiX size={16} /> Not Included
                 </div>
-                <ul className="inc-list">
-                  {trek.exclusions.map((item, i) => (
-                    <li key={i} className="inc-item">
-                      <FiX size={14} style={{ color: '#b82020', flexShrink: 0, marginTop: 2 }} />
-                      {item}
-                    </li>
+              </AccordionItem>
+
+              {/* 2. Detailed Day-wise Itinerary */}
+              <AccordionItem 
+                icon={<Map size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Detailed Day-wise Itinerary" 
+                subtitle="A Complete Route & Campsite Breakdown"
+                isOpen={openAccordion === 1}
+                onToggle={() => setOpenAccordion(openAccordion === 1 ? null : 1)}
+              >
+                <div>
+                  {trek.mapImage && (
+                    <div style={{ marginBottom: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e0d8' }}>
+                      <img src={trek.mapImage} alt={`${trek.name} Route Map`} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    </div>
+                  )}
+                  <p>The detailed day-by-day route information helps you understand the ascents, descents, and landmarks you will encounter.</p>
+                </div>
+              </AccordionItem>
+
+              {/* 3. Trek Difficulty & Experience */}
+              <AccordionItem 
+                icon={<Activity size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title={`${trek.name} Difficulty & Experience`} 
+                subtitle="What to Expect: Terrain, Weather & Challenges"
+                isOpen={openAccordion === 2}
+                onToggle={() => setOpenAccordion(openAccordion === 2 ? null : 2)}
+              >
+                <p>
+                  <strong>Difficulty:</strong> {trek.difficulty} — Suitable for fit beginners.<br /><br />
+                  You will cover a total distance over {trek.duration} trekking days, gaining significant altitude. The terrain includes steep ascents and rocky paths. Weather can change rapidly at altitude — rain, snow, and mist are common. Our Trek Leaders monitor conditions and make safety decisions accordingly.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  <strong>Altitude:</strong> You will reach {trek.maxAltitudeFt ? `${trek.maxAltitudeFt.toLocaleString()} ft` : `${trek.maxAltitude}m`}. At altitudes above 10,000 ft, the chances of Acute Mountain Sickness are real. Fitness helps, but even experienced trekkers can be affected.
+                </p>
+              </AccordionItem>
+
+              {/* 4. Best Time to Visit */}
+              <AccordionItem 
+                icon={<Calendar size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title={`Best Time to Visit ${trek.name}`} 
+                subtitle="Seasonal Weather & Temperature Guide"
+                isOpen={openAccordion === 3}
+                onToggle={() => setOpenAccordion(openAccordion === 3 ? null : 3)}
+              >
+                <p>Best months to visit:</p>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
+                  {trek.bestSeason.map(m => (
+                    <span key={m} style={{ background: '#f0ece6', padding: '0.25rem 0.75rem', borderRadius: '100px', fontSize: '0.78rem', fontWeight: 600, color: '#3a3028' }}>{m}</span>
                   ))}
+                </div>
+              </AccordionItem>
+
+              {/* 5. How to Reach the Base Camp */}
+              <AccordionItem 
+                icon={<Bus size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="How to Reach the Base Camp" 
+                subtitle="Your Detailed Travel & Connectivity Guide"
+                isOpen={openAccordion === 4}
+                onToggle={() => setOpenAccordion(openAccordion === 4 ? null : 4)}
+              >
+                <p>The base camp is accessible by road from Rishikesh or Haridwar. Nearest railway station is Haridwar; nearest airport is Jolly Grant Airport, Dehradun. We arrange pickup from Rishikesh.</p>
+              </AccordionItem>
+
+              {/* 6. Packing and Gear List */}
+              <AccordionItem 
+                icon={<Backpack size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Packing and Gear List" 
+                subtitle="Your Complete Trekking Checklist"
+                isOpen={openAccordion === 5}
+                onToggle={() => setOpenAccordion(openAccordion === 5 ? null : 5)}
+              >
+                <ul style={{ paddingLeft: '1rem', lineHeight: 1.9 }}>
+                  <li>Layered woollen clothing (thermal base + mid-layer + rain jacket)</li>
+                  <li>Trekking poles</li>
+                  <li>Good quality trekking shoes (waterproof)</li>
+                  <li>Sunscreen SPF 50+, sunglasses</li>
+                  <li>Headlamp with spare batteries</li>
+                  <li>Personal first aid kit and any prescription medicine</li>
+                  <li>Water bottle (2L minimum)</li>
+                  <li>Light snacks (nuts, dry fruits, energy bars)</li>
                 </ul>
-              </div>
+              </AccordionItem>
+
+              {/* 7. Preparation & Fitness Tips */}
+              <AccordionItem 
+                icon={<Dumbbell size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Preparation & Fitness Tips" 
+                subtitle="Train. Trek. Triumph: Your Complete Fitness Plan"
+                isOpen={openAccordion === 6}
+                onToggle={() => setOpenAccordion(openAccordion === 6 ? null : 6)}
+              >
+                <p>Start training 6 weeks before the trek. Focus on:</p>
+                <ul style={{ paddingLeft: '1rem', lineHeight: 1.9, marginTop: '0.5rem' }}>
+                  <li>Cardio — 45 minutes of jogging/cycling, 5 days a week</li>
+                  <li>Stair climbing — builds leg and lung capacity</li>
+                  <li>Squats and lunges — strengthen knees for steep descents</li>
+                  <li>Weekend hikes — practice with a loaded backpack</li>
+                </ul>
+                <p style={{ marginTop: '0.75rem' }}>Fitness Benchmark: Complete 5 km in under 40 minutes before the trek.</p>
+              </AccordionItem>
+
+              {/* 8. Safety Standards & Expertise */}
+              <AccordionItem 
+                icon={<ShieldCheck size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Himalayan Hikers Safety Standards & Expertise" 
+                subtitle="Our Expertise Why We Are India's Trusted Trekking Community"
+                isOpen={openAccordion === 7}
+                onToggle={() => setOpenAccordion(openAccordion === 7 ? null : 7)}
+              >
+                <p>Your safety is our priority. We bring oxygen cylinders, high altitude medical kits, and certified Trek Leaders who are trained as Wilderness First Responders.</p>
+              </AccordionItem>
+
+              {/* 9. What is Included & Excluded */}
+              <AccordionItem 
+                icon={<CheckCircle size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title={`What is Included & Excluded in ${trek.name}`} 
+                subtitle="What is Covered & NOT Covered in the Package"
+                isOpen={openAccordion === 8}
+                onToggle={() => setOpenAccordion(openAccordion === 8 ? null : 8)}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <div>
+                    <strong>What is included in the trek fee?</strong>
+                    <p style={{ marginTop: '0.3rem' }}>{trek.inclusions.join(', ')}.</p>
+                  </div>
+                  <div>
+                    <strong>What is not included?</strong>
+                    <p style={{ marginTop: '0.3rem' }}>{trek.exclusions.join(', ')}.</p>
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* 10. Map of Route */}
+              <AccordionItem 
+                icon={<MapPin size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title={`Map of ${trek.name} Route`} 
+                subtitle="Complete Journey Pickup Point to the Peak"
+                isOpen={openAccordion === 9}
+                onToggle={() => setOpenAccordion(openAccordion === 9 ? null : 9)}
+              >
+                <p>Detailed maps and GPS coordinates will be provided in your pre-trek briefing document.</p>
+              </AccordionItem>
+
+              {/* 11. Frequently Asked Questions (FAQs) */}
+              <AccordionItem 
+                icon={<MessageCircleQuestion size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                title="Frequently Asked Questions (FAQs)" 
+                subtitle="Your Curiosity, Our Commitment"
+                isOpen={openAccordion === 10}
+                onToggle={() => setOpenAccordion(openAccordion === 10 ? null : 10)}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <div>
+                    <strong>Is {trek.name} suitable for beginners?</strong>
+                    <p style={{ marginTop: '0.3rem' }}>Yes, with proper fitness preparation. The difficulty is rated {trek.difficulty}.</p>
+                  </div>
+                </div>
+              </AccordionItem>
             </div>
           </div>
+
 
           {/* Photo Gallery */}
           <div id="photos" className="detail-gallery" style={{ scrollMarginTop: '100px' }}>
