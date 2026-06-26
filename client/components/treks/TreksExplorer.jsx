@@ -28,13 +28,16 @@ const EXPERIENCES = ['All', 'Family Treks', 'Stargazing Treks', 'Senior Treks', 
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 const CATEGORIES = [
-  { label: 'Winter Treks',       img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209541/treks/neiwlde1bsonpdwmblog.jpg', filter: { difficulty: 'Easy' } },
-  { label: 'Flower Trails',      img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209543/treks/hqwjjncnv38llluh6qzq.jpg', filter: { region: 'Uttarakhand' } },
-  { label: 'Pass Crossings',     img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209545/treks/ax4cpza4panioa6axgeb.jpg', filter: { difficulty: 'Moderate' } },
-  { label: 'High Altitude',      img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209548/treks/gnjaxtffpplrnhqcnbfl.jpg', filter: { difficulty: 'Difficult' } },
-  { label: 'Himalayan Gems',     img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209550/treks/nhemf5vxrmqk0xs2ru1a.jpg', filter: { region: 'Sikkim' } },
-  { label: 'Winter Expeditions', img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209552/treks/zfn8iiytjzdjm0wnoptd.jpg', filter: { season: 'Winter' } },
-  { label: 'Ultimate Challenges',img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209557/treks/wkpqcxwbgyjhvetr2ttu.jpg', filter: { difficulty: 'Difficult' } },
+  { label: 'All Treks',          img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457729/treks/categories/use5dkrovxnnvyjyaqci.jpg' },
+  { label: 'Winter Treks',       img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457735/treks/categories/mta9ign2cwg7ly2n6hlr.webp' },
+  { label: 'Flower Trails',      img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457738/treks/categories/xaw8noatpohj8xu1tqkw.avif' },
+  { label: 'Pass Crossings',     img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457731/treks/categories/zsznevbelhdqnj1emvgo.jpg' },
+  { label: 'High Altitude Treks',img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457729/treks/categories/use5dkrovxnnvyjyaqci.jpg' },
+  { label: 'Himalayan Gems',     img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457727/treks/categories/xuubl3o53b0n76dhlzbi.webp' },
+  { label: 'Peak Expeditions',   img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457733/treks/categories/pkrtz8gmoy3tggpbwuex.jpg' },
+  { label: 'Pilgrimage Treks',   img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209550/treks/nhemf5vxrmqk0xs2ru1a.jpg' },
+  { label: 'Summer Camping',     img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782209543/treks/hqwjjncnv38llluh6qzq.jpg' },
+  { label: 'Ultimate Challenges',img: 'https://res.cloudinary.com/dirsimqmr/image/upload/v1782457736/treks/categories/xlujrjfja3kqpmrgev0d.avif' },
 ];
 
 const difficultyClass = { 
@@ -68,7 +71,7 @@ export default function TreksExplorer({ allTreks }) {
   
   const [search, setSearch] = useState(searchParams.get('q') || '');
   const [activeMonth, setActiveMonth] = useState(null);
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || 'All Treks');
   const [, startTransition] = useTransition();
 
   const updateURL = useCallback((r, d, dur, s, exp, q) => {
@@ -91,18 +94,16 @@ export default function TreksExplorer({ allTreks }) {
   
   const handleSearch = (q) => { setSearch(q); updateURL(region, difficulty, duration, season, experience, q); };
 
-  const handleCategory = (idx, cat) => {
-    if (activeCategory === idx) {
-      setActiveCategory(null);
-      clearAll(false);
+  const handleCategory = (label) => {
+    setActiveCategory(label);
+    
+    const params = new URLSearchParams(searchParams.toString());
+    if (label !== 'All Treks') {
+      params.set('category', label);
     } else {
-      setActiveCategory(idx);
-      const r = cat.filter.region || 'All';
-      const d = cat.filter.difficulty || 'All';
-      const s = cat.filter.season || 'All';
-      setRegion(r); setDifficulty(d); setSeason(s); setDuration('All'); setExperience('All');
-      updateURL(r, d, 'All', s, 'All', search);
+      params.delete('category');
     }
+    startTransition(() => router.push(`${pathname}?${params.toString()}`, { scroll: false }));
   };
 
   const handleMonth = (month) => {
@@ -110,17 +111,17 @@ export default function TreksExplorer({ allTreks }) {
     else { setActiveMonth(month); }
   };
 
-  const clearAll = (resetSearch = true) => {
-    setRegion('All'); setDifficulty('All'); setDuration('All'); setSeason('All'); setExperience('All');
-    setActiveMonth(null); setActiveCategory(null);
-    if (resetSearch) setSearch('');
-    
-    const params = new URLSearchParams();
-    if (!resetSearch && search) params.set('q', search);
-    router.push(pathname + '?' + params.toString(), { scroll: false });
+  const clearAll = (doUpdate = true) => {
+    setRegion('All'); setDifficulty('All'); setDuration('All'); setSeason('All'); setExperience('All'); setSearch(''); setActiveMonth(null); setActiveCategory('All Treks');
+    if (doUpdate) startTransition(() => router.push(pathname, { scroll: false }));
   };
 
   const filtered = allTreks.filter(t => {
+    // 0. Category
+    if (activeCategory !== 'All Treks') {
+      if (!t.categories || !t.categories.includes(activeCategory)) return false;
+    }
+
     // 1. Region
     if (region !== 'All' && t.region !== region) return false;
     
@@ -157,7 +158,7 @@ export default function TreksExplorer({ allTreks }) {
     return true;
   });
 
-  const hasFilters = region !== 'All' || difficulty !== 'All' || duration !== 'All' || season !== 'All' || experience !== 'All' || search || activeMonth;
+  const hasFilters = region !== 'All' || difficulty !== 'All' || duration !== 'All' || season !== 'All' || experience !== 'All' || search || activeMonth || activeCategory !== 'All Treks';
 
   return (
     <div className="treks-page">
@@ -189,8 +190,8 @@ export default function TreksExplorer({ allTreks }) {
           {CATEGORIES.map((cat, idx) => (
             <div
               key={idx}
-              className={`category-card ${activeCategory === idx ? 'active' : ''}`}
-              onClick={() => handleCategory(idx, cat)}
+              className={`category-card ${activeCategory === cat.label ? 'active' : ''}`}
+              onClick={() => handleCategory(cat.label)}
               role="button"
               tabIndex={0}
             >

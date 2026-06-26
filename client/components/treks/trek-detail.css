@@ -1037,3 +1037,103 @@
 .ethics-content p:last-child {
   margin-bottom: 0;
 }
+/* ── ITINERARY TABS ── */
+.itinerary-tabs-container {
+  margin-top: 1rem;
+}
+
+.itinerary-tabs-header {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e0d8;
+  margin-bottom: 1.5rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.itinerary-tabs-header::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.itinerary-tab-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  background: #f7f4ef;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #3a3028;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.itinerary-tab-btn:hover {
+  background: #f0ece6;
+  border-color: #e5e0d8;
+}
+
+.itinerary-tab-btn.active {
+  background: #ff5a00;
+  color: #fff;
+  border-color: #ff5a00;
+}
+
+.itinerary-tab-content-wrap {
+  min-height: 250px;
+}
+
+.itinerary-tab-content {
+  animation: fadeSlideIn 400ms ease-out forwards;
+}
+
+.itinerary-day-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.itinerary-day-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itinerary-day-stats li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: #c8602a;
+  font-weight: 600;
+}
+
+.itinerary-day-stats li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ff5a00;
+}
+
+.itinerary-day-narrative p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #3a3028;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

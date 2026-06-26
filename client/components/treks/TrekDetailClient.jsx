@@ -81,6 +81,62 @@ function AccordionItem({ icon, title, subtitle, children, isOpen, onToggle }) {
     </div>
   );
 }
+// ─── Daywise Itinerary Tabs ──────────────────────────────────────
+function DaywiseItineraryTabs({ itinerary }) {
+  const [activeDay, setActiveDay] = useState(itinerary?.[0]?.day || 1);
+
+  if (!itinerary || itinerary.length === 0) return null;
+
+  const activeItem = itinerary.find((d) => d.day === activeDay) || itinerary[0];
+
+  // Parse description: "Stats | Narrative"
+  let stats = [];
+  let narrative = activeItem.description;
+
+  if (activeItem.description.includes('|')) {
+    const parts = activeItem.description.split('|').map(s => s.trim());
+    narrative = parts.pop(); // The last part is the narrative
+    stats = parts; // The rest are stats
+  }
+
+  return (
+    <div className="itinerary-tabs-container">
+      <div className="itinerary-tabs-header">
+        {itinerary.map((day) => (
+          <button
+            key={day.day}
+            className={`itinerary-tab-btn ${activeDay === day.day ? 'active' : ''}`}
+            onClick={() => setActiveDay(day.day)}
+          >
+            Day {day.day}
+          </button>
+        ))}
+      </div>
+      <div className="itinerary-tab-content-wrap">
+        <div key={activeDay} className="itinerary-tab-content">
+          <h3 className="itinerary-day-title">
+            Day {activeItem.day}: {activeItem.title}
+          </h3>
+          
+          {(stats.length > 0 || activeItem.campAltitude > 0) && (
+            <ul className="itinerary-day-stats">
+              {stats.map((stat, i) => (
+                <li key={i}>{stat}</li>
+              ))}
+              {activeItem.campAltitude > 0 && (
+                <li>Altitude: {activeItem.campAltitude}m</li>
+              )}
+            </ul>
+          )}
+
+          <div className="itinerary-day-narrative">
+            <p>{narrative}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── Main Component ──────────────────────────────────────────────
 export default function TrekDetailClient({ trek }) {
@@ -192,14 +248,7 @@ export default function TrekDetailClient({ trek }) {
                 isOpen={openAccordion === 1}
                 onToggle={() => setOpenAccordion(openAccordion === 1 ? null : 1)}
               >
-                <div>
-                  {trek.mapImage && (
-                    <div style={{ marginBottom: '1.5rem', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e0d8' }}>
-                      <img src={trek.mapImage} alt={`${trek.name} Route Map`} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                    </div>
-                  )}
-                  <p>The detailed day-by-day route information helps you understand the ascents, descents, and landmarks you will encounter.</p>
-                </div>
+                <DaywiseItineraryTabs itinerary={trek.itinerary} />
               </AccordionItem>
 
               {/* 3. Trek Difficulty & Experience */}
