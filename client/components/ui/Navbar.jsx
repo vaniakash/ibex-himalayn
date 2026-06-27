@@ -178,7 +178,7 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <Link href="/trail-journal" className={`${styles.navLink} ${pathname === '/trail-journal' ? styles.active : ''}`}>
+              <Link href="/blog" className={`${styles.navLink} ${pathname === '/blog' ? styles.active : ''}`}>
                 TRAIL JOURNAL
               </Link>
 
@@ -269,7 +269,7 @@ export default function Navbar() {
               ))}
             </MobileAccordion>
 
-            <Link href="/trail-journal" className={styles.drawerStandaloneLink}>
+            <Link href="/blog" className={styles.drawerStandaloneLink}>
               TRAIL JOURNAL
             </Link>
 
