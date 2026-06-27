@@ -80,7 +80,7 @@ export default function ContactFormClient() {
               value={data.phone}
               onChange={handleChange}
               className="form-input"
-              placeholder="+91 98765 43210"
+              placeholder="+91 63989 78309"
               autoComplete="tel"
             />
           </div>

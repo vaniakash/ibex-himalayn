@@ -39,7 +39,7 @@ export function confirmationHtml(name, trekName) {
         <p>In the meantime, feel free to explore our other treks:</p>
         <a href="https://himalayanibex.com/treks" style="display:inline-block;background:#1e3d2f;color:#fff;padding:0.75rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;margin:1rem 0">Browse Treks →</a>
         <hr style="border:none;border-top:1px solid #f0ece6;margin:1.5rem 0"/>
-        <p style="font-size:0.8rem;color:#888">Himalayan Ibex · himalayanibexofficial@gmail.com · +91 8126000000</p>
+        <p style="font-size:0.8rem;color:#888">Himalayan Ibex · himalayanibexofficial@gmail.com · +91 6398 978 309</p>
       </div>
     </div>
   `;

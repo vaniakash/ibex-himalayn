@@ -40,10 +40,10 @@ export default function FixedDepartureCard({ trek }) {
         </h3>
         
         <div className={styles.actionRow}>
-          <a href="tel:+919876543210" className={styles.secondaryBtn} aria-label="Call us">
+          <a href="tel:+916398978309" className={styles.secondaryBtn} aria-label="Call us">
             <Phone size={14} /> Call
           </a>
-          <a href="https://wa.me/919876543210" className={`${styles.secondaryBtn} ${styles.whatsappBtn}`} target="_blank" rel="noreferrer" aria-label="WhatsApp us">
+          <a href="https://wa.me/916398978309" className={`${styles.secondaryBtn} ${styles.whatsappBtn}`} target="_blank" rel="noreferrer" aria-label="WhatsApp us">
             <MessageCircle size={14} /> WhatsApp
           </a>
         </div>
