@@ -456,7 +456,7 @@ export default function TrekDetailClient({ trek }) {
             
             <div className="fee-links">
               <a href="#">Terms & Conditions</a>
-              <a href="#">Cancellation Policy</a>
+              <Link href="/cancellation-policy">Cancellation Policy</Link>
             </div>
           </div>
 
