@@ -2,6 +2,47 @@
 
 import { useState } from 'react';
 
+const TREKS = [
+  { value: 'Kedarkantha Trek',              label: 'Kedarkantha Trek' },
+  { value: 'Valley of Flowers Trek',        label: 'Valley of Flowers Trek' },
+  { value: 'Hampta Pass Trek',              label: 'Hampta Pass Trek' },
+  { value: 'Rupin Pass Trek',               label: 'Rupin Pass Trek' },
+  { value: 'Roopkund',                      label: 'Roopkund' },
+  { value: 'Goecha La Trek',                label: 'Goecha La Trek' },
+  { value: 'Chadar Trek',                   label: 'Chadar Trek' },
+  { value: 'Pin Parvati Pass Trek',         label: 'Pin Parvati Pass Trek' },
+  { value: 'Dayara Bugyal',                 label: 'Dayara Bugyal' },
+  { value: 'Gaumukh Trek',                  label: 'Gaumukh Trek' },
+  { value: 'Chopta Chandrashila Trek',      label: 'Chopta Chandrashila Trek' },
+  { value: 'Nag Tibba Trek',                label: 'Nag Tibba Trek' },
+  { value: 'Hemkund Sahib Trek',            label: 'Hemkund Sahib Trek' },
+  { value: 'Ali Bedni Bugyal Trek',         label: 'Ali Bedni Bugyal Trek' },
+  { value: 'Dodital Trek',                  label: 'Dodital Trek' },
+  { value: 'Bali Pass Trek',                label: 'Bali Pass Trek' },
+  { value: 'Pin Bhaba Pass Trek',           label: 'Pin Bhaba Pass Trek' },
+  { value: 'Kedartal Trek',                 label: 'Kedartal Trek' },
+  { value: 'Kashmir Great Lakes Trek',      label: 'Kashmir Great Lakes Trek' },
+  { value: 'Har Ki Dun Trek',               label: 'Har Ki Dun Trek' },
+  { value: 'Bhrigu Lake Trek',              label: 'Bhrigu Lake Trek' },
+  { value: 'Black Peak Expedition',         label: 'Black Peak Expedition' },
+  { value: 'Friendship Peak Expedition',    label: 'Friendship Peak Expedition' },
+  { value: 'Kang Yatse 1 Peak Expedition',  label: 'Kang Yatse 1 Peak Expedition' },
+  { value: 'Kang Yatse 2 Peak Expedition',  label: 'Kang Yatse 2 Peak Expedition' },
+  { value: 'Kedarnath Trek',                label: 'Kedarnath Trek' },
+  { value: 'Panch Kedar Trek',              label: 'Panch Kedar Trek' },
+  { value: 'Brahmatal Trek',                label: 'Brahmatal Trek' },
+  { value: 'Buran Ghati Trek',              label: 'Buran Ghati Trek' },
+  { value: 'Everest Base Camp Trek',        label: 'Everest Base Camp Trek' },
+  { value: 'Kuari Pass Trek',               label: 'Kuari Pass Trek' },
+  { value: 'Pangarchulla Peak Trek',        label: 'Pangarchulla Peak Trek' },
+  { value: 'Phulara Ridge Trek',            label: 'Phulara Ridge Trek' },
+  { value: 'Pindari Glacier Trek',          label: 'Pindari Glacier Trek' },
+  { value: 'Sandakphu Trek',                label: 'Sandakphu Trek' },
+  { value: 'Sar Pass Trek',                 label: 'Sar Pass Trek' },
+  { value: 'Tarsar Marsar Trek',            label: 'Tarsar Marsar Trek' },
+  { value: 'Tungnath Chandrashila Trek',    label: 'Tungnath Chandrashila Trek' },
+];
+
 export default function ContactFormClient() {
   const [status, setStatus] = useState('idle');
   const [data, setData] = useState({ name: '', email: '', phone: '', trek: '', message: '' });
@@ -12,8 +53,13 @@ export default function ContactFormClient() {
     e.preventDefault();
     setStatus('loading');
     try {
-      // In production: await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, data);
-      await new Promise(r => setTimeout(r, 900));
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Failed');
       setStatus('success');
     } catch {
       setStatus('error');
@@ -26,7 +72,6 @@ export default function ContactFormClient() {
         <div className="success-icon" aria-hidden="true">✓</div>
         <h3 className="success-title">Message received!</h3>
         <p className="success-sub">We'll get back to you within 4 hours on working days.</p>
-        
       </div>
     );
   }
@@ -80,7 +125,7 @@ export default function ContactFormClient() {
               value={data.phone}
               onChange={handleChange}
               className="form-input"
-              placeholder="+91 63989 78309"
+              placeholder="+91 6398 978 309"
               autoComplete="tel"
             />
           </div>
@@ -95,14 +140,9 @@ export default function ContactFormClient() {
               style={{ appearance: 'auto' }}
             >
               <option value="">Select a trek…</option>
-              <option value="kedarkantha">Kedarkantha</option>
-              <option value="valley-of-flowers">Valley of Flowers</option>
-              <option value="hampta-pass">Hampta Pass</option>
-              <option value="rupin-pass">Rupin Pass</option>
-              <option value="roopkund">Roopkund</option>
-              <option value="goechala">Goechala</option>
-              <option value="chadar-trek">Chadar Trek</option>
-              <option value="pin-parvati-pass">Pin Parvati Pass</option>
+              {TREKS.map(({ value, label }) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
             </select>
           </div>
         </div>
@@ -134,8 +174,6 @@ export default function ContactFormClient() {
           {status === 'loading' ? 'Sending…' : 'Send Message →'}
         </button>
       </form>
-
-      
     </>
   );
 }
