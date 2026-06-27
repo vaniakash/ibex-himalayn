@@ -35,7 +35,8 @@ function MobileAccordion({ title, children }) {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [desktopSearchQuery, setDesktopSearchQuery] = useState('');
+  const [mobileSearchQuery, setMobileSearchQuery] = useState('');
   const pathname = usePathname();
   const router = useRouter();
 
@@ -47,7 +48,8 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setSearchQuery('');
+    setDesktopSearchQuery('');
+    setMobileSearchQuery('');
   }, [pathname]);
 
   useEffect(() => {
@@ -57,16 +59,28 @@ export default function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const query = e.target.search.value || searchQuery;
+    const query = e.target.search.value || desktopSearchQuery || mobileSearchQuery;
     if (query) {
       router.push(`/treks?search=${encodeURIComponent(query)}`);
-      setSearchQuery('');
+      setDesktopSearchQuery('');
+      setMobileSearchQuery('');
+    } else if (window.innerWidth <= 1024) {
+      setMenuOpen(true);
+      setTimeout(() => {
+        const drawerInput = document.getElementById('drawer-search-input');
+        if (drawerInput) drawerInput.focus();
+      }, 100);
     }
   };
 
-  const searchResults = searchQuery.trim() === '' ? [] : TREKS.filter(t => 
-    t.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    t.region.toLowerCase().includes(searchQuery.toLowerCase())
+  const desktopSearchResults = desktopSearchQuery.trim() === '' ? [] : TREKS.filter(t => 
+    t.name.toLowerCase().includes(desktopSearchQuery.toLowerCase()) || 
+    t.region.toLowerCase().includes(desktopSearchQuery.toLowerCase())
+  );
+
+  const mobileSearchResults = mobileSearchQuery.trim() === '' ? [] : TREKS.filter(t => 
+    t.name.toLowerCase().includes(mobileSearchQuery.toLowerCase()) || 
+    t.region.toLowerCase().includes(mobileSearchQuery.toLowerCase())
   );
 
   return (
@@ -98,21 +112,21 @@ export default function Navbar() {
                   type="text" 
                   placeholder="Search Trek By Name, region" 
                   className={styles.searchInput}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onBlur={() => setTimeout(() => setSearchQuery(''), 200)}
+                  value={desktopSearchQuery}
+                  onChange={(e) => setDesktopSearchQuery(e.target.value)}
+                  onBlur={() => setTimeout(() => setDesktopSearchQuery(''), 200)}
                 />
                 <button type="submit" aria-label="Search" className={styles.searchBtn}>
                   <Search size={18} />
                 </button>
-                {searchResults.length > 0 && (
+                {desktopSearchResults.length > 0 && (
                   <div className={styles.searchResultsDropdown}>
-                    {searchResults.map((trek) => (
+                    {desktopSearchResults.map((trek) => (
                       <Link 
                         key={trek.slug} 
                         href={`/treks/${trek.slug}`}
                         className={styles.searchResultItem}
-                        onClick={() => setSearchQuery('')}
+                        onClick={() => setDesktopSearchQuery('')}
                       >
                         <span className={styles.searchResultName}>{trek.name} Trek</span>
                         <span className={styles.searchResultRegion}>({trek.region})</span>
@@ -212,26 +226,27 @@ export default function Navbar() {
           
           <form onSubmit={handleSearch} className={styles.drawerSearchContainer}>
             <input 
+              id="drawer-search-input"
               name="search" 
               type="text" 
               placeholder="Search Trek By Name, region" 
               className={styles.drawerSearchInput}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onBlur={() => setTimeout(() => setSearchQuery(''), 200)}
+              value={mobileSearchQuery}
+              onChange={(e) => setMobileSearchQuery(e.target.value)}
+              onBlur={() => setTimeout(() => setMobileSearchQuery(''), 200)}
             />
             <button type="submit" aria-label="Search" className={styles.drawerSearchBtn}>
               <Search size={18} />
             </button>
-            {searchResults.length > 0 && (
+            {mobileSearchResults.length > 0 && (
               <div className={styles.searchResultsDropdown}>
-                {searchResults.map((trek) => (
+                {mobileSearchResults.map((trek) => (
                   <Link 
                     key={trek.slug} 
                     href={`/treks/${trek.slug}`}
                     className={styles.searchResultItem}
                     onClick={() => {
-                      setSearchQuery('');
+                      setMobileSearchQuery('');
                       setMenuOpen(false);
                     }}
                   >
