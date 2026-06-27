@@ -5,13 +5,8 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, Menu, X, Search, Phone, ShieldCheck, MapPin, HelpCircle, Calendar, Mail } from 'lucide-react';
 import styles from './Navbar.module.css';
+import { TREKS } from '@/lib/treks-data';
 
-const MAIN_LINKS = [
-  { href: '/outdoor-learning', label: 'Outdoor Learning' },
-  { href: '/expeditions', label: 'High-Altitude Expeditions' },
-  { href: '/trail-journal', label: 'Trail Journal' },
-  { href: '/pilgrimages', label: 'Pilgrimages' },
-];
 
 function MobileAccordion({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +33,9 @@ function MobileAccordion({ title, children }) {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
   const router = useRouter();
 
@@ -51,6 +47,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setSearchQuery('');
   }, [pathname]);
 
   useEffect(() => {
@@ -60,11 +57,17 @@ export default function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const query = e.target.search.value;
+    const query = e.target.search.value || searchQuery;
     if (query) {
       router.push(`/treks?search=${encodeURIComponent(query)}`);
+      setSearchQuery('');
     }
   };
+
+  const searchResults = searchQuery.trim() === '' ? [] : TREKS.filter(t => 
+    t.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    t.region.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
@@ -90,10 +93,33 @@ export default function Navbar() {
             
             <div className={styles.topRight}>
               <form onSubmit={handleSearch} className={styles.searchContainer}>
-                <input name="search" type="text" placeholder="Search Trek By Name, region" className={styles.searchInput} />
+                <input 
+                  name="search" 
+                  type="text" 
+                  placeholder="Search Trek By Name, region" 
+                  className={styles.searchInput}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onBlur={() => setTimeout(() => setSearchQuery(''), 200)}
+                />
                 <button type="submit" aria-label="Search" className={styles.searchBtn}>
                   <Search size={18} />
                 </button>
+                {searchResults.length > 0 && (
+                  <div className={styles.searchResultsDropdown}>
+                    {searchResults.map((trek) => (
+                      <Link 
+                        key={trek.slug} 
+                        href={`/treks/${trek.slug}`}
+                        className={styles.searchResultItem}
+                        onClick={() => setSearchQuery('')}
+                      >
+                        <span className={styles.searchResultName}>{trek.name} Trek</span>
+                        <span className={styles.searchResultRegion}>({trek.region})</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </form>
               <button
                 className={styles.hamburger}
@@ -118,11 +144,11 @@ export default function Navbar() {
                   TREKS BY SEASON <ChevronDown size={14} className={styles.dropdownArrow} />
                 </button>
                 <div className={styles.dropdownMenu}>
-                  <Link href="/treks?season=Winter" className={styles.dropdownItem}>❄️ Winter Season Treks</Link>
-                  <Link href="/treks?season=Spring" className={styles.dropdownItem}>🌸 Spring Season Treks</Link>
-                  <Link href="/treks?season=Summer" className={styles.dropdownItem}>☀️ Summer Season Treks</Link>
-                  <Link href="/treks?season=Monsoon" className={styles.dropdownItem}>🌧️ Monsoon Season Treks</Link>
-                  <Link href="/treks?season=Autumn" className={styles.dropdownItem}>🍂 Autumn Season Treks</Link>
+                  <Link href="/winter" className={styles.dropdownItem}>❄️ Winter Season Treks</Link>
+                  <Link href="/spring" className={styles.dropdownItem}>🌸 Spring Season Treks</Link>
+                  <Link href="/summer" className={styles.dropdownItem}>☀️ Summer Season Treks</Link>
+                  <Link href="/monsoon" className={styles.dropdownItem}>🌧️ Monsoon Season Treks</Link>
+                  <Link href="/autumn" className={styles.dropdownItem}>🍂 Autumn Season Treks</Link>
                 </div>
               </div>
 
@@ -137,15 +163,28 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {MAIN_LINKS.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`${styles.navLink} ${pathname === href ? styles.active : ''}`}
-                >
-                  {label.toUpperCase()}
-                </Link>
-              ))}
+              <Link href="/outdoor-learning" className={`${styles.navLink} ${pathname === '/outdoor-learning' ? styles.active : ''}`}>
+                OUTDOOR LEARNING
+              </Link>
+              
+              <div className={styles.dropdownContainer}>
+                <button className={`${styles.navLink} ${styles.dropdownTrigger}`}>
+                  HIGH-ALTITUDE EXPEDITIONS <ChevronDown size={14} className={styles.dropdownArrow} />
+                </button>
+                <div className={styles.dropdownMenu}>
+                  {TREKS.filter(t => t.categories?.includes("Peak Expeditions")).map(trek => (
+                    <Link key={trek.slug} href={`/treks/${trek.slug}`} className={styles.dropdownItem}>{trek.name}</Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link href="/trail-journal" className={`${styles.navLink} ${pathname === '/trail-journal' ? styles.active : ''}`}>
+                TRAIL JOURNAL
+              </Link>
+
+              <Link href="/pilgrimages" className={`${styles.navLink} ${pathname === '/pilgrimages' ? styles.active : ''}`}>
+                PILGRIMAGES
+              </Link>
 
               {/* Dropdown for Custom Adventures */}
               <div className={styles.dropdownContainer}>
@@ -172,19 +211,45 @@ export default function Navbar() {
         <div className={styles.drawerNav} aria-label="Mobile navigation">
           
           <form onSubmit={handleSearch} className={styles.drawerSearchContainer}>
-            <input name="search" type="text" placeholder="Search Trek By Name, region" className={styles.drawerSearchInput} />
+            <input 
+              name="search" 
+              type="text" 
+              placeholder="Search Trek By Name, region" 
+              className={styles.drawerSearchInput}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onBlur={() => setTimeout(() => setSearchQuery(''), 200)}
+            />
             <button type="submit" aria-label="Search" className={styles.drawerSearchBtn}>
               <Search size={18} />
             </button>
+            {searchResults.length > 0 && (
+              <div className={styles.searchResultsDropdown}>
+                {searchResults.map((trek) => (
+                  <Link 
+                    key={trek.slug} 
+                    href={`/treks/${trek.slug}`}
+                    className={styles.searchResultItem}
+                    onClick={() => {
+                      setSearchQuery('');
+                      setMenuOpen(false);
+                    }}
+                  >
+                    <span className={styles.searchResultName}>{trek.name} Trek</span>
+                    <span className={styles.searchResultRegion}>({trek.region})</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </form>
 
           <div className={styles.mobileAccordionGroup}>
             <MobileAccordion title="TREKS BY SEASON">
-              <Link href="/treks?season=Winter" className={styles.drawerSubLink}>❄️ Winter Season Treks</Link>
-              <Link href="/treks?season=Spring" className={styles.drawerSubLink}>🌸 Spring Season Treks</Link>
-              <Link href="/treks?season=Summer" className={styles.drawerSubLink}>☀️ Summer Season Treks</Link>
-              <Link href="/treks?season=Monsoon" className={styles.drawerSubLink}>🌧️ Monsoon Season Treks</Link>
-              <Link href="/treks?season=Autumn" className={styles.drawerSubLink}>🍂 Autumn Season Treks</Link>
+              <Link href="/winter" className={styles.drawerSubLink}>❄️ Winter Season Treks</Link>
+              <Link href="/spring" className={styles.drawerSubLink}>🌸 Spring Season Treks</Link>
+              <Link href="/summer" className={styles.drawerSubLink}>☀️ Summer Season Treks</Link>
+              <Link href="/monsoon" className={styles.drawerSubLink}>🌧️ Monsoon Season Treks</Link>
+              <Link href="/autumn" className={styles.drawerSubLink}>🍂 Autumn Season Treks</Link>
             </MobileAccordion>
 
             <MobileAccordion title="ABOUT US">
@@ -192,15 +257,25 @@ export default function Navbar() {
               <Link href="/about/mission" className={styles.drawerSubLink}>Our Mission</Link>
             </MobileAccordion>
 
-            {MAIN_LINKS.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={styles.drawerStandaloneLink}
-              >
-                {label.toUpperCase()}
-              </Link>
-            ))}
+            <Link href="/outdoor-learning" className={styles.drawerStandaloneLink}>
+              OUTDOOR LEARNING
+            </Link>
+
+            <MobileAccordion title="HIGH-ALTITUDE EXPEDITIONS">
+              {TREKS.filter(t => t.categories?.includes("Peak Expeditions")).map(trek => (
+                <Link key={trek.slug} href={`/treks/${trek.slug}`} className={styles.drawerSubLink}>
+                  {trek.name}
+                </Link>
+              ))}
+            </MobileAccordion>
+
+            <Link href="/trail-journal" className={styles.drawerStandaloneLink}>
+              TRAIL JOURNAL
+            </Link>
+
+            <Link href="/pilgrimages" className={styles.drawerStandaloneLink}>
+              PILGRIMAGES
+            </Link>
 
             <MobileAccordion title="CUSTOM ADVENTURES">
               <Link href="/custom-adventures?type=Private" className={styles.drawerSubLink}>Private Trek</Link>

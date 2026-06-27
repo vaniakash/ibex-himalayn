@@ -18,21 +18,21 @@ const TRENDING_TREKS = [
 ];
 
 const SEASON_TREKS = [
-  { name: 'Winter Season Treks', subtitle: 'Snow & Frost', image: '/assets/BANNER/WINTER/WINTER.webp', link: '/treks?season=Winter' },
-  { name: 'Spring Season Treks', subtitle: 'Blooming Flowers', image: '/assets/BANNER/WINTER/Himalayan rhododendron forest.webp', link: '/treks?season=Spring' },
-  { name: 'Summer Season Treks', subtitle: 'High-Altitude Trails', image: '/assets/BANNER/WINTER/High altitude Himalayan trek .webp', link: '/treks?season=Summer' },
-  { name: 'Monsoon Season Treks', subtitle: 'Lush Greenery', image: '/assets/BANNER/WINTER/Valley of Flowers monsoon .webp', link: '/treks?season=Monsoon' },
-  { name: 'Autumn Season Treks', subtitle: 'Clear Skies & Views', image: '/assets/BANNER/WINTER/Autumn Himalayas landscape.jpeg', link: '/treks?season=Autumn' },
+  { name: 'Winter Season Treks', subtitle: 'Snow & Frost', image: '/assets/BANNER/WINTER/WINTER.webp', link: '/winter' },
+  { name: 'Spring Season Treks', subtitle: 'Blooming Flowers', image: '/assets/BANNER/WINTER/Himalayan rhododendron forest.webp', link: '/spring' },
+  { name: 'Summer Season Treks', subtitle: 'High-Altitude Trails', image: '/assets/BANNER/WINTER/High altitude Himalayan trek .webp', link: '/summer' },
+  { name: 'Monsoon Season Treks', subtitle: 'Lush Greenery', image: '/assets/BANNER/WINTER/Valley of Flowers monsoon .webp', link: '/monsoon' },
+  { name: 'Autumn Season Treks', subtitle: 'Clear Skies & Views', image: '/assets/BANNER/WINTER/Autumn Himalayas landscape.jpeg', link: '/autumn' },
 ];
 
 const SPIRITUAL_TREKS = [
   { name: 'Gaumukh Tapovan Trek', subtitle: 'The Source of the Ganga', image: '/assets/BANNER/PILGRIM/Gaumukh Tapovan.webp', link: '/treks/gaumukh-tapovan' },
   { name: 'Har Ki Dun Trek', subtitle: 'Valley of Gods', image: '/assets/BANNER/HARKIDUNTRE.webp', link: '/treks/har-ki-dun' },
   { name: 'Kedarnath Trek', subtitle: 'One of Hinduism’s Holiest Pilgrimages', image: '/assets/BANNER/PILGRIM/Kedarnath .jpg', link: '/treks/kedarnath' },
-  { name: 'Badrinath Trek', subtitle: 'Sacred Abode of Lord Vishnu', image: '/assets/BANNER/PILGRIM/BADRINATH.webp', link: '/treks/badrinath' },
+
   { name: 'Hemkund Sahib Trek', subtitle: 'Sacred Sikh Pilgrimage', image: '/assets/BANNER/PILGRIM/Hemkund Sahib.jpg', link: '/treks/hemkund-sahib' },
   { name: 'Tungnath & Chandrashila', subtitle: 'Home to the Highest Shiva Temple', image: '/assets/BANNER/PILGRIM/Tungnath.jpeg', link: '/treks/tungnath' },
-  { name: 'Yulla Kanda Trek', subtitle: 'World’s Highest Krishna Temple', image: '/assets/BANNER/PILGRIM/Yulla Kanda.jpeg', link: '/treks/yulla-kanda' },
+
   { name: 'Panch Kedar Trek', subtitle: 'The Sacred Journey of Lord Shiva', image: '/assets/BANNER/PILGRIM/ Panch Kedar .webp', link: '/treks/panch-kedar' },
   { name: 'Kedartal Trek', subtitle: 'Shiva’s Emerald Lake', image: '/assets/BANNER/PILGRIM/Kedartal lake.webp', link: '/treks/kedartal' },
 ];

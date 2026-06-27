@@ -129,9 +129,7 @@ function DaywiseItineraryTabs({ itinerary }) {
             </ul>
           )}
 
-          <div className="itinerary-day-narrative">
-            <p>{narrative}</p>
-          </div>
+          <div className="itinerary-day-narrative" dangerouslySetInnerHTML={{ __html: narrative }}></div>
         </div>
       </div>
     </div>
@@ -234,7 +232,7 @@ export default function TrekDetailClient({ trek }) {
                   {trek.itinerary.map((day, i) => (
                     <div key={i} className="acc-itinerary-day" style={{ padding: '0.5rem 0', borderBottom: i !== trek.itinerary.length - 1 ? '1px solid #e5e0d8' : 'none' }}>
                       <div className="acc-day-header" style={{ fontWeight: 600 }}>Day {day.day}: {day.title}</div>
-                      <p className="acc-day-desc" style={{ fontSize: '0.9rem', color: '#555', marginTop: '0.2rem' }}>{day.description}</p>
+                      <div className="acc-day-desc" style={{ fontSize: '0.9rem', color: '#555', marginTop: '0.2rem' }} dangerouslySetInnerHTML={{ __html: day.description }}></div>
                     </div>
                   ))}
                 </div>
@@ -390,6 +388,23 @@ export default function TrekDetailClient({ trek }) {
                   </div>
                 </div>
               </AccordionItem>
+
+              {/* 12. Booking Notes */}
+              {trek.bookingNotes && trek.bookingNotes.length > 0 && (
+                <AccordionItem 
+                  icon={<ShieldCheck size={28} strokeWidth={1.5} color="#ff5a00" />} 
+                  title="Important Booking Notes" 
+                  subtitle="How to book and payment information"
+                  isOpen={openAccordion === 11}
+                  onToggle={() => setOpenAccordion(openAccordion === 11 ? null : 11)}
+                >
+                  <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {trek.bookingNotes.map((note, idx) => (
+                      <li key={idx} style={{ lineHeight: 1.5 }}>{note}</li>
+                    ))}
+                  </ul>
+                </AccordionItem>
+              )}
             </div>
           </div>
 
@@ -435,7 +450,7 @@ export default function TrekDetailClient({ trek }) {
             
             <div className="fee-optional">
               <h4>Optional:</h4>
-              <p>- ₹500 Backpack Offloading.</p>
+              <p>- ₹{trek.offloadingCharge || 500} Backpack Offloading.</p>
               <p>- Single Tent/Hotel Room occupancy on request, extra cost.</p>
             </div>
             
