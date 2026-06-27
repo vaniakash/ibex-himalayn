@@ -69,7 +69,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -143,7 +143,7 @@ export const TREKS = [
       'Single Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.9,
@@ -210,7 +210,7 @@ export const TREKS = [
       'Single Tent occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -285,7 +285,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -401,7 +401,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.9,
@@ -429,7 +429,7 @@ export const TREKS = [
     offloadingCharge: 1000,
     featured: false,
     shortDesc: 'Chadar Trek In Leh – over the Zanskar River range of Ladakh-2026- Complete information, Itinerary, Costs Date',
-    description: 'Your trek journey started with Himalayan Hikers, beautiful mountain town of Leh, all our trekker reach Leh by flight this is best option to you reach to Leh, altitude is 11800 feet above sea level, the trek beautiful Zanskar River which liws totally frozen during the December to Feb, Peak. Winters Trek, So, probably the best time to do Chadar Trek is February because the ice remains harsh and stable. Trek starts from the freezing point of Zanskar River and that is Chilling.\n\nTherefore, the “Chadar trek” is also known as “The Frozen River Trek”. This Trek is over a frozen river in the Zanskar region of Ladakh and it is different from all other treks in the Himalayas.\n\nIn Ladakh, large rivers and their tributaries have carved deep gorges far below their steep banks. However, their water is not of much use as the terraced fields lie high above the gorges.\n\nChadar Trek – The Frozen River Trek\nThe snow appears as a thick sheet of ice, therefore it is called the Chadar Trek. It is considered one of the trickiest treks in the world and is undertaken during the peak winter months. On this trek, you explore the Zanskar culture closely, and the main highlight is the completely frozen waterfall known as Nerak Waterfall.',
+    description: 'Your trek journey started with Himalayan Ibex, beautiful mountain town of Leh, all our trekker reach Leh by flight this is best option to you reach to Leh, altitude is 11800 feet above sea level, the trek beautiful Zanskar River which liws totally frozen during the December to Feb, Peak. Winters Trek, So, probably the best time to do Chadar Trek is February because the ice remains harsh and stable. Trek starts from the freezing point of Zanskar River and that is Chilling.\n\nTherefore, the “Chadar trek” is also known as “The Frozen River Trek”. This Trek is over a frozen river in the Zanskar region of Ladakh and it is different from all other treks in the Himalayas.\n\nIn Ladakh, large rivers and their tributaries have carved deep gorges far below their steep banks. However, their water is not of much use as the terraced fields lie high above the gorges.\n\nChadar Trek – The Frozen River Trek\nThe snow appears as a thick sheet of ice, therefore it is called the Chadar Trek. It is considered one of the trickiest treks in the world and is undertaken during the peak winter months. On this trek, you explore the Zanskar culture closely, and the main highlight is the completely frozen waterfall known as Nerak Waterfall.',
     highlights: [
       'Trek over the completely frozen Zanskar River',
       'Explore the Zanskar culture closely',
@@ -476,7 +476,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.7,
@@ -554,7 +554,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -626,7 +626,7 @@ export const TREKS = [
       'Single Tent occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Post-Trek Travel Guide: The drop-off point after the trek is Dehradun Railway Station. You’ll reach Dehradun between 6:30 PM and 7:30 PM. It’s recommended to plan your onward travel after 9:00 PM to allow for any delays.',
       'Dehradun Railway Station is about 6 km from the ISBT Bus Stand, a 30-minute ride by public transport.',
       'The Jolly Grant Airport is approximately 27 km from the railway station and takes about 1 hour by taxi.',
@@ -700,7 +700,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
@@ -841,7 +841,7 @@ export const TREKS = [
       'Comprehensive travel insurance (mandatory)'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -909,10 +909,10 @@ export const TREKS = [
     ],
     offloadingCharge: 400,
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Offline Booking: Visit our physical offices in Uttarakhand or call our office directly.',
-      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Hikers Account. The remaining amount is to be paid in cash at the Lohajung basecamp before the trek starts.'
+      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Ibex Account. The remaining amount is to be paid in cash at the Lohajung basecamp before the trek starts.'
     ],
     avgRating: 4.8,
   },
@@ -984,7 +984,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1054,10 +1054,10 @@ export const TREKS = [
       'Foreign Nationals: Additional ₹1600 for trekking permit'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Offline Booking: Visit our physical offices in Uttarakhand or call our office directly.',
-      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Hikers Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
+      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Ibex Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
   },
@@ -1132,7 +1132,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1207,7 +1207,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1235,7 +1235,7 @@ export const TREKS = [
     offloadingCharge: 4000,
     featured: false,
     shortDesc: 'Explore Seven Alpine Lakes On The Kashmir Great Lakes Trek',
-    description: 'Kashmir Great Lakes Trek and Kashmir Ghati has always been compared to heaven because of its exotic beauty and fascinating places untouched and serene. The Kashmir Great Lakes is an extremely beautiful trek because of “Eight Alpine Lakes” in a series attitude is 13850 feet.\n\nThe confluence of many Glacier Lakes on one trek route, the confluence of beautiful alpine meadows and small waterfalls, snow ranges all around and high peaks which make the mind very happy. Come read about this trek and fulfill your dream of doing this Trek with Himalayan Hikers Team the largest safest trekking organisation in India.\n\nThe Complete Guide To Trekking The Kashmir Great Lakes\n\nThe Kashmir Great Lakes Trek is a popular trekking route in the Indian state of Jammu and Kashmir. The trek takes you through stunning alpine meadows, high-altitude lakes, and breathtaking mountain passes. It is considered to be one of the most beautiful treks in India.\n\nDuring the trek, you will pass through several beautiful lakes, including Gangabal Lake, Nundkol Lake, and Tarsar Lake. You will also cross high-altitude mountain passes, such as the Nichnai Pass and the Gadsar Pass, which offer stunning views of the surrounding Himalayan peaks.',
+    description: 'Kashmir Great Lakes Trek and Kashmir Ghati has always been compared to heaven because of its exotic beauty and fascinating places untouched and serene. The Kashmir Great Lakes is an extremely beautiful trek because of “Eight Alpine Lakes” in a series attitude is 13850 feet.\n\nThe confluence of many Glacier Lakes on one trek route, the confluence of beautiful alpine meadows and small waterfalls, snow ranges all around and high peaks which make the mind very happy. Come read about this trek and fulfill your dream of doing this Trek with Himalayan Ibex Team the largest safest trekking organisation in India.\n\nThe Complete Guide To Trekking The Kashmir Great Lakes\n\nThe Kashmir Great Lakes Trek is a popular trekking route in the Indian state of Jammu and Kashmir. The trek takes you through stunning alpine meadows, high-altitude lakes, and breathtaking mountain passes. It is considered to be one of the most beautiful treks in India.\n\nDuring the trek, you will pass through several beautiful lakes, including Gangabal Lake, Nundkol Lake, and Tarsar Lake. You will also cross high-altitude mountain passes, such as the Nichnai Pass and the Gadsar Pass, which offer stunning views of the surrounding Himalayan peaks.',
     highlights: [
       'Explore Seven Alpine Lakes On The Kashmir Great Lakes Trek',
       'Stunning alpine meadows and high-altitude lakes',
@@ -1282,7 +1282,7 @@ export const TREKS = [
       'Single Tent occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1355,7 +1355,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1416,7 +1416,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Offline Booking: Visit our physical offices or call our office directly.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
@@ -1501,7 +1501,7 @@ export const TREKS = [
       'Optional Services: Backpack Offloading charge ₹2000'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1717,7 +1717,7 @@ export const TREKS = [
     suitableFor: '10 to 60 years',
     price: 9000,
     featured: true,
-    shortDesc: 'Experience the Divine Kedarnath Temple Yatra 2026 with Himalayan Hikers',
+    shortDesc: 'Experience the Divine Kedarnath Temple Yatra 2026 with Himalayan Ibex',
     description: 'Embark on a spiritually enriching pilgrimage to the sacred Kedarnath Temple. Nestled at 3,583 meters near the Chorabari Glacier, this sacred abode of Lord Shiva demands respect, preparation, and expert guidance. The 16 km trek from Gaurikund takes you through majestic snow-capped peaks, offering a deeply meaningful journey that transcends the physical realm. When Kedarnath calls, it is a blessing that changes your life forever.',
     highlights: ['Sacred Kedarnath Temple', 'Spectacular views of Kedarnath Mountain', 'Spiritual Do Dham Yatra experience'],
     images: [
@@ -1761,10 +1761,10 @@ export const TREKS = [
     ],
     offloadingCharge: 400,
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Offline Booking: Visit our physical offices in Uttarakhand or call our office directly.',
-      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Hikers Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
+      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Ibex Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.9,
   },
@@ -1843,7 +1843,7 @@ export const TREKS = [
       'Single Hotel/Tents occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -1912,10 +1912,10 @@ export const TREKS = [
       'Foreign Nationals: Additional ₹1600 for trekking permit'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Offline Booking: Visit our physical offices in Uttarakhand or call our office directly.',
-      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Hikers Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
+      'Payment: We require a 25% advance payment for booking treks via Google Pay or UPI directly to the Himalayan Ibex Account. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.9,
   },
@@ -1979,7 +1979,7 @@ export const TREKS = [
       'Single Tent occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Online Booking: Book via our official website, third-party platforms, or email communication.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
@@ -2117,7 +2117,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2190,7 +2190,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2218,7 +2218,7 @@ export const TREKS = [
     offloadingCharge: 2000,
     featured: false,
     shortDesc: 'Phulara Ridge Trek Explored in the late 90’s in Uttarakhand, The best summer trek in the Himalayas',
-    description: 'Phulara Ridge Trek lies in the Govind Wildlife Sanctuary. As you would know there are many pristine treks in this sanctuary of Uttarkashi district, Phulara is one of them. It is the rare ridge Trek in Uttarakhand but unlike others, it has not seen many footsteps that differentiates it from other places.\n\n“The Phulara Ridge literally means ‘’the ridge of beautiful flowers\n\n“Himalayan Hikers” took their first group 2003 – of “Woodstock school” to this idyllic place since then not many people have known about this hidden gem in the Himalayas. It is located in Govind wildlife sanctuary, Uttarakhand (India).it is a lower Himalayas -high altitude trek about “12,127 Feet”. Actually Phulara Ridge is a type of large spread forest (bugyals). Throughout the year this region is covered with greenery and beautiful flowers like Brahmakamal and Fankamal (many others species ). The Phulara Ridge Trek is a popular hiking trail in the Indian state of Uttarakhand, known for its scenic beauty and stunning mountain views.',
+    description: 'Phulara Ridge Trek lies in the Govind Wildlife Sanctuary. As you would know there are many pristine treks in this sanctuary of Uttarkashi district, Phulara is one of them. It is the rare ridge Trek in Uttarakhand but unlike others, it has not seen many footsteps that differentiates it from other places.\n\n“The Phulara Ridge literally means ‘’the ridge of beautiful flowers\n\n“Himalayan Ibex” took their first group 2003 – of “Woodstock school” to this idyllic place since then not many people have known about this hidden gem in the Himalayas. It is located in Govind wildlife sanctuary, Uttarakhand (India).it is a lower Himalayas -high altitude trek about “12,127 Feet”. Actually Phulara Ridge is a type of large spread forest (bugyals). Throughout the year this region is covered with greenery and beautiful flowers like Brahmakamal and Fankamal (many others species ). The Phulara Ridge Trek is a popular hiking trail in the Indian state of Uttarakhand, known for its scenic beauty and stunning mountain views.',
     highlights: [
       'Panoramic views of snow-capped Himalayan mountains like Nanda Devi, Trishul, and Kamet',
       'Dense forests of oak, rhododendron, and deodar trees',
@@ -2265,7 +2265,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2340,7 +2340,7 @@ export const TREKS = [
       'Single Tent/Hotel Room occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2449,7 +2449,7 @@ export const TREKS = [
       'Single Homestay/Tents occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2525,7 +2525,7 @@ export const TREKS = [
       'Single Tents occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,
@@ -2595,7 +2595,7 @@ export const TREKS = [
       'Single Tents occupancy on request, extra cost'
     ],
     bookingNotes: [
-      'Himalayan Hikers offers both online and offline booking options.',
+      'Himalayan Ibex offers both online and offline booking options.',
       'Payment: We require a 25% advance payment for booking treks. The remaining amount is to be paid in cash at the basecamp before the trek starts.'
     ],
     avgRating: 4.8,

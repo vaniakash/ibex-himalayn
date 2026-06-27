@@ -9,6 +9,7 @@ const enquirySchema = new mongoose.Schema({
   email:     { type: String, required: true },
   phone:     String,
   trek:      String,
+  trekDate:  String,
   message:   String,
   createdAt: { type: Date, default: Date.now },
 });
@@ -17,7 +18,7 @@ const Enquiry = mongoose.models.Enquiry || mongoose.model('Enquiry', enquirySche
 
 export async function POST(req) {
   try {
-    const { name, email, phone, trek, message } = await req.json();
+    const { name, email, phone, trek, trekDate, message } = await req.json();
 
     if (!name || !email) {
       return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 });
@@ -25,7 +26,7 @@ export async function POST(req) {
 
     // 1. Save to MongoDB
     await connectDB();
-    await Enquiry.create({ name, email, phone, trek, message });
+    await Enquiry.create({ name, email, phone, trek, trekDate, message });
 
     // 2. Notify admin
     await sendMail({
@@ -40,6 +41,7 @@ export async function POST(req) {
             <tr><td style="padding:0.5rem;font-weight:600">Email</td><td><a href="mailto:${email}">${email}</a></td></tr>
             <tr><td style="padding:0.5rem;font-weight:600">Phone</td><td>${phone || '—'}</td></tr>
             <tr><td style="padding:0.5rem;font-weight:600">Trek</td><td>${trek || '—'}</td></tr>
+            <tr><td style="padding:0.5rem;font-weight:600">Trek Date</td><td>${trekDate || '—'}</td></tr>
             <tr><td style="padding:0.5rem;font-weight:600;vertical-align:top">Message</td><td>${message || '—'}</td></tr>
           </table>
         </div>

@@ -143,6 +143,35 @@ export default function TrekDetailClient({ trek }) {
   const [groupSize, setGroupSize] = useState(1);
   const [openAccordion, setOpenAccordion] = useState(null);
 
+  const [enquiryStatus, setEnquiryStatus] = useState('idle');
+  const [enquiryData, setEnquiryData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    trekDate: '',
+    trek: trek.name || '',
+    message: ''
+  });
+
+  const handleEnquiryChange = (e) => setEnquiryData(d => ({ ...d, [e.target.name]: e.target.value }));
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    setEnquiryStatus('loading');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(enquiryData),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Failed');
+      setEnquiryStatus('success');
+    } catch {
+      setEnquiryStatus('error');
+    }
+  };
+
   const desc = trek.description || '';
   const shortDesc = desc.slice(0, 300);
   const isLong = desc.length > 300;
@@ -463,19 +492,33 @@ export default function TrekDetailClient({ trek }) {
             <h3 className="sidebar-card-title">Guidance You Can Trust<br/>Enquire Now</h3>
             <div className="title-underline"></div>
             
-            <form className="enquire-form">
-              <input type="text" placeholder="Full Name *" required />
-              <input type="email" placeholder="Email *" required />
-              <input type="tel" placeholder="Your Phone with country code *" required />
-              
-              <label>Trek Date</label>
-              <input type="date" required />
-              
-              <input type="text" placeholder="Trek Name *" defaultValue={trek.name} required />
-              <textarea placeholder="Message..." rows="4"></textarea>
-              
-              <button type="submit" className="btn-send-enquiry">Send Enquiry</button>
-            </form>
+            {enquiryStatus === 'success' ? (
+              <div className="form-success" style={{ margin: '1rem 0', padding: '1.5rem', background: '#e8f5e9', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '2rem', color: '#2e7d32', marginBottom: '0.5rem' }}>✓</div>
+                <h4 style={{ color: '#1b5e20', margin: '0 0 0.5rem 0', fontSize: '1.2rem' }}>Enquiry Received!</h4>
+                <p style={{ color: '#2e7d32', fontSize: '0.9rem', margin: 0 }}>We will get back to you within 4 hours on working days.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleEnquirySubmit} className="enquire-form">
+                <input name="name" type="text" placeholder="Full Name *" value={enquiryData.name} onChange={handleEnquiryChange} required />
+                <input name="email" type="email" placeholder="Email *" value={enquiryData.email} onChange={handleEnquiryChange} required />
+                <input name="phone" type="tel" placeholder="Your Phone with country code *" value={enquiryData.phone} onChange={handleEnquiryChange} required />
+                
+                <label>Trek Date</label>
+                <input name="trekDate" type="date" value={enquiryData.trekDate} onChange={handleEnquiryChange} required />
+                
+                <input name="trek" type="text" placeholder="Trek Name *" value={enquiryData.trek} onChange={handleEnquiryChange} required />
+                <textarea name="message" placeholder="Message..." rows="4" value={enquiryData.message} onChange={handleEnquiryChange}></textarea>
+                
+                {enquiryStatus === 'error' && (
+                  <p style={{ color: '#d32f2f', fontSize: '0.85rem', margin: '0.5rem 0' }}>Something went wrong. Please try again or call us directly.</p>
+                )}
+                
+                <button type="submit" className="btn-send-enquiry" disabled={enquiryStatus === 'loading'}>
+                  {enquiryStatus === 'loading' ? 'Sending...' : 'Send Enquiry'}
+                </button>
+              </form>
+            )}
           </div>
 
           <div className="sidebar-card ethics-card">

@@ -299,6 +299,14 @@ export default function Navbar() {
             </MobileAccordion>
           </div>
 
+          <div className={styles.drawerQuickLinks}>
+            <Link href="/contact" className={styles.drawerQuickLink}><Phone size={16} /> Contact Us</Link>
+            <Link href="/safety" className={styles.drawerQuickLink}><ShieldCheck size={16} /> Safety Standards</Link>
+            <Link href="/how-to-reach" className={styles.drawerQuickLink}><MapPin size={16} /> How to Reach</Link>
+            <Link href="/faqs" className={styles.drawerQuickLink}><HelpCircle size={16} /> FAQs</Link>
+            <Link href="/treks" className={`${styles.drawerQuickLink} ${styles.drawerBookLink}`}><Calendar size={16} /> Book a Trek</Link>
+          </div>
+
           <div className={styles.drawerContact}>
             <a href="tel:+916398978309" className={styles.drawerContactItem}>
               <Phone size={18} />

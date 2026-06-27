@@ -386,6 +386,36 @@
   color: #ff4500;
 }
 
+.drawerQuickLinks {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drawerQuickLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-dm-sans, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.drawerQuickLink:hover {
+  color: var(--color-amber);
+}
+
+.drawerBookLink {
+  color: var(--color-amber);
+  font-weight: 700;
+}
+
 .drawerContact {
   margin-top: 2rem;
   display: flex;
