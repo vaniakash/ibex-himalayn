@@ -53,6 +53,18 @@ export const metadata = {
     description: 'Premium guided treks in the Indian Himalayas.',
     images: ['/images/hero.jpg'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'manifest', url: '/assets/favicon/site.webmanifest' },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
