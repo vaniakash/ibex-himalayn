@@ -453,9 +453,8 @@ export default function TrekDetailClient({ trek }) {
               <p>- ₹{trek.offloadingCharge || 500} Backpack Offloading.</p>
               <p>- Single Tent/Hotel Room occupancy on request, extra cost.</p>
             </div>
-            
             <div className="fee-links">
-              <a href="#">Terms & Conditions</a>
+              <Link href="/terms-conditions">Terms & Conditions</Link>
               <Link href="/cancellation-policy">Cancellation Policy</Link>
             </div>
           </div>
