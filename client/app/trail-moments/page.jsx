@@ -2,6 +2,24 @@ import fs from 'fs';
 import path from 'path';
 import TrailMomentsClient from './TrailMomentsClient';
 
+export const metadata = {
+  title: 'Trail Moments | Himalayan Ibex',
+  description: 'A visual journey through the majestic Himalayas. See moments captured by our trekkers and guides.',
+  alternates: { canonical: 'https://himalayanibex.com/trail-moments' },
+  openGraph: {
+    title: 'Trail Moments | Himalayan Ibex',
+    description: 'A visual journey through the majestic Himalayas. See moments captured by our trekkers and guides.',
+    url: 'https://himalayanibex.com/trail-moments',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trail Moments | Himalayan Ibex',
+    description: 'A visual journey through the majestic Himalayas.',
+  },
+};
+
 export default function TrailMomentsPage() {
   const directoryPath = path.join(process.cwd(), 'public', 'assets', 'treks', 'treks');
   const files = fs.readdirSync(directoryPath);

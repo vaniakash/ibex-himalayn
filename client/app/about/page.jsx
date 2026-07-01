@@ -6,7 +6,20 @@ import { Mountain } from 'lucide-react';
 export const metadata = {
   title: 'About Us',
   description: 'Himalayan Ibex was created with a simple vision: to make trekking in the Himalayas accessible, safe, and memorable for everyone.',
-  keywords: ['Himalayan Treks', 'Trekking in Uttarakhand', 'Best Trekking Company in India', 'Kedarkantha Trek', 'Winter Treks in India', 'Beginner Friendly Treks', 'Guided Himalayan Treks', 'Adventure Travel India', 'Trekking Tours Uttarakhand']
+  keywords: ['Himalayan Treks', 'Trekking in Uttarakhand', 'Best Trekking Company in India', 'Kedarkantha Trek', 'Winter Treks in India', 'Beginner Friendly Treks', 'Guided Himalayan Treks', 'Adventure Travel India', 'Trekking Tours Uttarakhand'],
+  alternates: { canonical: 'https://himalayanibex.com/about' },
+  openGraph: {
+    title: 'About Us | Himalayan Ibex',
+    description: 'Himalayan Ibex was created with a simple vision: to make trekking in the Himalayas accessible, safe, and memorable for everyone.',
+    url: 'https://himalayanibex.com/about',
+    type: 'website',
+    images: [{ url: '/assets/treks/treks/WhatsApp Image 2026-06-23 at 13.43.21.jpeg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us | Himalayan Ibex',
+    description: 'Himalayan Ibex was created with a simple vision: to make trekking in the Himalayas accessible, safe, and memorable for everyone.',
+  },
 };
 
 export default function AboutPage() {

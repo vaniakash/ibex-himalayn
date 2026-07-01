@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Custom Adventures | Himalayan Ibex',
   description: 'Customized trekking experiences in the Himalayas tailored to your preferences.',
+  alternates: { canonical: 'https://himalayanibex.com/custom-adventures' },
+  openGraph: {
+    title: 'Custom Adventures | Himalayan Ibex',
+    description: 'Customized trekking experiences in the Himalayas tailored to your preferences.',
+    url: 'https://himalayanibex.com/custom-adventures',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Adventures | Himalayan Ibex',
+    description: 'Customized trekking experiences in the Himalayas tailored to your preferences.',
+  },
 };
 
 export default async function CustomAdventuresPage({ searchParams }) {
@@ -152,7 +165,7 @@ export default async function CustomAdventuresPage({ searchParams }) {
     return (
       <main className="section-padding" style={{ background: 'var(--color-snow)', minHeight: '100vh', paddingTop: '120px' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 className="headline-italic" style={{ marginBottom: '1rem', textAlign: 'center' }}>Corporate Treks</h1>
+          <h2 className="headline-italic" style={{ marginBottom: '1rem', textAlign: 'center', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>Corporate Treks</h2>
           <p className="body-text" style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--color-slate)', fontSize: '1.2rem', fontWeight: 500 }}>
             Build Stronger Teams Beyond the Office
           </p>
@@ -289,7 +302,7 @@ export default async function CustomAdventuresPage({ searchParams }) {
   return (
     <main className="section-padding" style={{ background: 'var(--color-snow)', minHeight: '100vh', paddingTop: '120px' }}>
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h1 className="headline-italic" style={{ marginBottom: '1rem', textAlign: 'center' }}>Private Adventures with Himalayan Ibex</h1>
+        <h2 className="headline-italic" style={{ marginBottom: '1rem', textAlign: 'center', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>Private Adventures with Himalayan Ibex</h2>
         <p className="body-text" style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--color-slate)', fontSize: '1.2rem', fontWeight: 500 }}>
           Your Journey. Your Group. Your Rules.
         </p>

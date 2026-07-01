@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { TREKS, TREKS_MAP } from '@/lib/treks-data';
 import TrekDetailClient from '@/components/treks/TrekDetailClient';
 import Link from 'next/link';
+import { trekSchema, breadcrumbSchema, JsonLd } from '@/lib/schemas';
 
 export const revalidate = 3600;
 
@@ -17,10 +18,21 @@ export async function generateMetadata({ params }) {
   return {
     title: `${trek.name} Trek 2026 | IBEX Himalayan`,
     description: trek.shortDesc,
+    alternates: {
+      canonical: `https://himalayanibex.com/treks/${slug}`,
+    },
     openGraph: {
       title: `${trek.name} Trek | IBEX`,
       description: trek.shortDesc,
       images: [{ url: trek.images[0]?.url, width: 1200, height: 800 }],
+      type: 'website',
+      url: `https://himalayanibex.com/treks/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${trek.name} Trek | IBEX`,
+      description: trek.shortDesc,
+      images: [trek.images[0]?.url],
     },
   };
 }
@@ -32,6 +44,14 @@ export default async function TrekDetailPage({ params }) {
 
   return (
     <div className="detail-page-wrap">
+      {/* ── JSON-LD Structured Data ── */}
+      <JsonLd data={trekSchema(trek)} />
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Treks', url: '/treks' },
+        { name: trek.name },
+      ])} />
+
       {/* ── HERO ── */}
       <div className="detail-hero">
         <div className="detail-hero-img-wrap">

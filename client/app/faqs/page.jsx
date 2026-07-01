@@ -1,9 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
+import { faqSchema, JsonLd } from '@/lib/schemas';
 
 export const metadata = {
   title: 'Frequently Asked Questions | Himalayan Ibex',
   description: 'Find answers to the most common questions about Himalayan Ibex treks, bookings, payments, fitness, gear, travel, and safety.',
+  alternates: { canonical: 'https://himalayanibex.com/faqs' },
+  openGraph: {
+    title: 'Frequently Asked Questions | Himalayan Ibex',
+    description: 'Find answers to the most common questions about Himalayan Ibex treks, bookings, payments, fitness, gear, travel, and safety.',
+    url: 'https://himalayanibex.com/faqs',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Frequently Asked Questions | Himalayan Ibex',
+    description: 'Find answers to the most common questions about Himalayan Ibex treks.',
+  },
 };
 
 const FAQ_SECTIONS = [
@@ -134,8 +148,12 @@ const FAQ_SECTIONS = [
 ];
 
 export default function FAQPage() {
+  // Collect all FAQ items for JSON-LD
+  const allFaqs = FAQ_SECTIONS.flatMap(section => section.faqs);
+
   return (
     <main className="section-padding" style={{ background: 'var(--color-snow)', minHeight: '100vh', paddingTop: '120px' }}>
+      <JsonLd data={faqSchema(allFaqs)} />
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
         <h1 className="headline-italic" style={{ marginBottom: '1rem', textAlign: 'center' }}>Frequently Asked Questions</h1>
         <p className="body-text" style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--color-slate)' }}>

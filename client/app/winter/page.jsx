@@ -13,6 +13,19 @@ const WINTER_SLUGS = [
 export const metadata = {
   title: 'Winter Season Treks — Himalayan Ibex',
   description: 'Explore our carefully curated winter season treks like Kedarkantha, Brahmatal, and Dayara Bugyal.',
+  alternates: { canonical: 'https://himalayanibex.com/winter' },
+  openGraph: {
+    title: 'Winter Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated winter season treks like Kedarkantha, Brahmatal, and Dayara Bugyal.',
+    url: 'https://himalayanibex.com/winter',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Winter Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated winter season treks.',
+  },
 };
 
 export default function WinterPage() {

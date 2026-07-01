@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Our Mission | Himalayan Ibex',
   description: 'Inspiring responsible adventures in the Himalayas through safe, professional, and unforgettable trekking experiences.',
+  alternates: { canonical: 'https://himalayanibex.com/about/mission' },
+  openGraph: {
+    title: 'Our Mission | Himalayan Ibex',
+    description: 'Inspiring responsible adventures in the Himalayas through safe, professional, and unforgettable trekking experiences.',
+    url: 'https://himalayanibex.com/about/mission',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Mission | Himalayan Ibex',
+    description: 'Inspiring responsible adventures in the Himalayas.',
+  },
 };
 
 export default function MissionPage() {

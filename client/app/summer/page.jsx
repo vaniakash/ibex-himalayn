@@ -15,6 +15,19 @@ const SUMMER_SLUGS = [
 export const metadata = {
   title: 'Summer Season Treks — Himalayan Ibex',
   description: 'Explore our carefully curated summer season treks like Bali Pass, Gaumukh Tapovan, and Sar Pass.',
+  alternates: { canonical: 'https://himalayanibex.com/summer' },
+  openGraph: {
+    title: 'Summer Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated summer season treks like Bali Pass, Gaumukh Tapovan, and Sar Pass.',
+    url: 'https://himalayanibex.com/summer',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Summer Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated summer season treks.',
+  },
 };
 
 export default function SummerPage() {

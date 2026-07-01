@@ -10,6 +10,19 @@ const AUTUMN_SLUGS = [
 export const metadata = {
   title: 'Autumn Season Treks — Himalayan Ibex',
   description: 'Explore our carefully curated autumn season treks like Rupin Pass and Phulara Ridge.',
+  alternates: { canonical: 'https://himalayanibex.com/autumn' },
+  openGraph: {
+    title: 'Autumn Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated autumn season treks like Rupin Pass and Phulara Ridge.',
+    url: 'https://himalayanibex.com/autumn',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Autumn Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated autumn season treks.',
+  },
 };
 
 export default function AutumnPage() {

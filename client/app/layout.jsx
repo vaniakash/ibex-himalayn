@@ -5,6 +5,8 @@ import { Playfair_Display, DM_Sans, IBM_Plex_Mono } from 'next/font/google';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import GoogleAnalytics from '@/components/ui/GoogleAnalytics';
+import { organizationSchema, websiteSchema, localBusinessSchema, JsonLd } from '@/lib/schemas';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -29,7 +31,7 @@ const ibmPlex = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://ibextrekking.com'),
+  metadataBase: new URL('https://himalayanibex.com'),
   title: {
     default: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
     template: '%s | IBEX Trekking',
@@ -37,11 +39,11 @@ export const metadata = {
   description:
     'IBEX offers premium guided treks in the Indian Himalayas — Uttarakhand, Himachal Pradesh, Sikkim & Ladakh. Small groups, certified guides, leave-no-trace ethics.',
   keywords: ['himalayan treks', 'india trekking', 'kedarkantha', 'roopkund', 'chadar trek', 'IBEX trekking'],
-  authors: [{ name: 'IBEX Trekking', url: 'https://ibextrekking.com' }],
+  authors: [{ name: 'Himalayan Ibex', url: 'https://himalayanibex.com' }],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://ibextrekking.com',
+    url: 'https://himalayanibex.com',
     siteName: 'IBEX Trekking',
     title: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
     description: 'Premium guided treks in the Indian Himalayas. Small groups, certified guides.',
@@ -52,6 +54,15 @@ export const metadata = {
     title: 'IBEX Trekking',
     description: 'Premium guided treks in the Indian Himalayas.',
     images: ['/images/hero.jpg'],
+  },
+  alternates: {
+    canonical: 'https://himalayanibex.com',
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_ID || '',
+  },
+  other: {
+    'theme-color': '#2d5016',
   },
   icons: {
     icon: [
@@ -76,6 +87,10 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
     >
       <body suppressHydrationWarning>
+        <GoogleAnalytics />
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
+        <JsonLd data={localBusinessSchema()} />
         <Navbar />
         <main>{children}</main>
         <Footer />

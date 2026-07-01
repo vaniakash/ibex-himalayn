@@ -11,11 +11,25 @@ import HeroCarousel from '@/components/home/HeroCarousel';
 import FeaturedAdventures from '@/components/home/FeaturedAdventures';
 import FixedDepartures from '@/components/home/FixedDepartures';
 import { Map, Users, ShieldCheck, Leaf } from 'lucide-react';
+import { webPageSchema, JsonLd } from '@/lib/schemas';
 
 export const metadata = {
   title: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
   description:
     'Trek Where Few Dare. IBEX offers premium guided expeditions in the Indian Himalayas — Uttarakhand, Himachal, Sikkim & Ladakh. Small groups, certified guides.',
+  alternates: { canonical: 'https://himalayanibex.com/' },
+  openGraph: {
+    title: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
+    description: 'Trek Where Few Dare. IBEX offers premium guided expeditions in the Indian Himalayas.',
+    url: 'https://himalayanibex.com/',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'IBEX — Hand-crafted Himalayan Treks Since 2014',
+    description: 'Trek Where Few Dare. IBEX offers premium guided expeditions in the Indian Himalayas.',
+  },
 };
 
 
@@ -108,6 +122,11 @@ const HERO_SLIDES = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={webPageSchema({ 
+        title: 'IBEX — Hand-crafted Himalayan Treks Since 2014', 
+        description: 'Trek Where Few Dare. IBEX offers premium guided expeditions in the Indian Himalayas.',
+        url: '/'
+      })} />
       {/* HERO */}
       <HeroCarousel slides={HERO_SLIDES} />
 

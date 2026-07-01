@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Cancellation Policy | Himalayan Ibex',
   description: 'Cancellation policy for Himalayan Ibex treks and expeditions.',
+  alternates: { canonical: 'https://himalayanibex.com/cancellation-policy' },
+  openGraph: {
+    title: 'Cancellation Policy | Himalayan Ibex',
+    description: 'Cancellation policy for Himalayan Ibex treks and expeditions.',
+    url: 'https://himalayanibex.com/cancellation-policy',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cancellation Policy | Himalayan Ibex',
+    description: 'Cancellation policy for Himalayan Ibex treks and expeditions.',
+  },
 };
 
 export default function CancellationPolicyPage() {

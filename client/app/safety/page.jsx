@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Safety Standards | Himalayan Ibex',
   description: 'Your safety is our highest priority. Learn about our safety standards, certified trek leaders, medical preparedness, and responsible altitude management.',
+  alternates: { canonical: 'https://himalayanibex.com/safety' },
+  openGraph: {
+    title: 'Safety Standards | Himalayan Ibex',
+    description: 'Your safety is our highest priority. Learn about our safety standards, certified trek leaders, medical preparedness, and responsible altitude management.',
+    url: 'https://himalayanibex.com/safety',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Safety Standards | Himalayan Ibex',
+    description: 'Your safety is our highest priority. Learn about our safety standards.',
+  },
 };
 
 export default function SafetyStandardsPage() {

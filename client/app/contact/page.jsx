@@ -1,11 +1,25 @@
 import ContactFormClient from '@/components/contact/ContactFormClient';
 import FaqAccordion from '@/components/contact/FaqAccordion';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { faqSchema, JsonLd } from '@/lib/schemas';
 
 export const metadata = {
   title: 'Contact Us',
   description:
     'Get in touch with the IBEX team. We answer every query personally — no bots, no auto-replies.',
+  alternates: { canonical: 'https://himalayanibex.com/contact' },
+  openGraph: {
+    title: 'Contact Us | Himalayan Ibex',
+    description: 'Get in touch with the IBEX team. We answer every query personally.',
+    url: 'https://himalayanibex.com/contact',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us | Himalayan Ibex',
+    description: 'Get in touch with the IBEX team.',
+  },
 };
 
 const FAQ_ITEMS = [
@@ -38,6 +52,7 @@ const FAQ_ITEMS = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={faqSchema(FAQ_ITEMS)} />
       {/* HERO */}
       <section className="contact-hero topo-bg" aria-label="Contact hero">
         <div className="container">

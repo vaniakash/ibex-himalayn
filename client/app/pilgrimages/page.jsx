@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Pilgrimages | Himalayan Ibex',
   description: 'Sacred journeys through the Himalayas. Guided pilgrimages to Char Dham, Kedarnath, Badrinath, and more.',
+  alternates: { canonical: 'https://himalayanibex.com/pilgrimages' },
+  openGraph: {
+    title: 'Pilgrimages | Himalayan Ibex',
+    description: 'Sacred journeys through the Himalayas. Guided pilgrimages to Char Dham, Kedarnath, Badrinath, and more.',
+    url: 'https://himalayanibex.com/pilgrimages',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pilgrimages | Himalayan Ibex',
+    description: 'Sacred journeys through the Himalayas.',
+  },
 };
 
 export default function PilgrimagesPage() {

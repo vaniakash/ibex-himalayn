@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Terms & Conditions | Himalayan Ibex',
   description: 'Terms and conditions for Himalayan Ibex treks and expeditions.',
+  alternates: { canonical: 'https://himalayanibex.com/terms-conditions' },
+  openGraph: {
+    title: 'Terms & Conditions | Himalayan Ibex',
+    description: 'Terms and conditions for Himalayan Ibex treks and expeditions.',
+    url: 'https://himalayanibex.com/terms-conditions',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms & Conditions | Himalayan Ibex',
+    description: 'Terms and conditions for Himalayan Ibex treks and expeditions.',
+  },
 };
 
 export default function TermsConditionsPage() {

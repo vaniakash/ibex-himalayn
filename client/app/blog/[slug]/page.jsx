@@ -3,6 +3,7 @@ import { BLOG_POSTS } from '@/lib/blog-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import BlogPostClient from '@/components/blog/BlogPostClient';
+import { articleSchema, breadcrumbSchema, JsonLd } from '@/lib/schemas';
 
 export const revalidate = 3600;
 
@@ -17,11 +18,19 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://himalayanibex.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
+      url: `https://himalayanibex.com/blog/${post.slug}`,
       images: [{ url: post.image, width: 1200, height: 630 }],
+      article: {
+        publishedTime: post.publishedAt,
+        authors: [post.author?.name || 'IBEX Team'],
+      },
     },
     twitter: { card: 'summary_large_image', title: post.title, images: [post.image] },
   };
@@ -38,6 +47,15 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <article style={{ paddingTop: '126px' }}>
+      {/* JSON-LD Structured Data */}
+      <JsonLd data={articleSchema(post)} />
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Blog', url: '/blog' },
+        { name: post.category },
+        { name: post.title },
+      ])} />
+
       {/* POST HERO */}
       <div className="post-hero">
         <div className="container post-container">

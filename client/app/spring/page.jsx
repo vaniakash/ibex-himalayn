@@ -12,6 +12,19 @@ const SPRING_SLUGS = [
 export const metadata = {
   title: 'Spring Season Treks — Himalayan Ibex',
   description: 'Explore our carefully curated spring season treks like Kuari Pass, Pangarchulla, and Har Ki Dun.',
+  alternates: { canonical: 'https://himalayanibex.com/spring' },
+  openGraph: {
+    title: 'Spring Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated spring season treks like Kuari Pass, Pangarchulla, and Har Ki Dun.',
+    url: 'https://himalayanibex.com/spring',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Spring Season Treks | Himalayan Ibex',
+    description: 'Explore our carefully curated spring season treks.',
+  },
 };
 
 export default function SpringPage() {

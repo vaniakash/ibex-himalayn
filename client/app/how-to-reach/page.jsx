@@ -4,6 +4,19 @@ import Link from 'next/link';
 export const metadata = {
   title: 'How to Reach | Himalayan Ibex',
   description: 'Your complete travel guide to reaching Himalayan Ibex treks and expeditions.',
+  alternates: { canonical: 'https://himalayanibex.com/how-to-reach' },
+  openGraph: {
+    title: 'How to Reach | Himalayan Ibex',
+    description: 'Your complete travel guide to reaching Himalayan Ibex treks and expeditions.',
+    url: 'https://himalayanibex.com/how-to-reach',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Reach | Himalayan Ibex',
+    description: 'Your complete travel guide to reaching Himalayan Ibex treks and expeditions.',
+  },
 };
 
 export default function HowToReachPage() {

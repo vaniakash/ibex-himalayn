@@ -6,6 +6,19 @@ export const metadata = {
   title: 'Find Your Trek — Himalayan Ibex',
   description:
     'Browse all 8 IBEX treks across Uttarakhand, Himachal Pradesh, Sikkim and Ladakh. Filter by region, difficulty, and duration.',
+  alternates: { canonical: 'https://himalayanibex.com/treks' },
+  openGraph: {
+    title: 'Find Your Trek | Himalayan Ibex',
+    description: 'Browse all 8 IBEX treks across Uttarakhand, Himachal Pradesh, Sikkim and Ladakh.',
+    url: 'https://himalayanibex.com/treks',
+    type: 'website',
+    images: [{ url: '/images/hero.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Find Your Trek | Himalayan Ibex',
+    description: 'Browse all 8 IBEX treks across Uttarakhand, Himachal Pradesh, Sikkim and Ladakh.',
+  },
 };
 
 export default function TreksPage() {

@@ -27,10 +27,13 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div className="footer-col footer-brand">
             <Link href="/" className="footer-logo" aria-label="IBEX Trekking">
-              <img
+              <Image
                 src="/assets/image.png"
                 alt="Himalayan Ibex Logo"
+                width={160}
+                height={48}
                 className="footer-logo-icon"
+                style={{ objectFit: 'contain' }}
               />
             </Link>
             <p className="footer-tagline">
