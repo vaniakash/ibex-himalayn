@@ -1,13 +1,5 @@
 import nodemailer from 'nodemailer';
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.MAIL_FROM,
-    pass: process.env.MAIL_APP_PASSWORD,
-  },
-});
-
 /**
  * Send an email via Gmail (Nodemailer)
  * @param {Object} opts
@@ -17,6 +9,15 @@ const transporter = nodemailer.createTransport({
  * @param {string} [opts.replyTo]
  */
 export async function sendMail({ to, subject, html, replyTo }) {
+  // Create transporter here (not at module level) so env vars are always fresh
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.MAIL_FROM,
+      pass: process.env.MAIL_APP_PASSWORD,
+    },
+  });
+
   return transporter.sendMail({
     from: `"Himalayan Ibex" <${process.env.MAIL_FROM}>`,
     to,
