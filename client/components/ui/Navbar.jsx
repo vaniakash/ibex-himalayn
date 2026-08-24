@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className={styles.topInner}>
             <Link href="/" className={styles.logo} aria-label="IBEX Trekking — Home">
               <img
-                src="/assets/image.png"
+                src="/logo.png"
                 alt="Himalayan Ibex Logo"
                 style={{ height: '48px', width: 'auto' }}
               />

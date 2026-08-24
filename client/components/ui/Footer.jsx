@@ -28,7 +28,7 @@ export default function Footer() {
           <div className="footer-col footer-brand">
             <Link href="/" className="footer-logo" aria-label="IBEX Trekking">
               <Image
-                src="/assets/image.png"
+                src="/logo.png"
                 alt="Himalayan Ibex Logo"
                 width={160}
                 height={48}
