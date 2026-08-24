@@ -9,7 +9,7 @@ import Script from 'next/script';
  *   - NEXT_PUBLIC_GTM_ID  → GTM Container ID (e.g. GTM-XXXXXXX) [optional]
  */
 export default function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-7BXHBX8J6M';
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
